@@ -13,11 +13,10 @@ export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
-  console.log(pageContext)
   return (
     <Layout {...props}>
       <div className='blog-post-container'>
-        <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />
+        <Helmet title={post.frontmatter.title} />
         <article className='blog-post'>
           <h1 className='title'>{post.frontmatter.title}</h1>
           <h2 className='date'>{post.frontmatter.date}</h2>

@@ -1,18 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import '../styles/typography.scss'
 
-export default class Template extends React.Component {
+interface Props {
+  location: Location
+}
+
+export default class Template extends React.Component<Props> {
   public render() {
     const { location } = this.props
-
     const isRoot = location.pathname === '/'
 
     return (
-      <React.Fragment>
+      <>
         <Helmet
           title='Gatsby Default (Blog) Starter'
           meta={[
@@ -58,7 +60,7 @@ export default class Template extends React.Component {
         >
           {this.props.children}
         </div>
-      </React.Fragment>
+      </>
     )
   }
 }

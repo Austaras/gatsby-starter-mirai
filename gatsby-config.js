@@ -24,7 +24,6 @@ module.exports = {
         icon: 'assets/logo.jpg',
       }
     },
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
