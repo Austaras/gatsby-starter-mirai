@@ -1,11 +1,17 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 
-import '../css/link.scss'
+import '../styles/link.scss'
 
-export default function Link({ children, className, to }) {
+interface Props {
+  children: React.ReactNode
+  className?: string
+  to: string
+}
+
+export default function Link({ children, className, to }: Props) {
   return (
-    <GatsbyLink className={[`link`].concat(className || []).join(' ')} to={to}>
+    <GatsbyLink className={`link ${className}`} to={to}>
       {children}
     </GatsbyLink>
   )

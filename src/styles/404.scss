@@ -1,0 +1,41 @@
+.container {
+  background-color: #2067b2;
+  color: white;
+  font-size: 32px;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-left: 20%;
+  padding-right: 15%;
+  padding-top: 8vh;
+}
+
+.emoji {
+  font-size: 4em;
+  line-height: 1em;
+}
+
+.content {
+  line-height: 2em;
+}
+
+.nan {
+  line-height: 4em;
+}
+
+.qr-code {
+  display: flex;
+  flex-direction: row;
+}
+
+.text {
+  margin-left: 10%;
+  font-size: 0.8em;
+}
+
+.begin {
+  margin-top: -0.5rem;
+}

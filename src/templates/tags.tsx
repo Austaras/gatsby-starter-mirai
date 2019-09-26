@@ -5,7 +5,7 @@ import { FaHome, FaTags } from 'react-icons/fa'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 
-import '../css/tags.scss'
+import '../styles/tags.scss'
 
 function Tags({ posts, post, tag }) {
   if (tag) {

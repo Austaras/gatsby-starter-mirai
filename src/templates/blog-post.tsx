@@ -7,12 +7,13 @@ import Link from '../components/Link'
 import Tags from '../components/Tags'
 import Layout from '../components/Layout'
 
-import '../css/blog-post.scss'
+import '../styles/blog-post.scss'
 
 export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
+  console.log(pageContext)
   return (
     <Layout {...props}>
       <div className='blog-post-container'>
@@ -24,12 +25,12 @@ export default function Template(props) {
           <Tags list={post.frontmatter.tags || []} />
           <div className='navigation'>
             {prev && (
-              <Link className='link prev' to={prev.frontmatter.path}>
+              <Link className='prev' to={prev.frontmatter.path}>
                 <FaBackward /> {prev.frontmatter.title}
               </Link>
             )}
             {next && (
-              <Link className='link next' to={next.frontmatter.path}>
+              <Link className='next' to={next.frontmatter.path}>
                 {next.frontmatter.title} <FaForward />
               </Link>
             )}

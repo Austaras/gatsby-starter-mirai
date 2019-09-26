@@ -31,6 +31,9 @@
     "node-sass": "^4.12.0",
     "typescript": "^3.6.3"
   },
+  "resolutions": {
+    "style-loader": "1.0.0"
+  },
   "keywords": [
     "gatsby"
   ],

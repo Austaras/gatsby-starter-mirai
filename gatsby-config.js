@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const { name } = require('./package.json')
 
 module.exports = {
@@ -33,6 +35,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        excerpt_separator: '<!-- more -->',
         plugins: [
           {
             resolve: 'gatsby-remark-images',
