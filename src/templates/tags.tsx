@@ -15,16 +15,14 @@ function Tags({ posts, post, tag }) {
           {post.length} post{post.length === 1 ? '' : 's'} tagged with {tag}
         </h1>
         <ul>
-          {post.map(({ id, frontmatter, excerpt }) => {
-            return (
-              <li key={id}>
-                <h1>
-                  <GatsbyLink to={frontmatter.path}>{frontmatter.title}</GatsbyLink>
-                </h1>
-                <p>{excerpt}</p>
-              </li>
-            )
-          })}
+          {post.map(({ id, frontmatter, excerpt }) => (
+            <li key={id}>
+              <h1>
+                <GatsbyLink to={frontmatter.path}>{frontmatter.title}</GatsbyLink>
+              </h1>
+              {excerpt}
+            </li>
+          ))}
         </ul>
         <Link to='/tags'>
           <FaTags /> All tags

@@ -1,5 +1,7 @@
 import crypto from 'crypto'
 import fs from 'fs'
+import os from 'os'
+
 import moment from 'moment'
 
 import { config } from '../config'
@@ -29,7 +31,7 @@ function genMd() {
     return 'File already exists!'
   }
 
-  const cfg = (config.template || {})[layout]
+  const cfg = config.template[layout]
   const isFolder = name.endsWith('/')
   const path = isFolder ? name.slice(0, -1) : name
   frontMatter.path = `/${path}`
@@ -52,10 +54,8 @@ function genMd() {
   }
   const frontStr = Object.entries(frontMatter)
     .map(([key, val]) => `${key}: ${val}`)
-    .join('\n')
-  const md = `---
-${frontStr}
----`
+    .join(os.EOL)
+  const md = `---${os.EOL}${frontStr}${os.EOL}---`
   if (isFolder) {
     fs.mkdirSync(filePath)
     fs.writeFileSync(filePath + path + '.md', md)

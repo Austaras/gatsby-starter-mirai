@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { FaBackward, FaForward } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { graphql } from 'gatsby'
 
 import Link from '../components/Link'
 import Tags from '../components/Tags'
 import Layout from '../components/Layout'
 
-import '../styles/blog-post.scss'
+import style from '../styles/blog-post.module.scss'
 
 export default function Template(props) {
   const { data, pageContext } = props
@@ -17,20 +17,21 @@ export default function Template(props) {
     <Layout {...props}>
       <div className='blog-post-container'>
         <Helmet title={post.frontmatter.title} />
-        <article className='blog-post'>
-          <h1 className='title'>{post.frontmatter.title}</h1>
-          <h2 className='date'>{post.frontmatter.date}</h2>
-          <div className='blog-post-content' dangerouslySetInnerHTML={{ __html: post.html }} />
+        <article>
+          <h1 className={style.title}>{post.frontmatter.title}</h1>
+          <h2 className={style.date}>{post.frontmatter.date}</h2>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <Tags list={post.frontmatter.tags || []} />
-          <div className='navigation'>
+          <div className={style.navigation}>
             {prev && (
-              <Link className='prev' to={prev.frontmatter.path}>
-                <FaBackward /> {prev.frontmatter.title}
+              <Link to={prev.frontmatter.path}>
+                <FaChevronLeft /> {prev.frontmatter.title}
               </Link>
             )}
+            <div className={style.spacer}></div>
             {next && (
-              <Link className='next' to={next.frontmatter.path}>
-                {next.frontmatter.title} <FaForward />
+              <Link to={next.frontmatter.path}>
+                {next.frontmatter.title} <FaChevronRight />
               </Link>
             )}
           </div>

@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import '../styles/typography.scss'
+import { config } from '../config'
 
 interface Props {
   location: Location
@@ -16,13 +17,9 @@ export default class Template extends React.Component<Props> {
     return (
       <>
         <Helmet
-          title='Gatsby Default (Blog) Starter'
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' }
-          ]}
+          title={config.site.title}
         >
-          <html lang='en' />
+          <html lang={config.site.language} />
         </Helmet>
         <div
           style={{
