@@ -12,7 +12,9 @@ const defConfig = {
     title: 'Mirai',
     author: 'Otaku',
     language: 'en',
-    per_page: 0
+    per_page: 0,
+    url: 'https://www.gatsbyjs.org',
+    root: '/'
   }
 }
 
