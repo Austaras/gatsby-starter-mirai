@@ -1,63 +1,25 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import '../styles/typography.scss'
+import style from '../styles/layout.module.scss'
 import { config } from '../config'
 
 interface Props {
   location: Location
+  children: React.ReactNode
 }
 
-export default class Template extends React.Component<Props> {
-  public render() {
-    const { location } = this.props
-    const isRoot = location.pathname === '/'
+export function Layout({ location, children }: Props) {
+  const isRoot = location.pathname === '/'
 
-    return (
-      <>
-        <Helmet
-          title={config.site.title}
-        >
-          <html lang={config.site.language} />
-        </Helmet>
-        <div
-          style={{
-            background: `rebeccapurple`,
-            marginBottom: `1.45rem`
-          }}
-        >
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: isRoot ? `1.45rem 1.0875rem` : `1rem 0.75rem`
-            }}
-          >
-            <h1 style={{ margin: 0, fontSize: isRoot ? `2.5rem` : `2rem` }}>
-              <Link
-                to='/'
-                style={{
-                  color: 'white',
-                  textDecoration: 'none'
-                }}
-              >
-                Gatsby Blog
-              </Link>
-            </h1>
-          </div>
-        </div>
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0
-          }}
-        >
-          {this.props.children}
-        </div>
-      </>
-    )
-  }
+  return (
+    <>
+      <Helmet title={config.site.title}>
+        <html lang={config.site.language} />
+      </Helmet>
+      <div className={style.layout}>{children}</div>
+    </>
+  )
 }

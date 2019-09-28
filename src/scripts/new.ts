@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import fs from 'fs'
 import os from 'os'
 
-import moment from 'moment'
+import { format } from 'date-fns'
 
 import { config } from '../config'
 
@@ -46,7 +46,7 @@ function genMd() {
   }
 
   if (cfg.date) {
-    frontMatter.date = moment(time).format(cfg.date)
+    frontMatter.date = format(time, cfg.date)
   }
 
   if (cfg.path) {

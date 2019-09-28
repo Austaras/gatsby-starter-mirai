@@ -8,7 +8,7 @@ interface Props {
   to: string
 }
 
-export default function Link({ children, to }: Props) {
+export function Link({ children, to }: Props) {
   return (
     <GatsbyLink className={style.link} to={to}>
       {children}

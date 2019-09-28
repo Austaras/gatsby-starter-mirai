@@ -2,8 +2,8 @@ import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import { FaHome, FaTags } from 'react-icons/fa'
 
-import Layout from '../components/Layout'
-import Link from '../components/Link'
+import { Layout } from '../components/Layout'
+import { Link } from '../components/Link'
 
 import '../styles/tags.scss'
 

@@ -1,11 +1,11 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { graphql } from 'gatsby'
 
-import Link from '../components/Link'
-import Tags from '../components/Tags'
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
+import { Link } from '../components/Link'
+import { Tags } from '../components/Tags'
 
 import style from '../styles/blog-post.module.scss'
 
@@ -22,7 +22,7 @@ export default function Template(props) {
           <h2 className={style.date}>{post.frontmatter.date}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <Tags list={post.frontmatter.tags || []} />
-          <div className={style.navigation}>
+          <nav className={style.navigation}>
             {prev && (
               <Link to={prev.frontmatter.path}>
                 <FaChevronLeft /> {prev.frontmatter.title}
@@ -34,7 +34,7 @@ export default function Template(props) {
                 {next.frontmatter.title} <FaChevronRight />
               </Link>
             )}
-          </div>
+          </nav>
         </article>
       </div>
     </Layout>
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date
         path
         tags
         title

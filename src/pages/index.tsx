@@ -2,8 +2,8 @@ import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import { graphql } from 'gatsby'
 
-import Link from '../components/Link'
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
+import { Link } from '../components/Link'
 
 import '../styles/index.scss'
 
@@ -35,7 +35,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 250)
+          excerpt
           id
           frontmatter {
             title

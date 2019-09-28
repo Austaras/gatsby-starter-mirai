@@ -1,5 +1,3 @@
-import YAML from 'js-yaml'
-
 /* eslint-disable @typescript-eslint/camelcase */
 const defConfig = {
   template: {
@@ -37,7 +35,7 @@ type DeepPartial<T> = {
 let yaml: DeepPartial<Config>
 // not bundled by webpack
 if (!process.env.NODE_ENV) {
-  yaml = YAML.safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
+  yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
 } else {
   yaml = require('../config.yml')
 }

@@ -1,12 +1,11 @@
+@import './colors.scss';
+
 .link {
-  color: #555;
-  display: inline-block;
+  color: $black-light;
   padding-top: 10px;
   text-decoration: none;
 
   svg {
-    display: inline-block;
-    font-size: 0.75em;
-    line-height: 1;
+    vertical-align: -0.125em;
   }
 }
