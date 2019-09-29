@@ -1,6 +1,6 @@
 # Content
 config.yml
-blog/*
+blog/posts/*
 assets/*
 
 # Logs

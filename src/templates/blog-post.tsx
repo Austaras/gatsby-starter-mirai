@@ -15,12 +15,13 @@ export default function Template(props) {
   const { next, prev } = pageContext
   return (
     <Layout {...props}>
-      <div className='blog-post-container'>
+      <>
         <Helmet title={post.frontmatter.title} />
-        <article>
+        <article className={style.article}>
           <h1 className={style.title}>{post.frontmatter.title}</h1>
           <h2 className={style.date}>{post.frontmatter.date}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="spacer"></div>
           <Tags list={post.frontmatter.tags || []} />
           <nav className={style.navigation}>
             {prev && (
@@ -36,7 +37,7 @@ export default function Template(props) {
             )}
           </nav>
         </article>
-      </div>
+      </>
     </Layout>
   )
 }

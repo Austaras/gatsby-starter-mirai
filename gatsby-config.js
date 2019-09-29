@@ -17,14 +17,23 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'assets/logo.jpg',
+        icon: 'assets/favicon.png',
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/blog`,
+        ignore: ['**/\.*'],
         name: 'blog',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/assets`,
+        ignore: ['**/\.*'],
+        name: 'assets',
       },
     },
     {
@@ -42,6 +51,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp'
   ],
 }

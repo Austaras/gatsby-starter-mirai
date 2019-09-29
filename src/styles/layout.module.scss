@@ -1,6 +1,26 @@
+@import './consts.scss';
+
+.header {
+  background: $black-dark;
+  height: 3px;
+}
+
 .layout {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  min-height: 100vh;
+  background: #f5f7f9;
+}
+
+.container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  background: white;
+  margin: 0 12px 0 252px;
+  padding: 40px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  max-width: 900px;
 }

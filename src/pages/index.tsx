@@ -8,8 +8,7 @@ import { Link } from '../components/Link'
 import '../styles/index.scss'
 
 export default function Index(props) {
-  const { data } = props
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges: posts, tags } = props.data.allMarkdownRemark
   return (
     <Layout {...props}>
       <div className='blog-posts'>
@@ -43,6 +42,9 @@ export const pageQuery = graphql`
             path
           }
         }
+      }
+      tags:group(field: frontmatter___tags) {
+        tag: fieldValue
       }
     }
   }

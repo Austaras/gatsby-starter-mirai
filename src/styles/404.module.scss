@@ -1,10 +1,11 @@
 .container {
-  background-color: #2067b2;
+  background-color: #0078d7;
   color: white;
   font-size: 32px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
-  height: 100vh;
+  overflow: auto;
+  min-height: 100vh;
   top: 0;
   bottom: 0;
   right: 0;
@@ -26,6 +27,9 @@
   display: flex;
   flex-direction: row;
   .img {
+    flex-shrink: 0;
+  }
+  img {
     height: 225px;
     width: 225px;
   }
@@ -35,8 +39,4 @@
   margin-left: 10%;
   font-size: 0.8em;
   line-height: initial;
-}
-
-.begin {
-  margin-top: -0.5rem;
 }

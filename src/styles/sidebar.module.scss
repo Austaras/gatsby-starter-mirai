@@ -1,0 +1,94 @@
+@import './consts.scss';
+
+.sidebar {
+  width: 240px;
+  .title {
+    display: block;
+    background: $black-dark;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 1.375em;
+    line-height: 1.6;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.static-side {
+  background: white;
+  margin-bottom: 0.75em;
+}
+.sticky-side {
+  background: white;
+  color: $black-light;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  padding: 20px 10px;
+  line-height: 2;
+}
+
+.pages {
+  ul {
+    margin: 0;
+    padding: 20px 0;
+    list-style: none;
+  }
+}
+
+.menu-link {
+  display: inline-block;
+  width: 100%;
+  padding: 5px 20px;
+  border-bottom: 1px solid transparent;
+  font-size: 0.8125em;
+  line-height: 2;
+  svg {
+    margin-right: 5px;
+  }
+}
+
+.active {
+  background: $whitesmoke;
+}
+
+.avatar {
+  max-width: 128px;
+  max-height: 128px;
+  margin: 0 auto;
+  padding: 2px;
+  border: 1px solid $gainsboro;
+}
+
+.author-name {
+  color: $black-dark;
+  font-weight: $bold;
+  margin: 0;
+}
+
+.stat {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  line-height: 1.4;
+  a {
+    padding: 0 10px;
+    border-left: $gainsboro 1px solid;
+    &:first-child {
+      border-left-width: 0;
+    }
+  }
+  a,
+  span {
+    display: block;
+  }
+  .count {
+    font-weight: $bold;
+  }
+  .name {
+    color: $grey-dark;
+    font-size: 0.8125em;
+  }
+}

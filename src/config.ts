@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const defConfig = {
   template: {
-    blog: {
+    post: {
       path: ':name',
       date: 'YYYY-MM-DD'
     }
@@ -16,7 +16,12 @@ const defConfig = {
   }
 }
 
-type Config = typeof defConfig
+type _Config = typeof defConfig
+interface Config extends _Config {
+  site: _Config['site'] & {
+    avatar: string
+  }
+}
 
 function deepMerge<T, R>(a: T, b: R): T & R {
   a = Object.assign(a, b)
@@ -40,4 +45,4 @@ if (!process.env.NODE_ENV) {
   yaml = require('../config.yml')
 }
 
-export const config: Config = deepMerge(defConfig, yaml)
+export const config: Config = deepMerge(defConfig as Config, yaml)

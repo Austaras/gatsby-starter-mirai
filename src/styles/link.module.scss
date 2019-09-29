@@ -1,9 +1,10 @@
-@import './colors.scss';
+@import './consts.scss';
 
 .link {
   color: $black-light;
-  padding-top: 10px;
-  text-decoration: none;
+  &:hover {
+    color: $black-dark
+  }
 
   svg {
     vertical-align: -0.125em;

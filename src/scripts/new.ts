@@ -26,7 +26,7 @@ function genMd() {
   const [layout, name] = process.argv.slice(2)
   // eslint-disable-next-line
   if (!layout || !name) return 'Not enough args!'
-  const filePath = `blog/${name}`
+  const filePath = `blog/${layout}/${name}`
   if (fs.existsSync(filePath)) {
     return 'File already exists!'
   }

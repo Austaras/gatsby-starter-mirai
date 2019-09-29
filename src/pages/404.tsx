@@ -10,15 +10,15 @@ export default () => (
     <div className={style.emoji}>:(</div>
     <div className={style.content}>
       <div>
-        Your browsing ran into a problem and needs to navigate. I'm not colletcing any error info, and
-        then I'll not navigate for you.
+        Your browsing ran into a problem and needs to renavigate. I'm not colletcing any error info, and
+        then I'll not renavigate for you.
       </div>
       <br />
       <div>NaN% complete</div>
       <br />
       <div className={style.qr}>
-        <div>
-          <img className={style.img} src={qr} alt='WoW!' />
+        <div className={style.img}>
+          <img src={qr} alt='WoW!' />
         </div>
         <div className={style.text}>
           <p className={style.begin}>
@@ -26,7 +26,7 @@ export default () => (
             <a href={config.site.root}>{config.site.url}</a>
           </p>
           <br />
-          <p className={style.begin}>If you call a support personm give them this info:</p>
+          <p className={style.begin}>If you call a support person give them this info:</p>
           <p>Stop Code：WHY AM I A DUMB ASS</p>
         </div>
       </div>
