@@ -21,8 +21,12 @@ export default function Index(props) {
                 <GatsbyLink to={post.frontmatter.path}>{post.frontmatter.title}</GatsbyLink>
               </h1>
               <h2 className='date'>{post.frontmatter.date}</h2>
-              {post.excerpt}
-              <Link to={post.frontmatter.path} className={style.readMore}>Read more</Link>
+              <div dangerouslySetInnerHTML={{ __html: post.excerpt }}></div>
+              <nav className={style.linkContainer}>
+                <Link to={post.frontmatter.path} className={style.readMore}>
+                  Read more »
+                </Link>
+              </nav>
             </div>
           ))}
       </div>
@@ -35,7 +39,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt
+          excerpt(format: HTML)
           id
           frontmatter {
             title
@@ -44,7 +48,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      tags:group(field: frontmatter___tags) {
+      tags: group(field: frontmatter___tags) {
         tag: fieldValue
       }
     }

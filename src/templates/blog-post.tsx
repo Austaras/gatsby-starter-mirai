@@ -13,6 +13,7 @@ export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
+  console.log(1111)
   return (
     <Layout {...props}>
       <>

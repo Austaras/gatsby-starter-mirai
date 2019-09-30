@@ -1,3 +1,5 @@
+@import './consts.scss';
+
 .blog-post-preview {
   display: flex;
   flex-direction: column;
@@ -11,6 +13,23 @@
   border-bottom-width: 0;
 }
 
-.read-more {
+.link-container {
+  margin-top: 40px;
+  text-align: center;
 
+  .read-more {
+    border: 2px solid $main-color;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 2;
+
+    transition: background-color 0.2s ease-in-out 0s;
+    &:hover {
+      border-color: $black-dark;
+      background-color: $black-dark;
+      color: white;
+    }
+  }
 }
+

@@ -2,9 +2,9 @@
 
 @function font($fonts...) {
   @if $fonts == null {
-    @return Raleway, sans-serif;
+    @return 'Fira Sans', sans-serif;
   }
-  @return Raleway, $fonts, sans-serif;
+  @return 'Fira Sans', $fonts, sans-serif;
 }
 
 html {
@@ -16,7 +16,7 @@ html[lang='zh-cn'] {
 }
 
 body {
-  color: $black-light;
+  color: $main-color;
   margin: 0;
 }
 
