@@ -5,7 +5,8 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/Layout'
 import { Link } from '../components/Link'
 
-import '../styles/index.scss'
+import '../styles/styles.scss'
+import style from '../styles/index.module.scss'
 
 export default function Index(props) {
   const { edges: posts, tags } = props.data.allMarkdownRemark
@@ -21,7 +22,7 @@ export default function Index(props) {
               </h1>
               <h2 className='date'>{post.frontmatter.date}</h2>
               {post.excerpt}
-              <Link to={post.frontmatter.path}>Read more</Link>
+              <Link to={post.frontmatter.path} className={style.readMore}>Read more</Link>
             </div>
           ))}
       </div>

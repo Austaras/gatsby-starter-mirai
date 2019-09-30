@@ -1,17 +1,3 @@
-@import './consts.scss';
-
-body {
-  color: $black-light;
-}
-
-.spacer {
-  flex-grow: 1;
-}
-
-a {
-  text-decoration: none;
-}
-
 .blog-post-preview {
   display: flex;
   flex-direction: column;
@@ -23,4 +9,8 @@ a {
 
 .blog-post-preview:last-child {
   border-bottom-width: 0;
+}
+
+.read-more {
+
 }

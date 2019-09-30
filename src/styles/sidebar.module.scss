@@ -39,11 +39,10 @@
 }
 
 .menu-link {
-  display: inline-block;
-  width: 100%;
+  display: block;
   padding: 5px 20px;
   border-bottom: 1px solid transparent;
-  font-size: 0.8125em;
+  font-size: 0.875em;
   line-height: 2;
   svg {
     margin-right: 5px;
@@ -89,6 +88,6 @@
   }
   .name {
     color: $grey-dark;
-    font-size: 0.8125em;
+    font-size: 0.875em;
   }
 }

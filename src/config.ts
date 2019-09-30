@@ -9,6 +9,7 @@ const defConfig = {
   site: {
     title: 'Mirai',
     author: 'Otaku',
+    avatar: undefined as string | undefined,
     language: 'en',
     per_page: 0,
     url: 'https://www.gatsbyjs.org',
@@ -16,12 +17,7 @@ const defConfig = {
   }
 }
 
-type _Config = typeof defConfig
-interface Config extends _Config {
-  site: _Config['site'] & {
-    avatar: string
-  }
-}
+type Config = typeof defConfig
 
 function deepMerge<T, R>(a: T, b: R): T & R {
   a = Object.assign(a, b)
@@ -45,4 +41,9 @@ if (!process.env.NODE_ENV) {
   yaml = require('../config.yml')
 }
 
-export const config: Config = deepMerge(defConfig as Config, yaml)
+export const config: Config = deepMerge(defConfig, yaml)
+export const tools = {
+  genPath(format: string, data: { date: Date, name: string }) {
+
+  }
+}

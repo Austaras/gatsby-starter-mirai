@@ -3,6 +3,7 @@
 const path = require('path')
 
 const createTagPages = (createPage, edges) => {
+  const tagsTemplate = path.resolve(`src/templates/tag.tsx`)
   const tagTemplate = path.resolve(`src/templates/tags.tsx`)
   const posts = {}
 
@@ -18,8 +19,8 @@ const createTagPages = (createPage, edges) => {
   })
 
   createPage({
-    path: '/tags',
-    component: tagTemplate,
+    path: '/tag',
+    component: tagsTemplate,
     context: {
       posts
     }
@@ -28,7 +29,7 @@ const createTagPages = (createPage, edges) => {
   Object.keys(posts).forEach(tagName => {
     const post = posts[tagName]
     createPage({
-      path: `/tags/${tagName}`,
+      path: `/tag/${tagName}`,
       component: tagTemplate,
       context: {
         posts,

@@ -28,12 +28,12 @@ export function Siderbar(props) {
           <ul>
             <li>
               <Link className={style.menuLink} to='/' activeClassName={style.active}>
-                <FaHome /> {'Home'}
+                <FaHome /> Home
               </Link>
             </li>
             <li>
-              <Link className={style.menuLink} to='/tags' activeClassName={style.active}>
-                <FaTags /> {'Tags'}
+              <Link className={style.menuLink} to='/tag' activeClassName={style.active}>
+                <FaTags /> Tag
               </Link>
             </li>
           </ul>
@@ -58,7 +58,7 @@ export function Siderbar(props) {
             <span className={style.count}>{totalCount}</span>
             <span className={style.name}>posts</span>
           </Link>
-          <Link to='/tags'>
+          <Link to='/tag'>
             <span className={style.count}>{tags.length}</span>
             <span className={style.name}>tags</span>
           </Link>

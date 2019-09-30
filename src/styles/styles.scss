@@ -1,0 +1,30 @@
+@import './consts.scss';
+
+@function font($fonts...) {
+  @if $fonts == null {
+    @return Raleway, sans-serif;
+  }
+  @return Raleway, $fonts, sans-serif;
+}
+
+html {
+  font-family: font();
+}
+
+html[lang='zh-cn'] {
+  font-family: font('PingFang SC', 'Microsoft YaHei');
+}
+
+body {
+  color: $black-light;
+  margin: 0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
