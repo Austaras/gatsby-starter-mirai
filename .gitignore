@@ -1,6 +1,6 @@
 # Content
 config.yml
-blog/posts/*
+blog/**/*
 assets/*
 
 # Logs
@@ -33,4 +33,6 @@ public/
 .cache/
 .DS_Store
 
-!.gitkeep
+!blog/
+!blog/posts
+!/**/.gitkeep

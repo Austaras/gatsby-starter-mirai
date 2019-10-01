@@ -2,9 +2,9 @@
 
 @function font($fonts...) {
   @if $fonts == null {
-    @return 'PT Sans', sans-serif;
+    @return 'Lato', sans-serif;
   }
-  @return 'PT Sans', $fonts, sans-serif;
+  @return 'Lato', $fonts, sans-serif;
 }
 
 html {

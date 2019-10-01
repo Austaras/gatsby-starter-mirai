@@ -27,8 +27,8 @@ function genMd() {
   if (!layout || !name) return 'Not enough args!'
   const isFolder = name.endsWith('/')
   const path = isFolder ? name.slice(0, -1) : name
-  const folderPath = `blog/${layout}/${path}/`
-  const filePath = `blog/${layout}/${path}.md`
+  const folderPath = `blog/${layout}s/${path}/`
+  const filePath = `blog/${layout}s/${path}.md`
   if (fs.existsSync(folderPath) || fs.existsSync(filePath)) {
     return 'File already exists!'
   }

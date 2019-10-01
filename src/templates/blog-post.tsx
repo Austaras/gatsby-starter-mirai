@@ -13,11 +13,13 @@ export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
-  useEffect(() => (document.title = post.frontmatter.title), [])
+  useEffect(() => {
+    document.title = post.frontmatter.title
+  }, [])
   return (
     <Layout {...props}>
       <article className={style.article}>
-        <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title}/>
+        <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className='spacer'></div>
 
