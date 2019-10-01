@@ -3,8 +3,8 @@
 const path = require('path')
 
 const createTagPages = (createPage, edges) => {
-  const tagsTemplate = path.resolve(`src/templates/tag.tsx`)
-  const tagTemplate = path.resolve(`src/templates/tags.tsx`)
+  const tagTemplate = path.resolve(`src/templates/tag.tsx`)
+  const tagsTemplate = path.resolve(`src/templates/tags.tsx`)
   const posts = {}
 
   edges.forEach(({ node }) => {

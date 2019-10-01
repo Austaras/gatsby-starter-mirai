@@ -36,7 +36,7 @@ function Tags({ posts, post, tag }) {
       <ul className='tags'>
         {Object.keys(posts).map(tagName => (
           <li key={tagName}>
-            <GatsbyLink to={`/tags/${tagName}`}>{tagName}</GatsbyLink>
+            <GatsbyLink to={`/tag/${tagName}`}>{tagName}</GatsbyLink>
           </li>
         ))}
       </ul>

@@ -1,8 +1,8 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
+import React, { useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { graphql } from 'gatsby'
 
+import { Header } from '../components/Header'
 import { Layout } from '../components/Layout'
 import { Link } from '../components/Link'
 import { Tags } from '../components/Tags'
@@ -13,32 +13,30 @@ export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
-  console.log(1111)
+  useEffect(() => (document.title = post.frontmatter.title), [])
   return (
     <Layout {...props}>
-      <>
-        <Helmet title={post.frontmatter.title} />
-        <article className={style.article}>
-          <h1 className={style.title}>{post.frontmatter.title}</h1>
-          <h2 className={style.date}>{post.frontmatter.date}</h2>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          <div className="spacer"></div>
-          <Tags list={post.frontmatter.tags || []} />
-          <nav className={style.navigation}>
-            {prev && (
-              <Link to={prev.frontmatter.path}>
-                <FaChevronLeft /> {prev.frontmatter.title}
-              </Link>
-            )}
-            <div className={style.spacer}></div>
-            {next && (
-              <Link to={next.frontmatter.path}>
-                {next.frontmatter.title} <FaChevronRight />
-              </Link>
-            )}
-          </nav>
-        </article>
-      </>
+      <article className={style.article}>
+        <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title}/>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className='spacer'></div>
+
+        <Tags list={post.frontmatter.tags || []} />
+
+        <nav className={style.navigation}>
+          {prev && (
+            <Link to={prev.frontmatter.path}>
+              <FaChevronLeft /> {prev.frontmatter.title}
+            </Link>
+          )}
+          <div className={style.spacer}></div>
+          {next && (
+            <Link to={next.frontmatter.path}>
+              {next.frontmatter.title} <FaChevronRight />
+            </Link>
+          )}
+        </nav>
+      </article>
     </Layout>
   )
 }

@@ -24,16 +24,16 @@ function patch(orig: string, dict: Record<string, string>) {
 
 function genMd() {
   const [layout, name] = process.argv.slice(2)
-  // eslint-disable-next-line
   if (!layout || !name) return 'Not enough args!'
-  const filePath = `blog/${layout}/${name}`
-  if (fs.existsSync(filePath)) {
+  const isFolder = name.endsWith('/')
+  const path = isFolder ? name.slice(0, -1) : name
+  const folderPath = `blog/${layout}/${path}/`
+  const filePath = `blog/${layout}/${path}.md`
+  if (fs.existsSync(folderPath) || fs.existsSync(filePath)) {
     return 'File already exists!'
   }
 
   const cfg = config.template[layout]
-  const isFolder = name.endsWith('/')
-  const path = isFolder ? name.slice(0, -1) : name
   frontMatter.path = `/${path}`
   frontMatter.title = path
 
@@ -52,20 +52,21 @@ function genMd() {
   if (cfg.path) {
     frontMatter.path = '/' + patch(cfg.path, dict)
   }
+
   const frontStr = Object.entries(frontMatter)
     .map(([key, val]) => `${key}: ${val}`)
     .join(os.EOL)
   const md = `---${os.EOL}${frontStr}${os.EOL}---`
   if (isFolder) {
-    fs.mkdirSync(filePath)
-    fs.writeFileSync(filePath + path + '.md', md)
+    fs.mkdirSync(folderPath)
+    fs.writeFileSync(folderPath + 'index.md', md)
   } else {
-    fs.writeFileSync(filePath + '.md', md)
+    fs.writeFileSync(filePath, md)
   }
   return ''
 }
 
 const res = genMd()
 if (res !== '') {
-  console.log(res)
+  console.error(res)
 }

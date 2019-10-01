@@ -2,9 +2,9 @@
 
 @function font($fonts...) {
   @if $fonts == null {
-    @return 'Fira Sans', sans-serif;
+    @return 'PT Sans', sans-serif;
   }
-  @return 'Fira Sans', $fonts, sans-serif;
+  @return 'PT Sans', $fonts, sans-serif;
 }
 
 html {
@@ -17,6 +17,7 @@ html[lang='zh-cn'] {
 
 body {
   color: $main-color;
+  line-height: 2;
   margin: 0;
 }
 
@@ -27,4 +28,17 @@ body {
 a {
   text-decoration: none;
   outline: none;
+}
+
+h1 {
+  font-size: 1.75em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
 }

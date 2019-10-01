@@ -1,0 +1,26 @@
+@import './consts.scss';
+
+.header {
+  margin-bottom: 60px;
+  text-align: center;
+  h1 {
+    margin: 0;
+  }
+}
+
+.title {
+  font-weight: normal;
+  font-family: Raleway;
+}
+
+.stat {
+  margin: 3px 0 60px 0;
+  color: $grey-dark;
+  font-size: 0.875em;
+  svg {
+    vertical-align: -0.125em;
+  }
+  time {
+    border-bottom: 1px dashed $grey-dark;
+  }
+}

@@ -7,7 +7,20 @@ import { Img } from './Img'
 import { Link } from './Link'
 import { config } from '../config'
 
-export function Siderbar(props) {
+const menus = {
+  home: (
+    <Link key='home' className={style.menuLink} to='/' activeClassName={style.active}>
+      <FaHome /> Home
+    </Link>
+  ),
+  tag: (
+    <Link key='tag' className={style.menuLink} to='/tag' activeClassName={style.active}>
+      <FaTags /> Tag
+    </Link>
+  )
+}
+
+export function Siderbar() {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
       allMarkdownRemark {
@@ -24,25 +37,16 @@ export function Siderbar(props) {
         <Link className={style.title} to='/'>
           {config.site.title}
         </Link>
-        <nav className={style.pages}>
+        <nav className={style.menu}>
           <ul>
-            <li>
-              <Link className={style.menuLink} to='/' activeClassName={style.active}>
-                <FaHome /> Home
-              </Link>
-            </li>
-            <li>
-              <Link className={style.menuLink} to='/tag' activeClassName={style.active}>
-                <FaTags /> Tag
-              </Link>
-            </li>
+            {config.style.menu.map(key => menus[key])}
           </ul>
         </nav>
       </nav>
       <div className={style.stickySide}>
-        {config.site.avatar ? (
+        {config.style.avatar ? (
           <Img
-            filename={config.site.avatar}
+            filename={config.style.avatar}
             alt='Avatar'
             className={style.avatar}
             imgStyle={{

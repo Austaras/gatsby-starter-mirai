@@ -9,11 +9,15 @@ const defConfig = {
   site: {
     title: 'Mirai',
     author: 'Otaku',
-    avatar: undefined as string | undefined,
     language: 'en',
-    per_page: 0,
     url: 'https://www.gatsbyjs.org',
     root: '/'
+  },
+  style: {
+    menu: [] as string[],
+    avatar: undefined as string | undefined,
+    per_page: 0,
+    time: 'YYYY-MM-DD'
   }
 }
 
