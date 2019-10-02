@@ -1,4 +1,10 @@
 {
+  "browserslist": [
+    "last 2 major versions and >1%",
+    "not ie<=11",
+    "not edge <= 17",
+    "not op_mini all"
+  ],
   "dependencies": {
     "date-fns": "^2.4.1",
     "gatsby": "^2.15.26",

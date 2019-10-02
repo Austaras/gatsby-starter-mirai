@@ -1,7 +1,7 @@
 @import './consts.scss';
 
 .sidebar {
-  width: 240px;
+  width: $sidebar-width;
   .title {
     display: block;
     background: $black-dark;
@@ -9,7 +9,7 @@
     text-align: center;
     color: white;
     font-size: 1.375em;
-    line-height: 1.6;
+    line-height: 1.5;
     &:hover {
       color: white;
     }

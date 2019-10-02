@@ -1,5 +1,10 @@
 @import './consts.scss';
 
+.posts {
+  // align with sidebar
+  padding-top: 33px;
+}
+
 .blog-post-preview {
   display: flex;
   flex-direction: column;
@@ -24,7 +29,7 @@
     padding: 0 20px;
     line-height: 2;
 
-    transition: background-color 0.2s ease-in-out 0s;
+    transition: background-color $transition;
     &:hover {
       border-color: $black-dark;
       background-color: $black-dark;
@@ -32,4 +37,3 @@
     }
   }
 }
-

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 
+import { End } from '../components/End'
 import { Header } from '../components/Header'
 import { Layout } from '../components/Layout'
 import { Link } from '../components/Link'
@@ -17,7 +18,7 @@ export default function Index(props) {
   }, [])
   return (
     <Layout {...props}>
-      <div className='blog-posts'>
+      <div className={style.posts}>
         {posts
           .filter(({ post }) => post.frontmatter.title.length > 0)
           .map(({ post }) => (
@@ -27,12 +28,13 @@ export default function Index(props) {
                 time={new Date(post.frontmatter.date)}
                 title={post.frontmatter.title}
               />
-              <div dangerouslySetInnerHTML={{ __html: post.excerpt }}></div>
-              <div className={style.linkContainer}>
+              <article dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
+              <footer className={style.linkContainer}>
                 <Link to={post.frontmatter.path} className={style.readMore}>
                   Read more »
                 </Link>
-              </div>
+                <End/>
+              </footer>
             </div>
           ))}
       </div>
