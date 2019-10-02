@@ -2,12 +2,9 @@ import React, { useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { graphql } from 'gatsby'
 
-import { Header } from '../components/Header'
-import { Layout } from '../components/Layout'
-import { Link } from '../components/Link'
-import { Tags } from '../components/Tags'
+import { End, Header, Layout, Link, Tags } from '../common'
 
-import style from '../styles/blog-post.module.scss'
+import style from './post.module.scss'
 
 export default function Template(props) {
   const { data, pageContext } = props

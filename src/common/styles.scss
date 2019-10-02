@@ -1,4 +1,4 @@
-@import './consts.scss';
+@import '../common/consts.scss';
 
 @function font($fonts...) {
   @if $fonts == null {

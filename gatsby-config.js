@@ -17,24 +17,24 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'assets/favicon.png',
+        icon: 'assets/favicon.png'
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/blog`,
-        ignore: ['**/\.*'],
-        name: 'blog',
-      },
+        path: `${__dirname}/blog/posts`,
+        ignore: ['**/.*'],
+        name: 'blog'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/assets`,
-        ignore: ['**/\.*'],
-        name: 'assets',
-      },
+        ignore: ['**/.*'],
+        name: 'assets'
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -50,8 +50,7 @@ module.exports = {
         ]
       }
     },
-    // 'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp'
-  ],
+  ]
 }

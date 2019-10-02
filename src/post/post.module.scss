@@ -1,3 +1,5 @@
+@import '../common/consts.scss';
+
 .article {
   height: 100%;
   display: flex;
@@ -12,7 +14,7 @@
 }
 
 .date {
-  color: #555;
+  color: $black-light;
   margin-bottom: 1rem;
 }
 

@@ -2,10 +2,10 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FaTags, FaHome } from 'react-icons/fa'
 
-import style from '../styles/sidebar.module.scss'
-import { Img } from './Img'
-import { Link } from './Link'
-import { config } from '../config'
+import style from './sidebar.module.scss'
+import { config } from '../../config'
+
+import { Img, Link } from '..'
 
 const menus = {
   home: (

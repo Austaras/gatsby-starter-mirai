@@ -2,10 +2,10 @@ import React from 'react'
 import { FaRegCalendar } from 'react-icons/fa'
 import { format } from 'date-fns'
 
-import { Link } from './Link'
+import { config } from '../../config'
+import style from './header.module.scss'
 
-import { config } from '../config'
-import style from '../styles/header.module.scss'
+import { Link } from '../link/link'
 
 interface Props {
   time: Date

@@ -1,8 +1,9 @@
 import React from 'react'
 
 // import '../styles/typography.scss'
-import style from '../styles/layout.module.scss'
-import { Siderbar } from './Siderbar'
+import style from './layout.module.scss'
+
+import { Siderbar } from '..'
 
 interface Props {
   children: React.ReactNode

@@ -1,5 +1,5 @@
 import React from 'react'
 
-import style from '../styles/end.module.scss'
+import style from './end.module.scss'
 
 export const End = () => <div className={style.end}></div>

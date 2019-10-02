@@ -3,8 +3,8 @@
 const path = require('path')
 
 const createTagPages = (createPage, edges) => {
-  const tagTemplate = path.resolve(`src/templates/tag.tsx`)
-  const tagsTemplate = path.resolve(`src/templates/tags.tsx`)
+  const tagTemplate = path.resolve(`src/tag/tag.tsx`)
+  const tagsTemplate = path.resolve(`src/tags/tags.tsx`)
   const posts = {}
 
   edges.forEach(({ node }) => {
@@ -43,7 +43,7 @@ const createTagPages = (createPage, edges) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.tsx`)
+  const blogPostTemplate = path.resolve(`src/post/post.tsx`)
   return graphql(`
     {
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {

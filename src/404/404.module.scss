@@ -1,7 +1,8 @@
 .container {
   background-color: #0078d7;
   color: white;
-  font-size: 32px;
+  font-size: 40px;
+  line-height: 1.5;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
   overflow: auto;
@@ -10,17 +11,20 @@
   bottom: 0;
   right: 0;
   left: 0;
-  padding-left: 20%;
-  padding-right: 15%;
-  padding-top: 4vh;
+  box-sizing: border-box;
+  padding: 4vh 15% 0 20%;
+  p {
+    margin: 0;
+  }
 }
 
 .emoji {
   font-size: 4em;
+  line-height: 1.25;
 }
 
-.content {
-  line-height: 2em;
+.space {
+  height: 0.8em;
 }
 
 .qr {
@@ -30,13 +34,25 @@
     flex-shrink: 0;
   }
   img {
+    display: block;
     height: 225px;
     width: 225px;
   }
 }
 
 .text {
-  margin-left: 10%;
-  font-size: 0.8em;
-  line-height: initial;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.55em;
+  line-height: 2;
+  .begin {
+    margin-top: -0.5em;
+  }
+
+  .end {
+    margin-bottom: -0.25em;
+  }
 }
+
