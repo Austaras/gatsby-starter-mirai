@@ -3,10 +3,8 @@
 .link {
   color: $main-color;
   &:hover {
-    color: $black-dark
+    color: $black-dark;
   }
 
-  svg {
-    vertical-align: -0.125em;
-  }
+  @include svg-align;
 }

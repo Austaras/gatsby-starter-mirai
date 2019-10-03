@@ -10,8 +10,8 @@ interface Props {
   to: string
 }
 
-export const Link = ({ activeClassName, children, className, to }: Props) => (
-  <GatsbyLink className={`${style.link} ${className || ''}`} activeClassName={activeClassName} to={to}>
+export const Link = ({ activeClassName, children, className = '', to }: Props) => (
+  <GatsbyLink className={`${style.link} ${className}`} activeClassName={activeClassName} to={to}>
     {children}
   </GatsbyLink>
 )

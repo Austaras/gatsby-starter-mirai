@@ -1,7 +1,5 @@
-export * from './end/end'
 export * from './header/header'
 export * from './img'
 export * from './layout/layout'
 export * from './link/link'
-export * from './siderbar/siderbar'
 export * from './tag-list/tag-list'

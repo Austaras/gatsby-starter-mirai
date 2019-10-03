@@ -25,7 +25,7 @@ function Tags({ posts, post, tag }) {
 export default function TagsTemplate(props) {
   const { pageContext } = props
   return (
-    <Layout {...props}>
+    <Layout>
       <Tags {...pageContext} />
     </Layout>
   )

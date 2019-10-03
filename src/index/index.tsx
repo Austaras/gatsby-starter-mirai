@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { End, Header, Layout, Link } from '../common'
+import { Header, Layout, Link, TagList } from '../common'
 
 import '../common/styles.scss'
 import style from './index.module.scss'
@@ -14,7 +14,7 @@ export default function Index(props) {
   }, [])
   return (
     <Layout>
-      {posts.map(({ post }, index) => (
+      {posts.map(({ post }) => (
         <section className={style.post} key={post.id}>
           <Header
             link={post.frontmatter.path}
@@ -26,7 +26,7 @@ export default function Index(props) {
             <Link to={post.frontmatter.path} className={style.readMore}>
               Read more »
             </Link>
-            {index !== posts.length - 1 ? <End /> : undefined}
+            <TagList list={post.frontmatter.tags} />
           </footer>
         </section>
       ))}

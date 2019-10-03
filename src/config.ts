@@ -9,6 +9,7 @@ const defConfig = {
   site: {
     title: 'Mirai',
     author: 'Otaku',
+    from: 0,
     language: 'en',
     url: 'https://www.gatsbyjs.org',
     root: '/'
@@ -18,7 +19,7 @@ const defConfig = {
     avatar: undefined as string | undefined,
     per_page: 0,
     time: 'YYYY-MM-DD'
-  }
+  },
 }
 
 type Config = typeof defConfig

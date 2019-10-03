@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { FaTags, FaHome } from 'react-icons/fa'
+import { FaArchive, FaHome, FaTags } from 'react-icons/fa'
 
 import style from './sidebar.module.scss'
 import { config } from '../../config'
 
-import { Img, Link } from '..'
+import { Link } from '../link/link'
+import { Img } from '../img'
 
 const menus = {
   home: (
@@ -17,10 +18,15 @@ const menus = {
     <Link key='tag' className={style.menuLink} to='/tag' activeClassName={style.active}>
       <FaTags /> Tag
     </Link>
+  ),
+  archive: (
+    <Link key='archive' className={style.menuLink} to='/archive' activeClassName={style.active}>
+      <FaArchive /> Archive
+    </Link>
   )
 }
 
-export function Siderbar({ className = '' }) {
+export function Sidebar() {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
       allMarkdownRemark {
@@ -32,7 +38,7 @@ export function Siderbar({ className = '' }) {
     }
   `).allMarkdownRemark
   return (
-    <aside className={`${style.sidebar} ${className}`}>
+    <aside className={style.sidebar}>
       <nav className={style.staticSide}>
         <Link className={style.title} to='/'>
           {config.site.title}
@@ -58,12 +64,12 @@ export function Siderbar({ className = '' }) {
         <nav className={style.stat}>
           <Link to='/archive'>
             <span className={style.count}>{totalCount}</span>
-            <br/>
+            <br />
             <span className={style.name}>posts</span>
           </Link>
           <Link to='/tag'>
             <span className={style.count}>{tags.length}</span>
-            <br/>
+            <br />
             <span className={style.name}>tags</span>
           </Link>
         </nav>

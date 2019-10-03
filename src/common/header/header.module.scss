@@ -36,9 +36,8 @@
   margin-top: 3px;
   color: $grey-dark;
   font-size: 0.875em;
-  svg {
+  @include svg-align {
     margin-right: 3px;
-    vertical-align: -0.125em;
   }
   time {
     border-bottom: 1px dashed $grey-dark;

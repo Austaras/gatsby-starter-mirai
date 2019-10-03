@@ -1,19 +1,16 @@
 @import '../common/consts.scss';
 
+.container main {
+  padding-bottom: 20px;
+}
+
 .article {
-  min-height: 350px;
+  flex-grow: 1;
 }
 
 .navigation {
   margin-top: 15px;
   border-top: 1px solid $gainsboro;
-  overflow: auto;
-}
-
-.prev {
-  float: left;
-}
-
-.next {
-  float: right;
+  display: flex;
+  justify-content: space-between;
 }

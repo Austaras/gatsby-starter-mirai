@@ -12,9 +12,15 @@
 .tag {
   display: inline-block;
   margin-right: 10px;
+  padding-bottom: 1px;
   font-size: 0.875em;
   border-bottom: 1px solid $grey-dark;
   &:hover {
+    padding-bottom: 0;
     border-bottom: 2px solid black;
   }
+}
+
+.hidden {
+  display: none;
 }

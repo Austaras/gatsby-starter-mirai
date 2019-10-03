@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 import { config } from '../../config'
 import style from './header.module.scss'
 
-import { Link } from '../link/link'
+import { Link } from '..'
 
 interface Props {
   time: Date

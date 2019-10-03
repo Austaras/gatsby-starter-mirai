@@ -8,26 +8,36 @@
 .layout {
   min-height: 100vh;
   background: #f5f7f9;
+  display: flex;
+  flex-direction: column;
 }
 
 $margin: 12px;
-$width: 900px;
 .container {
   margin: 0 auto;
-  max-width: $margin * 2 + $width + $sidebar-width;
-  position: relative;
+  padding-left: $sidebar-width + $margin;
+  width: 100%;
+  max-width: 900px + ($sidebar-width + $margin) * 2;
+  box-sizing: border-box;
+  display: flex;
 }
 
 .main {
   background: white;
-  margin: 0 12px + $sidebar-width 0 12px;
+  flex-grow: 1;
+  margin: 0 $margin;
   padding: 40px;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
-.sidebar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+.footer {
+  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
+  color: $grey-dark;
+  font-size: 0.875em;
+  @include svg-align;
 }
