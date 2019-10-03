@@ -5,8 +5,7 @@
   padding: 60px 0 80px;
   border-bottom: $grey-light solid 1px;
   @at-root section#{&}:first-of-type {
-    // align with sidebar
-    padding-top: 33px;
+    padding-top: 0;
   }
 }
 

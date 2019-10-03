@@ -1,54 +1,25 @@
-import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import { FaHome, FaTags } from 'react-icons/fa'
+import React, { useEffect } from 'react'
 
 import { Layout, Link } from '../common'
 
-function Tags({ posts, post, tag }) {
-  if (tag) {
-    return (
+export default function TagsTemplate(props) {
+  const { pageContext } = props
+  console.log(pageContext)
+  useEffect(() => {
+    document.title = 'Tag'
+  }, [])
+  return (
+    <Layout>
       <div>
-        <h1>
-          {post.length} post{post.length === 1 ? '' : 's'} tagged with {tag}
-        </h1>
-        <ul>
-          {post.map(({ id, frontmatter, excerpt }) => (
-            <li key={id}>
-              <h1>
-                <GatsbyLink to={frontmatter.path}>{frontmatter.title}</GatsbyLink>
-              </h1>
-              {excerpt}
+        <h1>Tag</h1>
+        <ul className='tags'>
+          {Object.keys(pageContext.posts).map(tagName => (
+            <li key={tagName}>
+              <Link to={`/tag/${tagName}`}>{tagName}</Link>
             </li>
           ))}
         </ul>
-        <Link to='/tags'>
-          <FaTags /> All tags
-        </Link>
       </div>
-    )
-  }
-  return (
-    <div>
-      <h1>Tags</h1>
-      <ul className='tags'>
-        {Object.keys(posts).map(tagName => (
-          <li key={tagName}>
-            <GatsbyLink to={`/tag/${tagName}`}>{tagName}</GatsbyLink>
-          </li>
-        ))}
-      </ul>
-      <Link to='/'>
-        <FaHome /> All posts
-      </Link>
-    </div>
-  )
-}
-
-export default function TagsTemplate(props) {
-  const { pageContext } = props
-  return (
-    <Layout>
-      <Tags {...pageContext} />
     </Layout>
   )
 }

@@ -15,7 +15,7 @@ export default function Template(props) {
     document.title = post.frontmatter.title
   }, [])
   return (
-    <Layout className={style.container}>
+    <Layout>
       <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
       <article className={style.article} dangerouslySetInnerHTML={{ __html: post.html }} />
 

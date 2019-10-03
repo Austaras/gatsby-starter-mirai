@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { FaArchive, FaHome, FaTags } from 'react-icons/fa'
+import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import style from './sidebar.module.scss'
 import { config } from '../../config'
@@ -23,10 +23,15 @@ const menus = {
     <Link key='archive' className={style.menuLink} to='/archive' activeClassName={style.active}>
       <FaArchive /> Archive
     </Link>
+  ),
+  about: (
+    <Link key='about' className={style.menuLink} to='/about' activeClassName={style.active}>
+      <FaUserAlt /> About me
+    </Link>
   )
 }
 
-export function Sidebar() {
+export function Sidebar({ className = '' }) {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
       allMarkdownRemark {
@@ -38,7 +43,7 @@ export function Sidebar() {
     }
   `).allMarkdownRemark
   return (
-    <aside className={style.sidebar}>
+    <aside className={`${style.sidebar} ${className}`}>
       <nav className={style.staticSide}>
         <Link className={style.title} to='/'>
           {config.site.title}

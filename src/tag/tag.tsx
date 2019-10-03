@@ -1,32 +1,17 @@
-import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import { FaHome, FaTags } from 'react-icons/fa'
+import React, { useEffect } from 'react'
 
-import { Layout, Link } from '../common'
+import { Layout } from '../common'
+import { Timeline } from '../common/timeline/timeline'
 
-function Tags({ posts, post, tag }) {
-  return (
-    <div>
-      <h1>Tags</h1>
-      <ul className='tags'>
-        {Object.keys(posts).map(tagName => (
-          <li key={tagName}>
-            <GatsbyLink to={`/tags/${tagName}`}>{tagName}</GatsbyLink>
-          </li>
-        ))}
-      </ul>
-      <Link to='/'>
-        <FaHome /> All posts
-      </Link>
-    </div>
-  )
-}
-
-export default function TagsTemplate(props) {
-  const { pageContext } = props
+export default function Tag({ pageContext }) {
+  const { post, tag } = pageContext
+  useEffect(() => {
+    document.title = `Tag: ${tag}`
+  }, [])
   return (
     <Layout>
-      <Tags {...pageContext} />
+      <h1>Tags</h1>
+      <Timeline post={post} />
     </Layout>
   )
 }

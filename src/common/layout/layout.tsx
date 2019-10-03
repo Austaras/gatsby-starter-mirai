@@ -15,7 +15,7 @@ export const Layout = ({ children, className = '' }: Props) => (
     <header className={style.header}></header>
     <div className={style.container}>
       <main className={style.main}>{children}</main>
-      <Sidebar />
+      <Sidebar className={style.sidebar} />
     </div>
     <footer className={style.footer}>
       ©{config.site.from === 0 ? '' : ` ${config.site.from} - `}
