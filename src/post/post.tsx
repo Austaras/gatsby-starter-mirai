@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { graphql } from 'gatsby'
 
-import { End, Header, Layout, Link, Tags } from '../common'
+import { End, Header, Layout, Link, TagList } from '../common'
 
 import style from './post.module.scss'
 
@@ -16,27 +16,26 @@ export default function Template(props) {
   }, [])
   return (
     <Layout {...props}>
-      <article className={style.article}>
+      <>
         <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div className='spacer'></div>
+        <article className={style.article} dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        <Tags list={post.frontmatter.tags || []} />
+        <TagList list={post.frontmatter.tags || []} />
 
         <nav className={style.navigation}>
           {prev && (
-            <Link to={prev.frontmatter.path}>
+            <Link className={style.prev} to={prev.frontmatter.path}>
               <FaChevronLeft /> {prev.frontmatter.title}
             </Link>
           )}
           <div className={style.spacer}></div>
           {next && (
-            <Link to={next.frontmatter.path}>
+            <Link className={style.next} to={next.frontmatter.path}>
               {next.frontmatter.title} <FaChevronRight />
             </Link>
           )}
         </nav>
-      </article>
+      </>
     </Layout>
   )
 }

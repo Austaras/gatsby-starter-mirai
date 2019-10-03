@@ -67,8 +67,6 @@
 }
 
 .stat {
-  display: flex;
-  justify-content: center;
   margin-top: 10px;
   line-height: 1.4;
   a {
@@ -80,7 +78,7 @@
   }
   a,
   span {
-    display: block;
+    display: inline-block;
   }
   .count {
     font-weight: $bold;

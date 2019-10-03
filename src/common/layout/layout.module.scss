@@ -10,17 +10,24 @@
   background: #f5f7f9;
 }
 
+$margin: 12px;
+$width: 900px;
 .container {
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  max-width: $margin * 2 + $width + $sidebar-width;
+  position: relative;
 }
 
 .main {
   background: white;
-  margin: 0 12px 0 12px + $sidebar-width;
+  margin: 0 12px + $sidebar-width 0 12px;
   padding: 40px;
   box-sizing: border-box;
-  flex-grow: 1;
-  max-width: 900px;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }

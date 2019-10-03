@@ -13,27 +13,23 @@ export default function Index(props) {
     document.title = config.site.title
   }, [])
   return (
-    <Layout {...props}>
-      <div className={style.posts}>
-        {posts
-          .filter(({ post }) => post.frontmatter.title.length > 0)
-          .map(({ post }) => (
-            <div className='blog-post-preview' key={post.id}>
-              <Header
-                link={post.frontmatter.path}
-                time={new Date(post.frontmatter.date)}
-                title={post.frontmatter.title}
-              />
-              <article dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
-              <footer className={style.linkContainer}>
-                <Link to={post.frontmatter.path} className={style.readMore}>
-                  Read more »
-                </Link>
-                <End />
-              </footer>
-            </div>
-          ))}
-      </div>
+    <Layout>
+      {posts.map(({ post }, index) => (
+        <section className={style.post} key={post.id}>
+          <Header
+            link={post.frontmatter.path}
+            time={new Date(post.frontmatter.date)}
+            title={post.frontmatter.title}
+          />
+          <article dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
+          <footer className={style.linkContainer}>
+            <Link to={post.frontmatter.path} className={style.readMore}>
+              Read more »
+            </Link>
+            {index !== posts.length - 1 ? <End /> : undefined}
+          </footer>
+        </section>
+      ))}
     </Layout>
   )
 }

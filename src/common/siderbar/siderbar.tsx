@@ -20,7 +20,7 @@ const menus = {
   )
 }
 
-export function Siderbar() {
+export function Siderbar({ className = '' }) {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
       allMarkdownRemark {
@@ -32,15 +32,13 @@ export function Siderbar() {
     }
   `).allMarkdownRemark
   return (
-    <aside className={style.sidebar}>
+    <aside className={`${style.sidebar} ${className}`}>
       <nav className={style.staticSide}>
         <Link className={style.title} to='/'>
           {config.site.title}
         </Link>
         <nav className={style.menu}>
-          <ul>
-            {config.style.menu.map(key => menus[key])}
-          </ul>
+          <ul>{config.style.menu.map(key => menus[key])}</ul>
         </nav>
       </nav>
       <div className={style.stickySide}>
@@ -58,12 +56,14 @@ export function Siderbar() {
         ) : null}
         <p className={style.authorName}>{config.site.author}</p>
         <nav className={style.stat}>
-          <Link to='/archives'>
+          <Link to='/archive'>
             <span className={style.count}>{totalCount}</span>
+            <br/>
             <span className={style.name}>posts</span>
           </Link>
           <Link to='/tag'>
             <span className={style.count}>{tags.length}</span>
+            <br/>
             <span className={style.name}>tags</span>
           </Link>
         </nav>

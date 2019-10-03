@@ -1,26 +1,15 @@
 @import '../common/consts.scss';
 
-.posts {
-  // align with sidebar
-  padding-top: 33px;
-}
-
-.blog-post-preview {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 1rem 0.25rem;
-  border-bottom: 2px solid #eee;
-}
-
-.blog-post-preview:last-child {
-  border-bottom-width: 0;
+.post {
+  text-align: center;
+  @at-root section#{&}:first-of-type {
+    // align with sidebar
+    padding-top: 33px;
+  }
 }
 
 .link-container {
   margin-top: 40px;
-  text-align: center;
 
   .read-more {
     border: 2px solid $main-color;
