@@ -13,9 +13,7 @@ interface Props {
   link?: string
 }
 
-export const Header = ({ link, time, title }: Props) => {
-  console.log(format(time, config.style.time), config.style.time)
-  return (
+export const Header = ({ link, time, title }: Props) => (
     <header className={style.header}>
       <h1 className={style.title}>{link ? <Link to={link}>{title}</Link> : title}</h1>
       <span className={style.stat}>
@@ -25,4 +23,3 @@ export const Header = ({ link, time, title }: Props) => {
       </span>
     </header>
   )
-}

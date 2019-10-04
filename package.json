@@ -44,5 +44,6 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "new": "ts-node -T src/scripts/new.ts"
-  }
+  },
+  "eslintIgnore": ["*.js"]
 }

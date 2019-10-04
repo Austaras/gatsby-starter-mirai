@@ -7,26 +7,26 @@ import style from './index.module.scss'
 import { config } from '../config'
 
 export default function Index(props) {
-  const { posts } = props.data.allMarkdownRemark
+  const { edges } = props.pageContext.allMarkdownRemark
 
   useEffect(() => {
     document.title = config.site.title
   }, [])
   return (
     <Layout>
-      {posts.map(({ post }) => (
-        <section className={style.post} key={post.id}>
+      {edges.map(({ node }) => (
+        <section className={style.post} key={node.id}>
           <Header
-            link={post.frontmatter.path}
-            time={new Date(post.frontmatter.date)}
-            title={post.frontmatter.title}
+            link={node.frontmatter.path}
+            time={new Date(node.frontmatter.date)}
+            title={node.frontmatter.title}
           />
-          <article dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
+          <article dangerouslySetInnerHTML={{ __html: node.excerpt }}></article>
           <footer className={style.linkContainer}>
-            <Link to={post.frontmatter.path} className={style.readMore}>
+            <Link to={node.frontmatter.path} className={style.readMore}>
               Read more »
             </Link>
-            <TagList list={post.frontmatter.tags} />
+            <TagList list={node.frontmatter.tags} />
           </footer>
         </section>
       ))}

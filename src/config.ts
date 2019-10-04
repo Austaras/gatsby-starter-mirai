@@ -51,5 +51,3 @@ if (!process.env.NODE_ENV) {
 }
 
 export const config: Config = patch(defConfig, yaml)
-
-console.log(config)

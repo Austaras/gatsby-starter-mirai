@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react'
 
 import { Layout, Link } from '../common'
+import { config } from '../config'
 
 export default function TagsTemplate(props) {
   const { pageContext } = props
-  console.log(pageContext)
+
   useEffect(() => {
-    document.title = 'Tag'
+    document.title = 'Tags'
   }, [])
   return (
     <Layout>
-      <div>
-        <h1>Tag</h1>
-        <ul className='tags'>
-          {Object.keys(pageContext.posts).map(tagName => (
+      <h1>Tag</h1>
+      <ul className='tags'>
+        {Object.keys(pageContext.posts)
+          .sort((a, b) => a.localeCompare(b, config.site.language, { sensitivity: 'base' }))
+          .map(tagName => (
             <li key={tagName}>
               <Link to={`/tag/${tagName}`}>{tagName}</Link>
             </li>
           ))}
-        </ul>
-      </div>
+      </ul>
     </Layout>
   )
 }

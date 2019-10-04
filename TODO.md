@@ -1,8 +1,8 @@
-+ typed config
-  + auto path
-  + archive
-  + about
++ auto path
++ about
++ pagination
 + timeline insert year
++ code highlight
 + tags style
 + post style
 + post link
@@ -11,4 +11,5 @@
 + word count
 + seacrh
 + rsync deploy
++ extract css
 + robots.txt
