@@ -10,8 +10,7 @@ export default function Tag({ pageContext }) {
   }, [])
   return (
     <Layout>
-      <h1>Tags</h1>
-      <Timeline post={post} />
+      <Timeline post={post} title={tag}/>
     </Layout>
   )
 }

@@ -9,6 +9,7 @@ const defConfig = {
   site: {
     title: 'Mirai',
     author: 'Otaku',
+    avatar: undefined as string | undefined,
     from: 0,
     language: 'en',
     url: 'https://www.gatsbyjs.org',
@@ -16,22 +17,25 @@ const defConfig = {
   },
   style: {
     menu: [] as string[],
-    avatar: undefined as string | undefined,
     per_page: 0,
-    time: 'YYYY-MM-DD'
-  },
+    date: 'yyyy-MM-dd',
+    month_date: 'MM-dd',
+    time: 'yyyy-MM-dd hh:mm:ss'
+  }
 }
 
 type Config = typeof defConfig
 
-function deepMerge<T, R>(a: T, b: R): T & R {
-  a = Object.assign(a, b)
-  Object.keys(a).forEach(key => {
-    if (typeof b[key] === 'object') {
-      a[key] = deepMerge(a[key], b[key])
+function patch<R extends object, T extends R>(orig: T, mod: R): T {
+  Object.keys(orig).forEach(key => {
+    if (Object.prototype.toString.call(mod[key]) === '[object Object]') {
+      return (orig[key] = patch(orig[key], mod[key]))
+    }
+    if (Object.prototype.hasOwnProperty.call(mod, key)) {
+      orig[key] = mod[key]
     }
   })
-  return a as any
+  return orig
 }
 
 type DeepPartial<T> = {
@@ -46,9 +50,6 @@ if (!process.env.NODE_ENV) {
   yaml = require('../config.yml')
 }
 
-export const config: Config = deepMerge(defConfig, yaml)
-export const tools = {
-  genPath(format: string, data: { date: Date, name: string }) {
+export const config: Config = patch(defConfig, yaml)
 
-  }
-}
+console.log(config)

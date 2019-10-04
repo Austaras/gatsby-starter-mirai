@@ -53,9 +53,9 @@ export function Sidebar({ className = '' }) {
         </nav>
       </nav>
       <div className={style.stickySide}>
-        {config.style.avatar ? (
+        {config.site.avatar ? (
           <Img
-            filename={config.style.avatar}
+            filename={config.site.avatar}
             alt='Avatar'
             className={style.avatar}
             imgStyle={{

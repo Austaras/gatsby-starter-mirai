@@ -52,7 +52,6 @@ exports.createPages = ({ actions, graphql }) => {
             excerpt(pruneLength: 250)
             html
             id
-            timeToRead
             frontmatter {
               date
               path

@@ -86,6 +86,7 @@
                 "newlines-between": "always-and-inside-groups"
             }
         ],
+        "react/prop-types": "off",
         "@typescript-eslint/array-type": "off",
         "@typescript-eslint/ban-ts-ignore": "off",
         "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],

@@ -27,7 +27,7 @@ a {
 }
 
 h1 {
-  font-size: 1.75em;
+  font-size: $title-size;
 }
 
 h1,
@@ -36,5 +36,5 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.5;
+  line-height: $title-line;
 }
