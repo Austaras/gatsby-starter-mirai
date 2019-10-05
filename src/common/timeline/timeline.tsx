@@ -7,11 +7,11 @@ import style from './timeline.module.scss'
 import { Link } from '..'
 
 interface Props {
-  post: any[]
+  posts: any[]
   title?: string
 }
 
-export function Timeline({ post, title }: Props) {
+export function Timeline({ posts: post, title }: Props) {
   const showYear = post.length <= 5
   const fmt = showYear ? config.style.date : config.style.month_date
 

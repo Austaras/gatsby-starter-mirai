@@ -3,15 +3,15 @@ import path from 'path'
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/tag.tsx`)
   const tagsTemplate = path.resolve(`src/tags/tags.tsx`)
-  const posts = {}
+  const tags = {}
 
   edges.forEach(({ node }) => {
     if (node.frontmatter.tags) {
       node.frontmatter.tags.forEach(tag => {
-        if (!posts[tag]) {
-          posts[tag] = []
+        if (!tags[tag]) {
+          tags[tag] = []
         }
-        posts[tag].push(node)
+        tags[tag].push(node)
       })
     }
   })
@@ -20,19 +20,19 @@ const createTagPages = (createPage, edges) => {
     path: '/tag',
     component: tagsTemplate,
     context: {
-      posts
+      tags
     }
   })
 
-  Object.keys(posts).forEach(tagName => {
-    const post = posts[tagName]
+  Object.keys(tags).forEach(tagName => {
+    const posts = tags[tagName]
     createPage({
       path: `/tag/${tagName}`,
       component: tagTemplate,
       context: {
+        tags,
         posts,
-        post,
-        tag: tagName
+        tagName
       }
     })
   })
@@ -77,7 +77,7 @@ export const createPages = ({ actions, graphql }) => {
       path: '/archive',
       component: path.resolve('src/archive.tsx'),
       context: {
-        post: posts.map(post => post.node)
+        posts: posts.map(post => post.node)
       }
     })
 

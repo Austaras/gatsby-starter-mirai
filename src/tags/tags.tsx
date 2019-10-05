@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { Layout, Link } from '../common'
 import { config } from '../config'
 
-export default function TagsTemplate(props) {
-  const { pageContext } = props
+export default function TagsTemplate({ pageContext }) {
+  const { tags } = pageContext
 
   useEffect(() => {
     document.title = 'Tags'
@@ -13,7 +13,7 @@ export default function TagsTemplate(props) {
     <Layout>
       <h1>Tag</h1>
       <ul className='tags'>
-        {Object.keys(pageContext.posts)
+        {Object.keys(tags)
           .sort((a, b) => a.localeCompare(b, config.site.language, { sensitivity: 'base' }))
           .map(tagName => (
             <li key={tagName}>

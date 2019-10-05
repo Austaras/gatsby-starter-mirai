@@ -6,4 +6,5 @@ declare module '*.webp'
 
 declare module '*.svg'
 
+declare module '*.json'
 declare module '*.yml'

@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
 
-import { Layout } from './common'
-import { Timeline } from './common/timeline/timeline'
+import { Layout, Timeline } from './common'
 
 export default function Tag({ pageContext }) {
-  const { post, tag } = pageContext
+  const { posts, tagName } = pageContext
   useEffect(() => {
-    document.title = `Tag: ${tag}`
+    document.title = `Tag: ${tagName}`
   }, [])
   return (
     <Layout>
-      <Timeline post={post} title={tag}/>
+      <Timeline posts={posts} title={tagName} />
     </Layout>
   )
 }

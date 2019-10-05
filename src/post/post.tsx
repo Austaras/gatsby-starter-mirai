@@ -10,7 +10,6 @@ export default function Template(props) {
   const { data, pageContext } = props
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
-  console.log(post)
 
   useEffect(() => {
     document.title = post.frontmatter.title

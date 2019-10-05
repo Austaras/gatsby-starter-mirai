@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react'
 
-import { Layout } from './common'
-import { Timeline } from './common/timeline/timeline'
+import { Layout, Timeline } from './common'
 
 export default function Archive({ pageContext }) {
-  const { post } = pageContext
+  const { posts } = pageContext
 
   useEffect(() => {
-    document.title = `Archive`
+    document.title = 'Archive'
   }, [])
   return (
     <Layout>
-      <Timeline post={post} />
+      <Timeline posts={posts} />
     </Layout>
   )
 }
