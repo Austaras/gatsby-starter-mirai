@@ -1,5 +1,4 @@
-+ about
-+ pagination
++ pagination omit
 + to top button
 + footnote style
 + tags style

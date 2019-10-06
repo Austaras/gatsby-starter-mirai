@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 
 import { Sidebar } from '../sidebar/sidebar'
@@ -7,7 +7,7 @@ import style from './layout.module.scss'
 
 interface Props {
   className?: string
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const Layout = ({ children, className = '' }: Props) => (

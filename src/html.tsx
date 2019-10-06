@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 
 import { config } from './config'
 
 interface Props {
   htmlAttributes: object
-  headComponents: React.ReactElement[]
+  headComponents: ReactElement[]
   bodyAttributes: object
-  preBodyComponents: React.ReactNode
+  preBodyComponents: ReactNode
   body: string
-  postBodyComponents: React.ReactNode
+  postBodyComponents: ReactNode
 }
 
 export default function HTML(props: Props) {

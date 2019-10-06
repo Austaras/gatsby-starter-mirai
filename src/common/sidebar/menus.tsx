@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import { Link } from '../link/link'
 import style from './menus.module.scss'
 
-export const menus: Record<string, React.ReactElement> = {
+export const menus: Record<string, ReactElement> = {
   home: (
     <Link key='home' className={style.menuLink} to='/' activeClassName={style.active}>
       <FaHome /> Home

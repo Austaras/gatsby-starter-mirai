@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { format } from 'date-fns/esm'
 
 import { config } from '../../config'
@@ -15,7 +15,7 @@ export function Timeline({ posts: post, title }: Props) {
   const showYear = post.length <= 5
   let year = 0
   const fmt = showYear ? config.style.date : config.style.month_date
-  const children: React.ReactElement[] = []
+  const children: ReactElement[] = []
   if (title) {
     children.push(
       <li className={`${style.item} ${style.title}`} key='title'>

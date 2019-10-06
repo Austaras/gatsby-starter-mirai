@@ -7,15 +7,17 @@ import { Header, Layout, Link, TagList } from '../common'
 import '../styles.scss'
 import style from './index.module.scss'
 import { config } from '../config'
+import { Pagination } from './pagination'
 
 interface Props {
   pageContext: {
     posts: Post[]
+    page: PageConf
   }
 }
 
 export default function Index({ pageContext }: Props) {
-  const { posts } = pageContext
+  const { posts, page } = pageContext
 
   useEffect(() => {
     document.title = config.site.name
@@ -38,6 +40,7 @@ export default function Index({ pageContext }: Props) {
           </footer>
         </section>
       ))}
+      <Pagination {...page}/>
     </Layout>
   )
 }

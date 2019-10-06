@@ -21,3 +21,8 @@ interface AllMarkdownRemark {
 interface QueryRes {
   allMarkdownRemark: AllMarkdownRemark
 }
+
+interface PageConf {
+  count: number
+  current: number
+}

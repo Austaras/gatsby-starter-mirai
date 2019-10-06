@@ -13,7 +13,8 @@ const dict: Record<string, (name: string, time: Date) => string> = {
 }
 
 export function generate(name: string, date: Date) {
-  let res = `/${config.template.path}`
+  let res = config.template.path
+  if (!res.startsWith('/')) res = `/${res}`
   Object.keys(dict).forEach(key => {
     res = res.replace(`:${key}`, dict[key](name, date))
   })
