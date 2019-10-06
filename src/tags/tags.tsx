@@ -3,6 +3,10 @@ import React, { useEffect } from 'react'
 import { Layout, Link } from '../common'
 import { config } from '../config'
 
+interface Props {
+  pageContext: string[]
+}
+
 export default function TagsTemplate({ pageContext }) {
   const { tags } = pageContext
 

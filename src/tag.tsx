@@ -2,7 +2,14 @@ import React, { useEffect } from 'react'
 
 import { Layout, Timeline } from './common'
 
-export default function Tag({ pageContext }) {
+interface Props {
+  pageContext: {
+    posts: Post[]
+    tagName: string
+  }
+}
+
+export default function Tag({ pageContext }: Props) {
   const { posts, tagName } = pageContext
   useEffect(() => {
     document.title = `Tag: ${tagName}`

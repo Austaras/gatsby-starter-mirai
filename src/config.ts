@@ -25,8 +25,8 @@ const defConfig = {
 
 type Config = typeof defConfig
 
-function patch<R extends object, T extends R>(orig: T, mod: R): T {
-  Object.keys(orig).forEach(key => {
+function patch<R extends any, T extends R>(orig: T, mod: R): T {
+  Object.keys(orig).forEach((key) => {
     if (Object.prototype.toString.call(mod[key]) === '[object Object]') {
       return (orig[key] = patch(orig[key], mod[key]))
     }

@@ -1,35 +1,12 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import style from './sidebar.module.scss'
 import { config } from '../../config'
 
 import { Link } from '../link/link'
 import { Img } from '../img'
-
-const menus = {
-  home: (
-    <Link key='home' className={style.menuLink} to='/' activeClassName={style.active}>
-      <FaHome /> Home
-    </Link>
-  ),
-  tag: (
-    <Link key='tag' className={style.menuLink} to='/tag' activeClassName={style.active}>
-      <FaTags /> Tag
-    </Link>
-  ),
-  archive: (
-    <Link key='archive' className={style.menuLink} to='/archive' activeClassName={style.active}>
-      <FaArchive /> Archive
-    </Link>
-  ),
-  about: (
-    <Link key='about' className={style.menuLink} to='/about' activeClassName={style.active}>
-      <FaUserAlt /> About me
-    </Link>
-  )
-}
+import { menus } from './menus'
 
 export function Sidebar({ className = '' }) {
   const { totalCount, tags } = useStaticQuery(graphql`

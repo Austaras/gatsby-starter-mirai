@@ -7,7 +7,7 @@ import style from './timeline.module.scss'
 import { Link } from '..'
 
 interface Props {
-  posts: any[]
+  posts: Post[]
   title?: string
 }
 

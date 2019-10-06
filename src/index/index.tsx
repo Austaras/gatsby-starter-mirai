@@ -8,27 +8,33 @@ import '../styles.scss'
 import style from './index.module.scss'
 import { config } from '../config'
 
-export default function Index(props) {
-  const { edges } = props.pageContext.allMarkdownRemark
+interface Props {
+  pageContext: {
+    posts: Post[]
+  }
+}
+
+export default function Index({ pageContext }: Props) {
+  const { posts } = pageContext
 
   useEffect(() => {
     document.title = config.site.title
   }, [])
   return (
     <Layout>
-      {edges.map(({ node }) => (
-        <section className={style.post} key={node.id}>
+      {posts.map(post => (
+        <section className={style.post} key={post.id}>
           <Header
-            link={node.path}
-            time={new Date(node.frontmatter.date)}
-            title={node.frontmatter.title}
+            link={post.path}
+            time={new Date(post.frontmatter.date)}
+            title={post.frontmatter.title}
           />
-          <article className='article' dangerouslySetInnerHTML={{ __html: node.excerpt }}></article>
+          <article className='article' dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
           <footer className={style.linkContainer}>
-            <Link to={node.path} className={style.readMore}>
+            <Link to={post.path} className={style.readMore}>
               Read more »
             </Link>
-            <TagList list={node.frontmatter.tags} />
+            <TagList list={post.frontmatter.tags} />
           </footer>
         </section>
       ))}

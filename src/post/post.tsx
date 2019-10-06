@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { graphql } from 'gatsby'
 
 import { Header, Layout, Link, TagList } from '../common'
 
 import style from './post.module.scss'
 
-export default function Template(props) {
-  const { post, next, prev } = props.pageContext
+interface Props {
+  pageContext: Record<'post' | 'next' | 'prev', Post>
+}
+
+export default function Template({ pageContext }: Props) {
+  const { post, next, prev } = pageContext
 
   useEffect(() => {
     document.title = post.frontmatter.title
@@ -15,7 +18,7 @@ export default function Template(props) {
   return (
     <Layout>
       <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
-      <article className="article" dangerouslySetInnerHTML={{ __html: post.html }} />
+      <article className='article' dangerouslySetInnerHTML={{ __html: post.html }} />
 
       <TagList list={post.frontmatter.tags || []} />
 
@@ -35,17 +38,3 @@ export default function Template(props) {
     </Layout>
   )
 }
-
-// export const pageQuery = graphql`
-//   query BlogPostByPath($path: String!) {
-//     markdownRemark(frontmatter: { path: { eq: $path } }) {
-//       html
-//       frontmatter {
-//         date
-//         path
-//         tags
-//         title
-//       }
-//     }
-//   }
-// `

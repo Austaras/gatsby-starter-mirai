@@ -2,7 +2,13 @@ import React, { useEffect } from 'react'
 
 import { Layout, Timeline } from './common'
 
-export default function Archive({ pageContext }) {
+interface Props {
+  pageContext: {
+    posts: Post[]
+  }
+}
+
+export default function Archive({ pageContext }: Props) {
   const { posts } = pageContext
 
   useEffect(() => {
