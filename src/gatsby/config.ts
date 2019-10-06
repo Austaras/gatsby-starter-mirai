@@ -43,6 +43,21 @@ export const configApi = {
             options: {
               linkImagesToOriginal: false
             }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              showLineNumbers: true,
+              noInlineHighlight: true
+            }
+          },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow'
+            }
           }
         ]
       }

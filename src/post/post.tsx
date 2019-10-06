@@ -17,7 +17,7 @@ export default function Template(props) {
   return (
     <Layout>
       <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
-      <article className={style.article} dangerouslySetInnerHTML={{ __html: post.html }} />
+      <article className="article" dangerouslySetInnerHTML={{ __html: post.html }} />
 
       <TagList list={post.frontmatter.tags || []} />
 

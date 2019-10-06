@@ -22,6 +22,13 @@ $margin: 12px;
   display: flex;
 }
 
+@media screen and (max-width: 1400px) {
+  .container {
+    padding-left: 0;
+    max-width: 900px + $sidebar-width + $margin * 2;
+  }
+}
+
 .main {
   background: white;
   flex-grow: 1;

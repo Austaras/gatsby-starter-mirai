@@ -1,0 +1,117 @@
+@import './common/consts.scss';
+
+.article {
+  flex-grow: 1;
+  @mixin page-font {
+    font-size: 1.125rem;
+  }
+
+  #{$second-title} {
+    padding-top: 10px;
+  }
+
+  p {
+    @include page-font();
+    margin: 0 0 20px;
+  }
+
+  li {
+    @include page-font();
+  }
+
+  a {
+    word-wrap: break-word;
+    border-bottom: 1px solid $grey-dark;
+    color: $black-light; // cover visited color
+    outline: none;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom-color: $black-dark;
+      color: $black-dark;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 1em 0;
+    padding-left: 40px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto 20px;
+    border: 1px solid $gray-lighter;
+  }
+
+  blockquote {
+    border-left: 4px solid $grey-light;
+    margin: 0;
+    padding: 0 15px;
+  }
+
+  // for inline code
+  code:not([class]) {
+    background-color: $gainsboro;
+    border-radius: 3px;
+    padding: 2px 4px;
+  }
+
+  code,
+  pre {
+    font-family: 'Fira Code', consolas, SF Mono;
+    font-size: 0.875rem;
+  }
+
+  hr {
+    margin: 40px 0;
+    border: none;
+    background-color: $black;
+    height: 1px;
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    appearance: none;
+    font-size: inherit;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin: 0;
+    vertical-align: -$font-descent;
+    border: 2px solid $black;
+    &:checked {
+      padding: 2px;
+      background-color: $black;
+      background-clip: content-box;
+    }
+  }
+}
+
+.gatsby-highlight pre[class*='language-'].line-numbers {
+  padding-left: 2.8em;
+}
+
+/**
+ * If you only want to use line numbering
+ */
+
+.gatsby-highlight {
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+.gatsby-highlight pre[class*='language-'].line-numbers {
+  padding-left: 4.5em;
+  overflow: initial;
+  font-family: 'Fira Code', consolas, SF Mono;
+  font-size: 0.875rem;
+  .line-numbers-rows {
+    padding: 1em;
+    background-color: #1b1b1b;
+    span:after {
+      padding-right: 0;
+    }
+  }
+}

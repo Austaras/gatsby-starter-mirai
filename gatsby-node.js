@@ -1,3 +1,3 @@
-const { createPages } = require('./src/gatsby')
+const { nodeApi } = require('./src/gatsby')
 
-exports.createPages = createPages
+module.exports= nodeApi

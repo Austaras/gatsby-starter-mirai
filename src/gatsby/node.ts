@@ -1,5 +1,7 @@
 import path from 'path'
 
+import { config } from '../config'
+
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/tag.tsx`)
   const tagsTemplate = path.resolve(`src/tags/tags.tsx`)
@@ -102,5 +104,15 @@ export const createPages = ({ actions, graphql }) => {
     })
 
     return posts
+  })
+}
+
+export const onCreateWebpackConfig = ({ _s, _r, _l, plugins, actions }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      plugins.define({
+        'process.env': { __IS_WEBPACK__: JSON.stringify(true) }
+      })
+    ]
   })
 }

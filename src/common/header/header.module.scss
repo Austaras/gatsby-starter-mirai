@@ -12,7 +12,7 @@
       &:after {
         position: absolute;
         left: 0;
-        bottom: 0.125em;
+        bottom: $font-descent;
         content: '';
         background-color: black;
         height: 2px;
@@ -28,8 +28,7 @@
 }
 
 .title {
-  font-weight: normal;
-  font-family: 'Raleway Light';
+  font-weight: 300;
 }
 
 .stat {

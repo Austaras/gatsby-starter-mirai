@@ -22,8 +22,13 @@
   margin-left: -$size / 2;
   top: ($line - $size) / 2;
 }
+$title-height: $title-size * $title-line;
 .item {
   list-style: none;
+  position: relative;
+  h1 {
+    margin: 0 0 0 20px;
+  }
   &:before {
     position: absolute;
     box-sizing: border-box;
@@ -32,20 +37,19 @@
     background-color: $grey;
     border-radius: 50%;
   }
+  @at-root li#{&}:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .item.title {
-  margin: 0 0 60px;
-  h1 {
-    margin: 0 0 0 20px;
-  }
+  margin: 60px 0;
   &:before {
-    @include dot(0.625em, $title-size * $title-line);
+    @include dot(0.625em, $title-height);
   }
 }
 
 .post {
-  position: relative;
   margin: 0 0 30px;
   border-bottom: 1px dashed $grey-light;
   transition: border-bottom-color $transition;
@@ -58,6 +62,13 @@
   }
   &:hover::before {
     background-color: $black-dark;
+  }
+}
+
+.year {
+  margin: 60px 0;
+  &:before {
+    top: -(0.5em - $title-height) / 2;
   }
 }
 

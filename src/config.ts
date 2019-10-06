@@ -44,10 +44,10 @@ type DeepPartial<T> = {
 
 let yaml: DeepPartial<Config>
 // not bundled by webpack
-if (!process.env.NODE_ENV) {
-  yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
-} else {
+if (process.env.__IS_WEBPACK__) {
   yaml = require('../config.yml')
+} else {
+  yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
 }
 
 export const config: Config = patch(defConfig, yaml)

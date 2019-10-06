@@ -4,7 +4,7 @@ import { config } from './config'
 
 interface Props {
   htmlAttributes: object
-  headComponents: React.ReactNode
+  headComponents: React.ReactElement[]
   bodyAttributes: object
   preBodyComponents: React.ReactNode
   body: string
@@ -12,6 +12,15 @@ interface Props {
 }
 
 export default function HTML(props: Props) {
+  if (process.env.NODE_ENV === 'production') {
+    for (const component of props.headComponents) {
+      if (component.type === 'style') {
+        const index = props.headComponents.indexOf(component)
+        const link = <link rel='stylesheet' href={component.props['data-href']} />
+        props.headComponents.splice(index, 1, link)
+      }
+    }
+  }
   return (
     <html {...props.htmlAttributes} lang={config.site.language}>
       <head>

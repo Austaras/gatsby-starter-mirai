@@ -1,0 +1,84 @@
+@import './common/consts.scss';
+@import './article.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600|Raleway:300,500&display=swap');
+
+html {
+  font-family: $font;
+}
+
+html[lang='zh-cn'] {
+  font-family: $font-zh;
+}
+
+body {
+  color: $main-color;
+  line-height: 2;
+  font-size: 16px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+@for $head from 1 through 6 {
+  h#{$head} {
+    font-size: $title-size - 0.125em * ($head - 1);
+  }
+}
+
+h1,
+#{$second-title} {
+  line-height: $title-line;
+  margin: 20px 0 15px;
+  padding: 0;
+  font-weight: 500;
+  font-family: 'Raleway';
+  html[lang='zh-cn'] & {
+    font-family: 'Raleway', $font-zh;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+table > tbody > tr {
+  &:nth-of-type(odd) {
+    background-color: $white;
+  }
+  &:hover {
+    background-color: $whitesmoke;
+  }
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  padding: 8px;
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid $gray-lighter;
+  border-bottom: 3px solid $gray-lighter;
+}
+
+th {
+  font-weight: bold;
+  padding-bottom: 10px;
+  &:empty {
+    display: none;
+  }
+}
+
+td {
+  border-bottom-width: 1px;
+}

@@ -3,9 +3,9 @@ require('ts-node').register({
 })
 
 const { configApi } = require('./config')
-const { createPages } = require('./node')
+const nodeApi = require('./node')
 
 module.exports = {
   configApi,
-  createPages
+  nodeApi
 }
