@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const defConfig = {
   template: {
-    post: {
-      path: ':name',
-      date: 'YYYY-MM-DD'
-    }
+    path: ':name',
+    date: 'YYYY-MM-DD'
   },
   site: {
     title: 'Mirai',
@@ -21,7 +19,8 @@ const defConfig = {
     date: 'yyyy-MM-dd',
     month_date: 'MM-dd',
     time: 'yyyy-MM-dd hh:mm:ss'
-  }
+  },
+  salt: ''
 }
 
 type Config = typeof defConfig

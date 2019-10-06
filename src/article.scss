@@ -42,6 +42,7 @@
     display: block;
     margin: 0 auto 20px;
     border: 1px solid $gray-lighter;
+    max-width: $main-width - $main-padding * 2 - 2px;
   }
 
   blockquote {
@@ -74,9 +75,9 @@
   input[type='radio'] {
     appearance: none;
     font-size: inherit;
-    height: 1em;
-    width: 1em;
-    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    box-sizing: border-box;
     margin: 0;
     vertical-align: -$font-descent;
     border: 2px solid $black;
@@ -97,12 +98,12 @@
  */
 
 .gatsby-highlight {
-  margin: 0.5em 0;
-  padding: 1em;
+  margin: 20px 0;
   overflow: auto;
 }
 
 .gatsby-highlight pre[class*='language-'].line-numbers {
+  margin: 0;
   padding-left: 4.5em;
   overflow: initial;
   font-family: 'Fira Code', consolas, SF Mono;
@@ -110,7 +111,7 @@
   .line-numbers-rows {
     padding: 1em;
     background-color: #1b1b1b;
-    span:after {
+    span:before {
       padding-right: 0;
     }
   }

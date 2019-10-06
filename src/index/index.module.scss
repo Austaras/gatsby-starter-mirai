@@ -1,9 +1,11 @@
 @import '../common/consts.scss';
 
 .post {
-  text-align: center;
   padding: 60px 0 80px;
   border-bottom: $grey-light solid 1px;
+  p, footer {
+    text-align: center;
+  }
   @at-root section#{&}:first-of-type {
     padding-top: 0;
   }

@@ -19,13 +19,13 @@ export default function Index(props) {
       {edges.map(({ node }) => (
         <section className={style.post} key={node.id}>
           <Header
-            link={node.frontmatter.path}
+            link={node.path}
             time={new Date(node.frontmatter.date)}
             title={node.frontmatter.title}
           />
           <article className='article' dangerouslySetInnerHTML={{ __html: node.excerpt }}></article>
           <footer className={style.linkContainer}>
-            <Link to={node.frontmatter.path} className={style.readMore}>
+            <Link to={node.path} className={style.readMore}>
               Read more »
             </Link>
             <TagList list={node.frontmatter.tags} />

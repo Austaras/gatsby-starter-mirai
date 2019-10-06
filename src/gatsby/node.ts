@@ -1,19 +1,19 @@
 import path from 'path'
 
-import { config } from '../config'
+import { generate } from './path'
 
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/tag.tsx`)
   const tagsTemplate = path.resolve(`src/tags/tags.tsx`)
   const tags = {}
 
-  edges.forEach(({ node }) => {
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach(tag => {
+  edges.forEach(post => {
+    if (post.frontmatter.tags) {
+      post.frontmatter.tags.forEach(tag => {
         if (!tags[tag]) {
           tags[tag] = []
         }
-        tags[tag].push(node)
+        tags[tag].push(post)
       })
     }
   })
@@ -59,7 +59,6 @@ export const createPages = ({ actions, graphql }) => {
             id
             frontmatter {
               date
-              path
               tags
               title
             }
@@ -72,14 +71,17 @@ export const createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges.map(edge => edge.node)
+    posts.forEach(post => {
+      post.path = generate(post.frontmatter.title, new Date(post.frontmatter.date))
+    })
 
     createTagPages(createPage, posts)
     createPage({
       path: '/archive',
       component: path.resolve('src/archive.tsx'),
       context: {
-        posts: posts.map(post => post.node)
+        posts
       }
     })
 
@@ -90,13 +92,14 @@ export const createPages = ({ actions, graphql }) => {
     })
 
     // Create pages for each markdown file.
-    posts.forEach(({ node }, index) => {
-      const prev = index === 0 ? null : posts[index - 1].node
-      const next = index === posts.length - 1 ? null : posts[index + 1].node
+    posts.forEach((post, index) => {
+      const prev = index === 0 ? null : posts[index - 1]
+      const next = index === posts.length - 1 ? null : posts[index + 1]
       createPage({
-        path: node.frontmatter.path,
+        path: post.path,
         component: blogPostTemplate,
         context: {
+          post,
           prev,
           next
         }

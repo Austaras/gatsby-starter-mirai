@@ -15,39 +15,34 @@ export function Timeline({ posts: post, title }: Props) {
   const showYear = post.length <= 5
   let year = 0
   const fmt = showYear ? config.style.date : config.style.month_date
+  const children: React.ReactElement[] = []
+  if (title) {
+    children.push(
+      <li className={`${style.item} ${style.title}`} key='title'>
+        <h1>{title}</h1>
+      </li>
+    )
+  }
 
-  return (
-    <ol className={style.timeline}>
-      {title ? (
-        <li className={`${style.item} ${style.title}`}>
-          <h1>{title}</h1>
+  post.forEach(post => {
+    const time = new Date(post.frontmatter.date)
+    if (time.getFullYear() !== year && !showYear) {
+      year = time.getFullYear()
+      children.push(
+        <li className={`${style.item} ${style.year}`} key={year}>
+          <h1>{year}</h1>
         </li>
-      ) : (
-        undefined
-      )}
-      {post.map(post => {
-        const time = new Date(post.frontmatter.date)
-        const item = (
-          <li className={`${style.item} ${style.post}`} key={post.id}>
-            <Link className={style.link} to={post.frontmatter.path}>
-              <time className={style.time}>{format(time, fmt)}</time>
-              <h2 className={style.postTitle}>{post.frontmatter.title}</h2>
-            </Link>
-          </li>
-        )
-        if (time.getFullYear() !== year && !showYear) {
-          year = time.getFullYear()
-          return (
-            <React.Fragment key={year}>
-              <li className={`${style.item} ${style.year}`}>
-                <h1>{year}</h1>
-              </li>
-              {item}
-            </React.Fragment>
-          )
-        }
-        return item
-      })}
-    </ol>
-  )
+      )
+    }
+    children.push(
+      <li className={`${style.item} ${style.post}`} key={post.id}>
+        <Link className={style.link} to={post.path}>
+          <time className={style.time}>{format(time, fmt)}</time>
+          <h2 className={style.postTitle}>{post.frontmatter.title}</h2>
+        </Link>
+      </li>
+    )
+  })
+
+  return <ol className={style.timeline}>{children}</ol>
 }

@@ -33,7 +33,7 @@ function genMd() {
     return 'File already exists!'
   }
 
-  const cfg = config.template[layout]
+  const cfg = config.template
   frontMatter.path = `/${path}`
   frontMatter.title = path
 
@@ -45,6 +45,7 @@ function genMd() {
     name
   }
 
+  // FIXME:
   if (cfg.date) {
     frontMatter.date = format(time, cfg.date)
   }
