@@ -23,7 +23,7 @@ export function Sidebar({ className = '' }) {
     <aside className={`${style.sidebar} ${className}`}>
       <nav className={style.staticSide}>
         <Link className={style.title} to='/'>
-          {config.site.title}
+          {config.site.name}
         </Link>
         <nav className={style.menu}>
           <ul>{config.style.menu.map(key => menus[key])}</ul>
@@ -31,16 +31,9 @@ export function Sidebar({ className = '' }) {
       </nav>
       <div className={style.stickySide}>
         {config.site.avatar ? (
-          <Img
-            filename={config.site.avatar}
-            alt='Avatar'
-            className={style.avatar}
-            imgStyle={{
-              width: '128px',
-              height: '128px',
-              padding: '2px'
-            }}
-          />
+          <Link to='/about' className={style.container}>
+            <Img filename={config.site.avatar} alt='Avatar' />
+          </Link>
         ) : null}
         <p className={style.authorName}>{config.site.author}</p>
         <nav className={style.stat}>

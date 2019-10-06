@@ -18,7 +18,7 @@ export default function Index({ pageContext }: Props) {
   const { posts } = pageContext
 
   useEffect(() => {
-    document.title = config.site.title
+    document.title = config.site.name
   }, [])
   return (
     <Layout>

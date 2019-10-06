@@ -2,7 +2,7 @@ import React from 'react'
 import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import { Link } from '../link/link'
-import style from './sidebar.module.scss'
+import style from './menus.module.scss'
 
 export const menus: Record<string, React.ReactElement> = {
   home: (

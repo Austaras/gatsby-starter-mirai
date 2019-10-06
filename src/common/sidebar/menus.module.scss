@@ -1,0 +1,14 @@
+@import '../consts.scss';
+
+.menu-link {
+  display: block;
+  padding: 5px 20px 6px;
+  font-size: 0.875em;
+  svg {
+    margin-right: 5px;
+  }
+}
+
+.active {
+  background: $whitesmoke;
+}

@@ -4,6 +4,7 @@ interface Post {
   id: string
   // manually added
   path: string
+  fileAbsolutePath: string
   frontmatter: {
     date: string
     tags: string[]

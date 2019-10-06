@@ -1,5 +1,9 @@
+import { GatsbyConfig } from 'gatsby'
+
+import { config } from '../config'
+
 /* eslint-disable @typescript-eslint/camelcase */
-export const configApi = {
+export const configApi: GatsbyConfig = {
   pathPrefix: `/`,
   plugins: [
     'gatsby-plugin-typescript',
@@ -8,11 +12,11 @@ export const configApi = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Blog Starter',
-        short_name: 'Blog',
-        start_url: '/',
+        name: config.site.name,
+        short_name: config.site.name,
+        start_url: config.site.root,
         background_color: '#fff',
-        theme_color: '#663399',
+        theme_color: '#444',
         display: 'minimal-ui',
         icon: 'assets/favicon.png'
       }
@@ -20,7 +24,7 @@ export const configApi = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/../../blog/posts`,
+        path: `${__dirname}/../../blog`,
         ignore: ['**/.*'],
         name: 'blog'
       }

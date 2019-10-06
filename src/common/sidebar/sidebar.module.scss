@@ -36,24 +36,11 @@
   }
 }
 
-.menu-link {
+.container {
   display: block;
-  padding: 5px 20px;
-  border-bottom: 1px solid transparent;
-  font-size: 0.875em;
-  svg {
-    margin-right: 5px;
-  }
-}
-
-.active {
-  background: $whitesmoke;
-}
-
-.avatar {
-  max-width: 128px;
-  max-height: 128px;
   margin: 0 auto;
+  width: 128px;
+  height: 128px;
   padding: 2px;
   border: 1px solid $gainsboro;
 }

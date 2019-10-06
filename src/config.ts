@@ -5,7 +5,7 @@ const defConfig = {
     date: 'YYYY-MM-DD'
   },
   site: {
-    title: 'Mirai',
+    name: 'Mirai',
     author: 'Otaku',
     avatar: undefined as string | undefined,
     from: 0,
@@ -42,10 +42,10 @@ type DeepPartial<T> = {
 }
 
 let yaml: DeepPartial<Config>
-// not bundled by webpack
 if (process.env.__IS_WEBPACK__) {
   yaml = require('../config.yml')
 } else {
+  // not bundled by webpack
   yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
 }
 

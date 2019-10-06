@@ -4,10 +4,12 @@ import { Layout, Link } from '../common'
 import { config } from '../config'
 
 interface Props {
-  pageContext: string[]
+  pageContext: {
+    tags: string[]
+  }
 }
 
-export default function TagsTemplate({ pageContext }) {
+export default function TagsTemplate({ pageContext }: Props) {
   const { tags } = pageContext
 
   useEffect(() => {
