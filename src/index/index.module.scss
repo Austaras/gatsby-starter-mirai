@@ -3,8 +3,12 @@
 .post {
   padding: 60px 0 80px;
   border-bottom: $grey-light solid 1px;
-  p, footer {
+  p,
+  footer {
     text-align: center;
+  }
+  blockquote p {
+    text-align: left;
   }
   @at-root section#{&}:first-of-type {
     padding-top: 0;

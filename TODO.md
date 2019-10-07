@@ -2,10 +2,13 @@
 + to top button
 + footnote style
 + tags style
++ fancy box
 + music player
 + mobile support
 + word count
 + i18n
 + seacrh
 + rsync deploy
-+ robots.txt
++ seo
+  + robots.txt
+  + itemprop

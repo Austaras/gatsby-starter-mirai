@@ -1,0 +1,22 @@
+@import '../common/consts.scss';
+
+.tags,
+.title {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 1em;
+}
+
+.count {
+  font-size: 1.125em;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0 15px 0 10px;
+  &:hover {
+    color: $black-dark !important; // to override inline style
+  }
+}

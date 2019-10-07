@@ -33,7 +33,7 @@ export default function Index({ pageContext }: Props) {
           />
           <article className='article' dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
           <footer className={style.linkContainer}>
-            <Link to={post.path} className={style.readMore}>
+            <Link to={post.path} className={`${style.readMore} title`}>
               Read more »
             </Link>
             <TagList list={post.frontmatter.tags} />

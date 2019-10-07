@@ -45,6 +45,10 @@
     max-width: $main-width - $main-padding * 2 - 2px;
   }
 
+  table {
+    font-size: 0.875em;
+  }
+
   blockquote {
     border-left: 4px solid $grey-light;
     margin: 0;
@@ -93,19 +97,13 @@
   padding-left: 2.8em;
 }
 
-/**
- * If you only want to use line numbering
- */
-
 .gatsby-highlight {
   margin: 20px 0;
-  overflow: auto;
 }
 
 .gatsby-highlight pre[class*='language-'].line-numbers {
   margin: 0;
   padding-left: 4.5em;
-  overflow: initial;
   font-family: 'Fira Code', consolas, SF Mono;
   font-size: 0.875rem;
   .line-numbers-rows {

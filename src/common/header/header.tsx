@@ -15,7 +15,7 @@ interface Props {
 
 export const Header = ({ link, time, title }: Props) => (
     <header className={style.header}>
-      <h1 className={style.title}>{link ? <Link to={link}>{title}</Link> : title}</h1>
+      <h1 className={`${style.title} title`}>{link ? <Link to={link}>{title}</Link> : title}</h1>
       <span className={style.stat}>
         <FaRegCalendar />
         {' Posted on '}

@@ -1,7 +1,7 @@
 @import './common/consts.scss';
 @import './article.scss';
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600|Raleway:300,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Raleway:300,500&display=swap');
 
 html {
   font-family: $font;
@@ -35,6 +35,9 @@ h1,
   margin: 20px 0 15px;
   padding: 0;
   font-weight: 500;
+}
+
+.title {
   font-family: 'Raleway';
   html[lang='zh-cn'] & {
     font-family: 'Raleway', $font-zh;

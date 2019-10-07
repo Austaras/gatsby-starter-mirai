@@ -12,7 +12,7 @@ export const menus: Record<string, ReactElement> = {
   ),
   tag: (
     <Link key='tag' className={style.menuLink} to='/tag' activeClassName={style.active}>
-      <FaTags /> Tag
+      <FaTags /> Tags
     </Link>
   ),
   archive: (

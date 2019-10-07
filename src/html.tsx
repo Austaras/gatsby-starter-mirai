@@ -8,7 +8,7 @@ interface Props {
   bodyAttributes: object
   preBodyComponents: ReactNode
   body: string
-  postBodyComponents: ReactNode
+  postBodyComponents: ReactElement[]
 }
 
 export default function HTML(props: Props) {

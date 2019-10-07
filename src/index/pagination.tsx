@@ -1,11 +1,9 @@
 import React, { ReactElement } from 'react'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import style from './pagination.module.scss'
 import { Link } from '../common'
 
 export function Pagination({ count, current }: PageConf) {
-  console.log(count, current)
   const children: ReactElement[] = []
   if (count !== 1) {
     for (let i = 1; i <= count; i++) {
@@ -24,14 +22,14 @@ export function Pagination({ count, current }: PageConf) {
     if (current !== 1) {
       children.unshift(
         <Link to={`/page/${current - 1}`} className={style.number} key={'left'}>
-          <FaAngleLeft />
+          {'<'}
         </Link>
       )
     }
     if (current !== count) {
       children.push(
         <Link to={`/page/${current + 1}`} className={style.number} key={'right'}>
-          <FaAngleRight />
+          {'>'}
         </Link>
       )
     }

@@ -38,7 +38,7 @@ export function Timeline({ posts: post, title }: Props) {
       <li className={`${style.item} ${style.post}`} key={post.id}>
         <Link className={style.link} to={post.path}>
           <time className={style.time}>{format(time, fmt)}</time>
-          <h2 className={style.postTitle}>{post.frontmatter.title}</h2>
+          <h2 className={`${style.postTitle} title`}>{post.frontmatter.title}</h2>
         </Link>
       </li>
     )

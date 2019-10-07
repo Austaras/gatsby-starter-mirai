@@ -33,9 +33,9 @@ $second-title: h2, h3, h4, h5, h6;
 
 @function font($fonts...) {
   @if $fonts == null {
-    @return 'Open Sans', sans-serif;
+    @return 'PT Sans', sans-serif;
   }
-  @return 'Open Sans', $fonts, sans-serif;
+  @return 'PT Sans', $fonts, sans-serif;
 }
 
 $font: font();
