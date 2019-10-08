@@ -19,11 +19,11 @@
   margin-top: 40px;
 
   .read-more {
-    border: 2px solid $main-color;
     display: inline-block;
+    border: 2px solid $main-color;
     margin: 0 auto;
     padding: 0 20px;
-
+    font-weight: 500;
     transition: background-color $transition;
     &:hover {
       border-color: $black-dark;

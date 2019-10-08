@@ -7,7 +7,7 @@ import style from './timeline.module.scss'
 import { Link } from '..'
 
 interface Props {
-  posts: Post[]
+  posts: Pick<Post, 'path' | 'frontmatter'>[]
   title?: string
 }
 
@@ -35,7 +35,7 @@ export function Timeline({ posts: post, title }: Props) {
       )
     }
     children.push(
-      <li className={`${style.item} ${style.post}`} key={post.id}>
+      <li className={`${style.item} ${style.post}`} key={post.path}>
         <Link className={style.link} to={post.path}>
           <time className={style.time}>{format(time, fmt)}</time>
           <h2 className={`${style.postTitle} title`}>{post.frontmatter.title}</h2>

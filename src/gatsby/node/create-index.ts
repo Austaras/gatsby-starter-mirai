@@ -2,17 +2,19 @@ import path from 'path'
 import { Actions } from 'gatsby'
 
 import { config } from '../../config'
+import { pick } from '../../utils'
 
 export const createIndexPages = (createPage: Actions['createPage'], posts: Post[]) => {
   const limit = config.style.per_page
   const template = path.resolve(`src/index/index.tsx`)
   const count = Math.ceil(posts.length / limit)
+  const relPosts = posts.map(post => pick(post, 'excerpt', 'frontmatter', 'path'))
 
   createPage({
     path: '/',
     component: template,
     context: {
-      posts: posts.slice(0, limit),
+      posts: relPosts.slice(0, limit),
       page: {
         current: 1,
         count
@@ -27,7 +29,7 @@ export const createIndexPages = (createPage: Actions['createPage'], posts: Post[
       path: `/page/${i}`,
       component: template,
       context: {
-        posts: posts.slice(limit * (i - 1), limit * i),
+        posts: relPosts.slice(limit * (i - 1), limit * i),
         page: {
           current: i,
           count

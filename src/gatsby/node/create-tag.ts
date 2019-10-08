@@ -1,29 +1,33 @@
 import path from 'path'
 import { Actions } from 'gatsby'
 
+import { pick } from '../../utils'
+
 export const createTagPages = (createPage: Actions['createPage'], posts: Post[]) => {
   const tagTemplate = path.resolve(`src/tag.tsx`)
   const tagsTemplate = path.resolve(`src/tags/tags.tsx`)
-  const tags = posts.reduce(
-    (acc, post) => {
-      if (!post.frontmatter.tags) {
-        return acc
+  const tags: Record<string, Pick<Post, 'path' | 'frontmatter'>[]> = {}
+  const tagsLen: Record<string, number> = {}
+  for (const post of posts) {
+    if (!post.frontmatter.tags) {
+      continue
+    }
+    post.frontmatter.tags.forEach(tag => {
+      if (!tags[tag]) {
+        tags[tag] = []
       }
-      post.frontmatter.tags.forEach(tag => {
-        if (!acc[tag]) {
-          acc[tag] = []
-        }
-        acc[tag].push(post)
-      })
-      return acc
-    },
-    {} as Record<string, Post[]>
-  )
+      tags[tag].push(pick(post, 'path', 'frontmatter'))
+      if (!tagsLen[tag]) {
+        tagsLen[tag] = 0
+      }
+      tagsLen[tag]++
+    })
+  }
 
   createPage({
     path: '/tag',
     component: tagsTemplate,
-    context: { tags }
+    context: { tagsLen }
   })
 
   Object.keys(tags).forEach(tagName => {

@@ -11,7 +11,7 @@ import { Pagination } from './pagination'
 
 interface Props {
   pageContext: {
-    posts: Post[]
+    posts: Pick<Post, 'excerpt' | 'frontmatter' | 'path'>[]
     page: PageConf
   }
 }
@@ -25,7 +25,7 @@ export default function Index({ pageContext }: Props) {
   return (
     <Layout>
       {posts.map(post => (
-        <section className={style.post} key={post.id}>
+        <section className={style.post} key={post.path}>
           <Header
             link={post.path}
             time={new Date(post.frontmatter.date)}
@@ -40,7 +40,7 @@ export default function Index({ pageContext }: Props) {
           </footer>
         </section>
       ))}
-      <Pagination {...page}/>
+      <Pagination {...page} />
     </Layout>
   )
 }

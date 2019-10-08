@@ -4,7 +4,7 @@ import { Layout, Timeline } from './common'
 
 interface Props {
   pageContext: {
-    posts: Post[]
+    posts: Pick<Post, 'path' | 'frontmatter'>[]
     tagName: string
   }
 }
