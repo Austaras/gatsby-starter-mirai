@@ -11,6 +11,12 @@ export const createIndexPages = (createPage: Actions['createPage'], posts: Post[
   const relPosts = posts.map(post => pick(post, 'excerpt', 'frontmatter', 'path'))
 
   createPage({
+    path: '/archive',
+    component: path.resolve('src/archive.tsx'),
+    context: { posts: relPosts }
+  })
+
+  createPage({
     path: '/',
     component: template,
     context: {

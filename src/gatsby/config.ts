@@ -25,7 +25,7 @@ export const configApi: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/../../blog`,
-        ignore: ['**/.*'],
+        ignore: ['**/.*', '**/_*'],
         name: 'blog'
       }
     },
@@ -45,7 +45,9 @@ export const configApi: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
+              withWebp: true,
+              quality: 100
             }
           },
           {

@@ -6,7 +6,11 @@ import { Header, Layout, Link, TagList } from '../common'
 import style from './post.module.scss'
 
 interface Props {
-  pageContext: Record<'post' | 'next' | 'prev', Post>
+  pageContext: {
+    post: Post
+    next: Pick<Post, 'path' | 'frontmatter'>
+    prev: Pick<Post, 'path' | 'frontmatter'>
+  }
 }
 
 export default function Template({ pageContext }: Props) {

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { Layout, Link } from '../common'
 import { config } from '../config'
 
+import '../styles.scss'
 import style from './tags.module.scss'
 
 const MIN = 14,
