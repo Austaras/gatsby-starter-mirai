@@ -8,7 +8,8 @@ sidebar:
   post: 日志
   tag: 标签
 header:
-  poston: 发表于
+  postOn: 发表于
+  timeToRead: 阅读时长 %s 分钟
 tags:
   title: 标签
   count: 目前共计 %s 个标签

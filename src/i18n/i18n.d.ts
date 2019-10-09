@@ -5,7 +5,8 @@ declare module '@/i18n' {
     menu: Record<'home' | 'tags' | 'archive' | 'about', string>
     sidebar: Record<'post' | 'tag', string>
     header: {
-      poston: string
+      postOn: string
+      timeToRead: StringWithParam
     }
     tags: {
       title: string

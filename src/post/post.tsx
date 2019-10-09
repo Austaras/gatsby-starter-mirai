@@ -21,7 +21,11 @@ export default function Template({ pageContext }: Props) {
   }, [])
   return (
     <Layout>
-      <Header time={new Date(post.frontmatter.date)} title={post.frontmatter.title} />
+      <Header
+        time={new Date(post.frontmatter.date)}
+        timeToRead={post.timeToRead}
+        title={post.frontmatter.title}
+      />
       <article className='article' dangerouslySetInnerHTML={{ __html: post.html }} />
 
       <TagList list={post.frontmatter.tags || []} />

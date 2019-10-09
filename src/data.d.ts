@@ -2,6 +2,7 @@ interface Post {
   excerpt: string
   html: string
   id: string
+  timeToRead: number
   // manually added
   path: string
   fileAbsolutePath: string

@@ -12,7 +12,7 @@ import '@/styles.scss'
 
 interface Props {
   pageContext: {
-    posts: Pick<Post, 'excerpt' | 'frontmatter' | 'path'>[]
+    posts: Pick<Post, 'excerpt' | 'frontmatter' | 'path' | 'timeToRead'>[]
     page: PageConf
   }
 }
@@ -30,6 +30,7 @@ export default function Index({ pageContext }: Props) {
           <Header
             link={post.path}
             time={new Date(post.frontmatter.date)}
+            timeToRead={post.timeToRead}
             title={post.frontmatter.title}
           />
           <article className='article' dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>

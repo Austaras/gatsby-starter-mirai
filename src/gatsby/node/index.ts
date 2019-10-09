@@ -24,6 +24,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
           node {
             excerpt(format: HTML)
             html
+            timeToRead
             id
             fileAbsolutePath
             frontmatter {

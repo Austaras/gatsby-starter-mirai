@@ -8,7 +8,7 @@ export const createIndexPages = (createPage: Actions['createPage'], posts: Post[
   const limit = config.style.per_page
   const template = path.resolve(`src/index/index.tsx`)
   const count = Math.ceil(posts.length / limit)
-  const relPosts = posts.map(post => pick(post, 'excerpt', 'frontmatter', 'path'))
+  const relPosts = posts.map(post => pick(post, 'excerpt', 'frontmatter', 'path', 'timeToRead'))
 
   createPage({
     path: '/archive',

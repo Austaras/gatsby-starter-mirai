@@ -8,7 +8,8 @@ sidebar:
   post: posts
   tag: tags
 header:
-  poston: Posted on
+  postOn: Posted on
+  timeToRead: Reading time %s min
 tags:
   title: Tags
   count: '%s tags in total'

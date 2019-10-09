@@ -16,8 +16,7 @@ const defConfig = {
     menu: [] as string[],
     per_page: 0,
     date: 'yyyy-MM-dd',
-    month_date: 'MM-dd',
-    time: 'yyyy-MM-dd hh:mm:ss'
+    month_date: 'MM-dd'
   },
   language: 'en',
   salt: ''
