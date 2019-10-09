@@ -25,7 +25,7 @@
   text-align: center;
   position: sticky;
   top: 0;
-  padding: 20px 10px;
+  padding: 20px 10px 0;
 }
 
 .menu {
@@ -72,4 +72,28 @@
     color: $grey-dark;
     font-size: 0.875em;
   }
+}
+
+.back {
+  transition: opacity $transition;
+  margin: 8px -10px 0;
+  background: $white-back;
+  opacity: 0.6;
+  padding: 0.5em 0;
+  font-size: 0.875em;
+  svg {
+    vertical-align: -$font-descent;
+  }
+}
+
+.show {
+  cursor: pointer;
+  visibility: 0.6;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.hide {
+  opacity: 0;
 }

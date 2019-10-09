@@ -11,8 +11,6 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 ## TODOs
 
 - pagination omit
-- to top button
-- footnote style
 - fancy box
 - music player
 - mobile support

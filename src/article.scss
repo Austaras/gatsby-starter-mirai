@@ -102,7 +102,19 @@
     top: 0;
     left: 0;
   }
+
+  .footnotes {
+    hr {
+      margin: 30px 0 0;
+      background-color: $gray-lighter;
+    }
+    p {
+      display: inline-block;
+      margin: 0;
+    }
+  }
 }
+
 
 .gatsby-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;

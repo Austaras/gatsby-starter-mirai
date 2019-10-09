@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { FaArrowUp } from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import style from './sidebar.module.scss'
@@ -19,9 +20,24 @@ export function Sidebar({ className = '' }) {
       }
     }
   `).allMarkdownRemark
+  const [showButton, setShow] = useState(false)
+  const node = useRef<HTMLDivElement>(null)
+  const intr = useRef<IntersectionObserver>(
+    new IntersectionObserver(entr => {
+      setShow(!entr[0].isIntersecting)
+    })
+  )
+  useEffect(() => {
+    if (!node.current) {
+      return
+    }
+    intr.current.observe(node.current)
+    return () => intr.current.disconnect()
+  }, [node.current])
+
   return (
     <aside className={`${style.sidebar} ${className}`}>
-      <nav className={style.staticSide}>
+      <nav className={style.staticSide} ref={node}>
         <Link className={style.title} to='/'>
           {config.site.name}
         </Link>
@@ -47,6 +63,12 @@ export function Sidebar({ className = '' }) {
             <br />
             <span className={style.name}>tags</span>
           </Link>
+          <div
+            className={`${style.back} ${showButton ? style.show : style.hide}`}
+            onClick={() => showButton && window.scrollTo({ top: 0 })}
+          >
+            <FaArrowUp />
+          </div>
         </nav>
       </div>
     </aside>
