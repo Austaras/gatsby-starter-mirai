@@ -1,0 +1,15 @@
+readmore: 阅读更多
+menu:
+  home: 首页
+  tags: 标签
+  archive: 归档
+  about: 关于
+sidebar:
+  post: 日志
+  tag: 标签
+header:
+  poston: 发表于
+tags:
+  title: 标签
+  count: 目前共计 %s 个标签
+about: 关于

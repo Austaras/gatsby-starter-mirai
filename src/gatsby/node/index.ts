@@ -1,6 +1,7 @@
 import path from 'path'
 import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 
+import { config } from '../../config'
 import { createAbout } from './create-about'
 import { createIndexPages } from './create-index'
 import { createPost } from './create-post'
@@ -76,6 +77,12 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
 
 export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@/i18n': path.resolve(__dirname, `../../i18n/${config.language}.yml`),
+        '@': path.resolve(__dirname, '../..')
+      }
+    },
     devtool: process.env.NODE_ENV === 'production' ? false : 'cheap-module-eval-source-map',
     plugins: [
       plugins.define({

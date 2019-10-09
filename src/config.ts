@@ -9,7 +9,6 @@ const defConfig = {
     author: 'Otaku',
     avatar: undefined as string | undefined,
     from: 0,
-    language: 'en',
     url: 'https://www.gatsbyjs.org',
     root: '/'
   },
@@ -20,6 +19,7 @@ const defConfig = {
     month_date: 'MM-dd',
     time: 'yyyy-MM-dd hh:mm:ss'
   },
+  language: 'en',
   salt: ''
 }
 

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 
-import { Layout } from '../common'
-import { config } from '../config'
 import style from './about.module.scss'
+
+import { Layout } from '@/common'
+import { config } from '@/config'
+import i18n from '@/i18n'
 
 interface Props {
   pageContext: {
@@ -18,7 +20,7 @@ export default function Tag({ pageContext }: Props) {
   return (
     <Layout>
       <header className={style.header}>
-        <h1>about</h1>
+        <h1>{i18n.about}</h1>
       </header>
       <article className='article' dangerouslySetInnerHTML={{ __html: content.html }} />
     </Layout>

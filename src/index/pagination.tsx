@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react'
 
 import style from './pagination.module.scss'
-import { Link } from '../common'
+
+import { Link } from '@/common'
 
 export function Pagination({ count, current }: PageConf) {
   const children: ReactElement[] = []

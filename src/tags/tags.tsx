@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 
-import { Layout, Link } from '../common'
-import { config } from '../config'
-
-import '../styles.scss'
 import style from './tags.module.scss'
+
+import { Layout, Link } from '@/common'
+import { config } from '@/config'
+import '@/styles.scss'
+import i18n from '@/i18n'
 
 const MIN = 14,
   MAX = 32
@@ -31,12 +32,14 @@ export default function TagsTemplate({ pageContext }: Props) {
   }, [])
   return (
     <Layout>
-      <h1 className={style.title}>Tags</h1>
+      <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
-        <div className={style.count}>{Object.keys(tagsLen).length} tags in total</div>
+        <div className={style.count}>
+          {i18n.tags.count.replace('%s', Object.keys(tagsLen).length.toString())}
+        </div>
         <article className='article'>
           {Object.keys(tagsLen)
-            .sort((a, b) => a.localeCompare(b, config.site.language, { sensitivity: 'base' }))
+            .sort((a, b) => a.localeCompare(b, config.language, { sensitivity: 'base' }))
             .map(tagName => {
               const ratio = sizes.indexOf(tagsLen[tagName]) / length
               const size = mix(MIN, MAX, ratio)

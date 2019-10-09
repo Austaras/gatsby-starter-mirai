@@ -2,8 +2,9 @@ import React, { ReactNode } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 
 import { Sidebar } from '../sidebar/sidebar'
-import { config } from '../../config'
 import style from './layout.module.scss'
+
+import { config } from '@/config'
 
 interface Props {
   className?: string

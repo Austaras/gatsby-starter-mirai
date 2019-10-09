@@ -3,11 +3,12 @@ import { FaArrowUp } from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import style from './sidebar.module.scss'
-import { config } from '../../config'
-
 import { Link } from '../link/link'
 import { Img } from '../img'
 import { menus } from './menus'
+
+import { config } from '@/config'
+import i18n from '@/i18n'
 
 export function Sidebar({ className = '' }) {
   const { totalCount, tags } = useStaticQuery(graphql`
@@ -22,17 +23,16 @@ export function Sidebar({ className = '' }) {
   `).allMarkdownRemark
   const [showButton, setShow] = useState(false)
   const node = useRef<HTMLDivElement>(null)
-  const intr = useRef<IntersectionObserver>(
-    new IntersectionObserver(entr => {
-      setShow(!entr[0].isIntersecting)
-    })
-  )
+  const intr = useRef<IntersectionObserver>()
   useEffect(() => {
-    if (!node.current) {
-      return
+    if (!node.current) return
+    if (!intr.current) {
+      intr.current = new IntersectionObserver(entr => {
+        setShow(!entr[0].isIntersecting)
+      })
     }
     intr.current.observe(node.current)
-    return () => intr.current.disconnect()
+    return () => intr.current && intr.current.disconnect()
   }, [node.current])
 
   return (
@@ -53,23 +53,28 @@ export function Sidebar({ className = '' }) {
         ) : null}
         <p className={style.authorName}>{config.site.author}</p>
         <nav className={style.stat}>
-          <Link to='/archive'>
-            <span className={style.count}>{totalCount}</span>
-            <br />
-            <span className={style.name}>posts</span>
-          </Link>
-          <Link to='/tag'>
-            <span className={style.count}>{tags.length}</span>
-            <br />
-            <span className={style.name}>tags</span>
-          </Link>
-          <div
-            className={`${style.back} ${showButton ? style.show : style.hide}`}
-            onClick={() => showButton && window.scrollTo({ top: 0 })}
-          >
-            <FaArrowUp />
+          <div className={style.posts}>
+            <Link to='/archive'>
+              <span className={style.count}>{totalCount}</span>
+              <br />
+              <span className={style.name}>{i18n.sidebar.post}</span>
+            </Link>
+          </div>
+          <div className={style.line}></div>
+          <div className={style.tags}>
+            <Link to='/tag'>
+              <span className={style.count}>{tags.length}</span>
+              <br />
+              <span className={style.name}>{i18n.sidebar.tag}</span>
+            </Link>
           </div>
         </nav>
+        <div
+          className={`${style.back} ${showButton ? style.show : style.hide}`}
+          onClick={() => showButton && window.scrollTo({ top: 0 })}
+        >
+          <FaArrowUp />
+        </div>
       </div>
     </aside>
   )

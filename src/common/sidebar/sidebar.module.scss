@@ -54,17 +54,7 @@
 .stat {
   margin-top: 10px;
   line-height: 1.4;
-  a {
-    padding: 0 10px;
-    border-left: $gainsboro 1px solid;
-    &:first-child {
-      border-left-width: 0;
-    }
-  }
-  a,
-  span {
-    display: inline-block;
-  }
+  display: flex;
   .count {
     font-weight: $bold;
   }
@@ -74,12 +64,34 @@
   }
 }
 
+.posts,
+.tags {
+  padding: 0 10px;
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 1px;
+  a {
+    display: inline-block;
+    text-align: center;
+  }
+}
+.posts {
+  text-align: right;
+}
+.line {
+  width: 1px;
+  background-color: $gainsboro;
+}
+.tags {
+  text-align: left;
+}
+
 .back {
   transition: opacity $transition;
   margin: 8px -10px 0;
   background: $white-back;
   opacity: 0.6;
-  padding: 0.5em 0;
+  padding: 0;
   font-size: 0.875em;
   svg {
     vertical-align: -$font-descent;
@@ -88,7 +100,7 @@
 
 .show {
   cursor: pointer;
-  visibility: 0.6;
+  opacity: 0.6;
   &:hover {
     opacity: 0.8;
   }

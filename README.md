@@ -1,6 +1,6 @@
 # gatsby-starter-mirai
 
-A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-theme-next)
+A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-theme-next), with scheme Pisces
 
 ## Set up
 
@@ -15,7 +15,6 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 - music player
 - mobile support
 - word count
-- i18n
 - seacrh
 - rsync deploy
 - seo

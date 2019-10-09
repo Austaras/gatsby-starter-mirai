@@ -1,0 +1,15 @@
+readmore: Read More
+menu:
+  home: Home
+  tags: Tags
+  archive: Archive
+  about: About me
+sidebar:
+  post: posts
+  tag: tags
+header:
+  poston: Posted on
+tags:
+  title: Tags
+  count: '%s tags in total'
+about: about

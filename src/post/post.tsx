@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
-import { Header, Layout, Link, TagList } from '../common'
-
 import style from './post.module.scss'
+
+import { Header, Layout, Link, TagList } from '@/common'
 
 interface Props {
   pageContext: {

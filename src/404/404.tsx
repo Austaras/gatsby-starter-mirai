@@ -3,7 +3,7 @@ import React from 'react'
 import style from './404.module.scss'
 import qr from '../../assets/qr.svg'
 
-import { config } from '../config'
+import { config } from '@/config'
 
 export default () => (
   <div className={style.container}>

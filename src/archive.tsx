@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { Layout, Timeline } from './common'
+import { Layout, Timeline } from '@/common'
 import './styles.scss'
 
 interface Props {
