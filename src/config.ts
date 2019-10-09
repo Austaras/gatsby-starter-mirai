@@ -19,7 +19,7 @@ const defConfig = {
     month_date: 'MM-dd'
   },
   language: 'en',
-  salt: ''
+  key: 'key'
 }
 
 type Config = typeof defConfig

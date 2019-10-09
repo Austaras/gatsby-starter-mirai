@@ -6,8 +6,9 @@ const dict: Record<string, (name: string, time: Date) => string> = {
   name: name => name,
   hash: (_, time) =>
     crypto
-      .createHash('sha256')
-      .update(`${+time}${config.salt}`)
+      .createHmac('sha256', config.key)
+      // a Date object is a Float64, as other number in js
+      .update(new Float64Array([+time]))
       .digest('hex')
       .slice(0, 12)
 }
