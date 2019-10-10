@@ -3,10 +3,10 @@ import { FaArrowUp } from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import style from './sidebar.module.scss'
-import { Link } from '../link/link'
-import { Img } from '../img'
-import { menus } from './menus'
 
+import { StaticSide } from './static-side'
+
+import { Link, Img } from '..'
 import { config } from '@/config'
 import i18n from '@/i18n'
 
@@ -37,14 +37,7 @@ export function Sidebar({ className = '' }) {
 
   return (
     <aside className={`${style.sidebar} ${className}`}>
-      <nav className={style.staticSide} ref={node}>
-        <Link className={style.title} to='/'>
-          {config.site.name}
-        </Link>
-        <nav className={style.menu}>
-          <ul>{config.style.menu.map(key => menus[key])}</ul>
-        </nav>
-      </nav>
+      <StaticSide ref={node} />
       <div className={style.stickySide}>
         {config.site.avatar ? (
           <Link to='/about' className={style.container}>

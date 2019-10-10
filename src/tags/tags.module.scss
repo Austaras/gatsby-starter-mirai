@@ -20,3 +20,9 @@
     color: $black-dark !important; // to override inline style
   }
 }
+
+@include mobile {
+  .count {
+    font-size: 0.875em;
+  }
+}

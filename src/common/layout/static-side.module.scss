@@ -1,0 +1,58 @@
+@import '../consts.scss';
+
+$padding: 20px;
+.title {
+  display: block;
+  background: $black-dark;
+  padding: $padding $padding * 3;
+  text-align: center;
+  color: white;
+  font-size: $sidebar-title-size;
+  line-height: $title-line;
+  &:hover {
+    color: white;
+  }
+}
+
+.static-side {
+  background: white;
+  margin-bottom: 0.75em;
+}
+
+.menu {
+  ul {
+    margin: 0;
+    padding: 20px 0;
+    list-style: none;
+  }
+}
+
+.header {
+  display: none;
+  position: relative;
+}
+
+.header-button {
+  all: unset;
+  font-size: 1em;
+  position: absolute;
+  display: block;
+  height: 2em;
+  top: $padding;
+  left: $padding;
+  color: white;
+  svg {
+    font-size: 1.5em;
+    padding-top: ($base-line - 1.5em) / 2 - $font-descent;
+  }
+}
+
+@include mobile {
+  .header {
+    display: block;
+  }
+
+  .static-side {
+    margin: 0;
+  }
+}

@@ -2,38 +2,15 @@
 
 .sidebar {
   width: $sidebar-width;
-  .title {
-    display: block;
-    background: $black-dark;
-    padding: 20px 0;
-    text-align: center;
-    color: white;
-    font-size: $sidebar-title-size;
-    line-height: $title-line;
-    &:hover {
-      color: white;
-    }
-  }
 }
 
-.static-side {
-  background: white;
-  margin-bottom: 0.75em;
-}
+
 .sticky-side {
   background: white;
   text-align: center;
   position: sticky;
   top: 0;
   padding: 20px 10px 0;
-}
-
-.menu {
-  ul {
-    margin: 0;
-    padding: 20px 0;
-    list-style: none;
-  }
 }
 
 .container {

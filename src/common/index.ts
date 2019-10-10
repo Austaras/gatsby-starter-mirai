@@ -1,6 +1,6 @@
 export * from './header/header'
 export * from './img'
-export * from './layout/layout'
 export * from './link/link'
 export * from './tag-list/tag-list'
 export * from './timeline/timeline'
+export * from './layout/layout'

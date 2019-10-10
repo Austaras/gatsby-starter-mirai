@@ -1,10 +1,14 @@
 import React, { ReactNode } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 
-import { Sidebar } from '../sidebar/sidebar'
+import { Sidebar } from './sidebar'
+import { StaticSide } from './static-side'
 import style from './layout.module.scss'
 
 import { config } from '@/config'
+
+const isMobile =
+  typeof matchMedia === 'undefined' ? false : matchMedia('screen and (max-width: 600px)').matches
 
 interface Props {
   className?: string
@@ -14,9 +18,10 @@ interface Props {
 export const Layout = ({ children, className = '' }: Props) => (
   <div className={`${style.layout} ${className}`}>
     <header className={style.header}></header>
+    <StaticSide isHeader={true} />
     <div className={style.container}>
       <main className={style.main}>{children}</main>
-      <Sidebar className={style.sidebar} />
+      {isMobile ? undefined : <Sidebar className={style.sidebar} />}
     </div>
     <footer className={style.footer}>
       ©{config.site.from === 0 ? '' : ` ${config.site.from} - `}

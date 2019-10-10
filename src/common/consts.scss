@@ -18,6 +18,7 @@ $orange: #fc6423;
 
 $main-color: $black-light;
 
+$base-line: 2;
 $title-size: 1.75em;
 $title-line: 1.5;
 $sidebar-title-size: 1.375em;
@@ -46,5 +47,11 @@ $font-zh: font('Hiragino Sans GB', 'Microsoft YaHei');
   svg {
     @content;
     vertical-align: -0.125em;
+  }
+}
+
+@mixin mobile() {
+  @media screen and (max-width: 600px) {
+    @content;
   }
 }

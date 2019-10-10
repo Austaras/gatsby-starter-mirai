@@ -87,3 +87,9 @@ $title-height: $title-size * $title-line;
   font-weight: 500;
   margin: 0;
 }
+
+@include mobile {
+  .timeline {
+    margin: 0;
+  }
+}

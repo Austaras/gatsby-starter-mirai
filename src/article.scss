@@ -13,6 +13,7 @@
   p {
     @include page-font();
     margin: 0 0 20px;
+    max-width: 100%;
   }
 
   li {
@@ -60,6 +61,7 @@
     background-color: $gainsboro;
     border-radius: 3px;
     padding: 2px 4px;
+    word-wrap: break-word;
   }
 
   code,
@@ -115,6 +117,13 @@
   }
 }
 
+@include mobile {
+  .article {
+    p {
+      font-size: 0.875rem;
+    }
+  }
+}
 
 .gatsby-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
