@@ -119,8 +119,8 @@
 
 @include mobile {
   .article {
-    p {
-      font-size: 0.875rem;
+    p, li {
+      font-size: 1em;
     }
   }
 }

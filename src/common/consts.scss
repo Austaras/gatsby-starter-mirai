@@ -55,3 +55,9 @@ $font-zh: font('Hiragino Sans GB', 'Microsoft YaHei');
     @content;
   }
 }
+
+@mixin desktop() {
+  @media screen and (min-width: 601px) {
+    @content;
+  }
+}

@@ -25,7 +25,10 @@
     padding: 0 20px;
     font-weight: 500;
     transition: background-color $transition;
-    &:hover {
+  }
+
+  @include desktop {
+    .read-more:hover {
       border-color: $black-dark;
       background-color: $black-dark;
       color: white;

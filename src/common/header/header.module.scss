@@ -6,10 +6,11 @@
   h1 {
     margin: 0;
     a {
-      display: inline-block;
       position: relative;
       line-height: 1.2;
-      &:after {
+    }
+    @include desktop {
+      a:after {
         position: absolute;
         left: 0;
         bottom: $font-descent;
@@ -20,7 +21,7 @@
         transform: scaleX(0);
         transition: transform $transition;
       }
-      &:hover::after {
+      a:hover::after {
         transform: scaleX(1);
       }
     }
