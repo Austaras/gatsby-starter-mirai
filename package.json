@@ -43,6 +43,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "ts-node -T src/scripts/deploy.ts",
     "serve": "gatsby serve",
     "new": "ts-node -T src/scripts/new.ts"
   },

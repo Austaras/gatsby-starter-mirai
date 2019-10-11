@@ -17,7 +17,7 @@ interface Props {
 
 export const Header = ({ link, time, timeToRead, title }: Props) => (
   <header className={style.header}>
-    <h1 className={`${style.title} title`}>{link ? <Link to={link}>{title}</Link> : title}</h1>
+    <h1 className='title'>{link ? <Link to={link}>{title}</Link> : title}</h1>
     <span className={style.stat}>
       <FaRegCalendarAlt />
       {` ${i18n.header.postOn} `}

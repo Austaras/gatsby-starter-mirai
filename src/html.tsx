@@ -28,6 +28,10 @@ export default function HTML(props: Props) {
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
         <title>{config.site.name}</title>
         {props.headComponents}
+        <link
+          rel='stylesheet'
+          href='https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Raleway:300&display=swap'
+        />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

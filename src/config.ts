@@ -18,15 +18,26 @@ const defConfig = {
     date: 'yyyy-MM-dd',
     month_date: 'MM-dd'
   },
+  rsync: undefined as
+    | {
+        host: string
+        user: string
+        root: string
+        del?: true
+        port?: number
+      }
+    | undefined,
   language: 'en',
   key: 'key'
 }
 
 type Config = typeof defConfig
 
+const isObj = (v: any) => Object.prototype.toString.call(v) === '[object Object]'
+
 function patch<R extends any, T extends R>(orig: T, mod: R): T {
-  Object.keys(orig).forEach((key) => {
-    if (Object.prototype.toString.call(mod[key]) === '[object Object]') {
+  Object.keys(orig).forEach(key => {
+    if (isObj(orig[key]) && isObj(mod[key])) {
       return (orig[key] = patch(orig[key], mod[key]))
     }
     if (Object.prototype.hasOwnProperty.call(mod, key)) {

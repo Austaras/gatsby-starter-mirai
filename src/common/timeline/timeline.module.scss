@@ -84,12 +84,17 @@ $title-height: $title-size * $title-line;
 .post-title {
   display: inline;
   font-size: 1em;
-  font-weight: 500;
   margin: 0;
 }
 
 @include mobile {
   .timeline {
     margin: 0;
+  }
+}
+
+@include desktop {
+  .post-title {
+    font-size: 1.125em;
   }
 }

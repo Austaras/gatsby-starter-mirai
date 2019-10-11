@@ -1,14 +1,10 @@
 @import './common/consts.scss';
 @import './article.scss';
 
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Raleway:300,500&display=swap');
+$font-zh: 'Hiragino Sans GB', 'Microsoft YaHei';
 
 html {
-  font-family: $font;
-}
-
-html[lang='zh-cn'] {
-  font-family: $font-zh;
+  font-family: 'PT Sans', $font-zh, sans-serif;
 }
 
 body {
@@ -39,10 +35,8 @@ h1,
 }
 
 .title {
-  font-family: 'Raleway';
-  html[lang='zh-cn'] & {
-    font-family: 'Raleway', $font-zh;
-  }
+  font-weight: 300;
+  font-family: 'Raleway', $font-zh, sans-serif;
 }
 
 table {
