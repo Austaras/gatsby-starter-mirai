@@ -2,6 +2,7 @@ import path from 'path'
 import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 
 import { config } from '../../config'
+import { omit } from '../../utils'
 import { createAbout } from './create-about'
 import { createIndexPages } from './create-index'
 import { createPost } from './create-post'
@@ -24,8 +25,8 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
           node {
             excerpt(format: HTML)
             html
+            tableOfContents
             timeToRead
-            id
             fileAbsolutePath
             frontmatter {
               date
@@ -53,7 +54,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
 
   for (const md of mds) {
     if (md.fileAbsolutePath.startsWith(postPath)) {
-      posts.push(md)
+      posts.push(omit(md, 'fileAbsolutePath'))
     } else {
       const name = md.fileAbsolutePath
         .split('\\')
@@ -62,7 +63,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
         .pop()!
         .split('.')
         .shift()!
-      pages[name] = md
+      pages[name] = omit(md, 'fileAbsolutePath')
     }
   }
 

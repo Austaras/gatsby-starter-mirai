@@ -51,6 +51,13 @@ export const configApi: GatsbyConfig = {
             }
           },
           {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              icon: false,
+              maintainCase: true
+            }
+          },
+          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               classPrefix: 'language-',
