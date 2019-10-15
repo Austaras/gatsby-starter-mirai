@@ -2,6 +2,7 @@
 config.yml
 blog/**/*
 assets/*
+static/*
 
 # Logs
 logs

@@ -9,3 +9,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.spacer {
+  width: 10%;
+  flex-shrink: 0;
+}

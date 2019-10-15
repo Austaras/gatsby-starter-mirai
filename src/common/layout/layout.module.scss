@@ -55,6 +55,9 @@ $margin: 12px;
   color: $grey-dark;
   font-size: 0.875em;
   @include svg-align;
+  svg {
+    margin: 0 5px;
+  }
 }
 
 @include mobile {

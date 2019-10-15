@@ -47,6 +47,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     return node
   })
 
+  // FIXME:
   const postPath = `${process.cwd()}/blog/posts`
 
   const posts: Post[] = []

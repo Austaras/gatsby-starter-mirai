@@ -13,10 +13,8 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 - pagination omit
 - fancy box
 - music player
-- seacrh
-- rsync deploy
-- React performance
+- maybe seacrh
 - build performance
 - seo
-  - robots.txt
+  - sitemap
   - itemprop
