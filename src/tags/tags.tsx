@@ -9,8 +9,8 @@ import i18n from '@/i18n'
 
 const MIN = 14,
   MAX = 32
-const START = [0xcc, 0xcc, 0xcc],
-  END = [0x11, 0x11, 0x11]
+const START = new Array<number>(3).fill(0xcc),
+  END = new Array<number>(3).fill(0x11)
 const mix = (a: number, b: number, ratio: number) => Math.round(a + (b - a) * ratio)
 
 interface Props {

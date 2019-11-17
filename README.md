@@ -10,6 +10,7 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 
 ## TODOs
 
+- table of content
 - pagination omit
 - fancy box
 - music player

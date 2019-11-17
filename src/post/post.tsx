@@ -28,7 +28,7 @@ export default function Template({ pageContext }: Props) {
       />
       <article className='article' dangerouslySetInnerHTML={{ __html: post.html }} />
 
-      <TagList list={post.frontmatter.tags || []} />
+      <TagList list={post.frontmatter.tags ?? []} />
 
       <nav className={style.navigation}>
         {prev && (

@@ -32,7 +32,7 @@ export function Sidebar({ className = '' }) {
       })
     }
     intr.current.observe(node.current)
-    return () => intr.current && intr.current.disconnect()
+    return () => intr.current?.disconnect()
   }, [node.current])
 
   return (
