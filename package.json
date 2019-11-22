@@ -48,6 +48,9 @@
     "serve": "gatsby serve",
     "new": "ts-node -T src/scripts/new.ts"
   },
+  "resolutions": {
+    "create-react-context": "0.3.0"
+  },
   "eslintIgnore": [
     "*.js"
   ]

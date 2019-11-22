@@ -5,12 +5,13 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 ## Set up
 
 1. Clone this repo
-1. `yarn`
-1. `yarn install`
+2. `yarn`
+3. `yarn install`
+4. rename config.example.yml to config.yml and modify it to your need
 
 ## TODOs
 
-- table of content
+- table of content(blocked by [Gaysby](https://github.com/gatsbyjs/gatsby/pull/18543))
 - pagination omit
 - fancy box
 - music player

@@ -1,0 +1,32 @@
+template:
+  # can have :hash
+  path: /:hash
+  # use date-fns format
+  date: yyyy-MM-dd HH:mm:ss
+
+site:
+  name: Gatsby
+  author: Someone
+  # file name in assets folder
+  # avatar:
+  from: 2019
+  # url:
+  # root: /
+
+style:
+  menu: [home, tag, archive, about]
+  per_page: 10
+  date: yyyy-MM-dd
+  month_date: MM-dd
+
+# uncomment this if want to use rsync
+# rsync:
+#   host:
+#   user:
+#   root:
+#   del: false
+#   port: 22
+
+language: en
+# use to add salt for hmac
+key: key

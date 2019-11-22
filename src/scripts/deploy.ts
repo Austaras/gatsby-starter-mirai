@@ -20,6 +20,7 @@ const proc = spawn(cmd, args, {
   cwd: process.cwd(),
   env: process.env
 })
+
 proc.stdout.on('data', data => {
   console.log(data.toString())
 })
