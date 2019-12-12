@@ -18,11 +18,13 @@ export const StaticSide = forwardRef(({ isHeader = false }: Props, ref: React.Re
       <Link className={style.title} to='/'>
         {config.site.name}
       </Link>
-      <button className={style.headerButton} onClick={() => isHeader && setExpand(!expand)}>
-        <FaBars />
-      </button>
+      {isHeader ? (
+        <button className={style.headerButton} onClick={() => setExpand(!expand)}>
+          <FaBars />
+        </button>
+      ) : null}
       <nav className={style.menu} style={{ display: expand ? 'block' : 'none' }}>
-        <ul>{config.style.menu.map(key => menus[key])}</ul>
+        {config.style.menu.map(key => menus[key])}
       </nav>
     </nav>
   )

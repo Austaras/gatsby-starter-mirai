@@ -43,11 +43,6 @@ $margin: 12px;
   box-sizing: border-box;
 }
 
-.sidebar {
-  display: none;
-  flex-shrink: 0;
-}
-
 .footer {
   margin-top: auto;
   padding: 20px 0;
@@ -68,8 +63,3 @@ $margin: 12px;
   }
 }
 
-@media screen and (min-width: 601px) {
-  .sidebar {
-    display: block;
-  }
-}

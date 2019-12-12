@@ -1,88 +1,13 @@
 @import '../consts.scss';
 
 .sidebar {
+  display: none;
+  flex-shrink: 0;
   width: $sidebar-width;
 }
 
-
-.sticky-side {
-  background: white;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  padding: 20px 10px 0;
-}
-
-.container {
-  display: block;
-  margin: 0 auto;
-  width: 128px;
-  height: 128px;
-  padding: 2px;
-  border: 1px solid $gainsboro;
-}
-
-.author-name {
-  color: $black-dark;
-  font-weight: $bold;
-  margin: 0;
-}
-
-.stat {
-  margin-top: 10px;
-  line-height: 1.4;
-  display: flex;
-  .count {
-    font-weight: $bold;
+@media screen and (min-width: 601px) {
+  .sidebar {
+    display: block;
   }
-  .name {
-    color: $grey-dark;
-    font-size: 0.875em;
-  }
-}
-
-.posts,
-.tags {
-  padding: 0 10px;
-  flex-grow: 1;
-  box-sizing: border-box;
-  width: 1px;
-  a {
-    display: inline-block;
-    text-align: center;
-  }
-}
-.posts {
-  text-align: right;
-}
-.line {
-  width: 1px;
-  background-color: $gainsboro;
-}
-.tags {
-  text-align: left;
-}
-
-.back {
-  transition: opacity $transition;
-  margin: 8px -10px 0;
-  background: $white-back;
-  opacity: 0.6;
-  padding: 0;
-  font-size: 0.875em;
-  svg {
-    vertical-align: -$font-descent;
-  }
-}
-
-.show {
-  cursor: pointer;
-  opacity: 0.6;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.hide {
-  opacity: 0;
 }

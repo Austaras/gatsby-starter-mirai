@@ -2,6 +2,7 @@ interface PostData {
   excerpt: string
   html: string
   timeToRead: number
+  tableOfContents: any
   // manually added
   path: string
   fileAbsolutePath: string

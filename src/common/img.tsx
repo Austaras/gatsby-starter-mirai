@@ -25,6 +25,6 @@ export function Img({ className, imgStyle, alt, filename }: Props) {
       }
     }
   `).images
-  const image = edges.find(edge => edge.node.filename === filename).node
+  const image = edges.find((edge: any) => edge.node.filename === filename).node
   return <GImg fluid={image.childImageSharp.fluid} className={className} alt={alt} imgStyle={imgStyle} />
 }

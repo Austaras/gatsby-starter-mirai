@@ -2,7 +2,7 @@ declare module '@/i18n' {
   type StringWithParam = string
   const i18n: {
     readmore: string
-    menu: Record<'home' | 'tags' | 'archive' | 'about', string>
+    menu: Record<'home' | 'tag' | 'archive' | 'about', string>
     sidebar: Record<'post' | 'tag', string>
     header: {
       postOn: string
@@ -11,6 +11,10 @@ declare module '@/i18n' {
     tags: {
       title: string
       count: StringWithParam
+    }
+    tab: {
+      toc: string
+      site: string
     }
     about: string
   }

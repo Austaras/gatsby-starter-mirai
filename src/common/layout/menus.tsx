@@ -1,30 +1,27 @@
 import React, { ReactElement } from 'react'
-import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
+import { FaArchive, FaHome, FaTags, FaUserAlt, FaTag } from 'react-icons/fa'
 
 import style from './menus.module.scss'
 
 import { Link } from '..'
 import i18n from '@/i18n'
 
-export const menus: Record<string, ReactElement> = {
-  home: (
-    <Link key='home' className={style.menuLink} to='/' activeClassName={style.active}>
-      <FaHome /> {i18n.menu.home}
-    </Link>
-  ),
-  tag: (
-    <Link key='tag' className={style.menuLink} to='/tag' activeClassName={style.active}>
-      <FaTags /> {i18n.menu.tags}
-    </Link>
-  ),
-  archive: (
-    <Link key='archive' className={style.menuLink} to='/archive' activeClassName={style.active}>
-      <FaArchive /> {i18n.menu.archive}
-    </Link>
-  ),
-  about: (
-    <Link key='about' className={style.menuLink} to='/about' activeClassName={style.active}>
-      <FaUserAlt /> {i18n.menu.about}
+const data = {
+  home: <FaTags />,
+  tag: <FaTag />,
+  archive: <FaArchive />,
+  about: <FaUserAlt />
+} as const
+type Tag = keyof typeof data
+export const menus: Record<string, ReactElement> = (Object.keys(data) as Tag[]).reduce((o, key) => {
+  o[key] = (
+    <Link
+      key={key}
+      className={style.menuLink}
+      to={`/${key === 'home' ? '' : key}`}
+      activeClassName={style.active}>
+      {data[key]} {i18n.menu[key]}
     </Link>
   )
-}
+  return o
+}, {} as Record<Tag, React.ReactElement>)

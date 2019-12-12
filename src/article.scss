@@ -21,16 +21,7 @@
   }
 
   a {
-    word-wrap: break-word;
-    border-bottom: 1px solid $grey-dark;
-    color: $black-light; // cover visited color
-    outline: none;
-    text-decoration: none;
-
-    &:hover {
-      border-bottom-color: $black-dark;
-      color: $black-dark;
-    }
+    @include nav-link;
   }
 
   ul,
@@ -119,7 +110,8 @@
 
 @include mobile {
   .article {
-    p, li {
+    p,
+    li {
       font-size: 1em;
     }
   }

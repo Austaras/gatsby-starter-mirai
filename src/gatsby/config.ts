@@ -53,8 +53,7 @@ export const configApi: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              icon: false,
-              maintainCase: true
+              icon: false
             }
           },
           {
@@ -68,8 +67,7 @@ export const configApi: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-external-links',
             options: {
-              target: '_blank',
-              rel: 'nofollow'
+              target: '_blank'
             }
           }
         ]

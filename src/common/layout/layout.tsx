@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { createContext, ReactNode } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 
 import { Sidebar } from './sidebar'
@@ -11,23 +11,25 @@ const isMobile =
   typeof matchMedia === 'undefined' ? false : matchMedia('screen and (max-width: 600px)').matches
 
 interface Props {
-  className?: string
   children: ReactNode
+  className?: string
 }
 
-export const Layout = ({ children, className = '' }: Props) => (
-  <div className={`${style.layout} ${className}`}>
-    <header className={style.header}></header>
-    <StaticSide isHeader={true} />
-    <div className={style.container}>
-      <main className={style.main}>{children}</main>
-      {isMobile ? undefined : <Sidebar className={style.sidebar} />}
+export function Layout({ children, className = '' }: Props) {
+  return (
+    <div className={`${style.layout} ${className}`}>
+        <header className={style.header}></header>
+        <StaticSide isHeader={true} />
+        <div className={style.container}>
+          <main className={style.main}>{children}</main>
+          {isMobile ? undefined : <Sidebar />}
+        </div>
+        <footer className={style.footer}>
+          ©{config.site.from === 0 ? '' : ` ${config.site.from} - `}
+          {new Date().getFullYear()}
+          <FaPlusCircle />
+          {config.site.author}
+        </footer>
     </div>
-    <footer className={style.footer}>
-      ©{config.site.from === 0 ? '' : ` ${config.site.from} - `}
-      {new Date().getFullYear()}
-      <FaPlusCircle />
-      {config.site.author}
-    </footer>
-  </div>
-)
+  )
+}

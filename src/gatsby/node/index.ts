@@ -25,7 +25,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
           node {
             excerpt(format: HTML)
             html
-            tableOfContents
+            tableOfContents(absolute: false)
             timeToRead
             fileAbsolutePath
             frontmatter {
