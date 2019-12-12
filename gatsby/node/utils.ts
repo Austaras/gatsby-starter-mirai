@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-import { config } from '../../config'
+import { config } from '../../src/config'
 
 const dict: Record<string, (title: string, time: Date) => string> = {
   title: title => title,
@@ -13,7 +13,7 @@ const dict: Record<string, (title: string, time: Date) => string> = {
       .slice(0, 12)
 }
 
-export function generate(title: string, date: Date) {
+export function generatePath(title: string, date: Date) {
   let res = config.template.path
   if (!res.startsWith('/')) res = `/${res}`
   Object.keys(dict).forEach(key => {

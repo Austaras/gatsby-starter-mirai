@@ -1,6 +1,6 @@
 import { GatsbyConfig } from 'gatsby'
 
-import { config } from '../config'
+import { config } from '../src/config'
 
 /* eslint-disable @typescript-eslint/camelcase */
 export const configApi: GatsbyConfig = {
@@ -24,7 +24,7 @@ export const configApi: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/../../blog`,
+        path: `${__dirname}/../blog`,
         ignore: ['**/.*', '**/_*'],
         name: 'blog'
       }
@@ -32,7 +32,7 @@ export const configApi: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/../../assets`,
+        path: `${__dirname}/../assets`,
         ignore: ['**/.*'],
         name: 'assets'
       }
@@ -74,6 +74,7 @@ export const configApi: GatsbyConfig = {
       }
     },
     'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp'
   ]
 }

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 import style from './about.module.scss'
 
@@ -8,21 +9,19 @@ import i18n from '@/i18n'
 
 interface Props {
   pageContext: {
-    content: Post
+    content: string
   }
 }
+const Tag = ({ pageContext: { content } }: Props) => (
+  <Layout>
+    <Helmet>
+      <title>About: {config.site.author}</title>
+    </Helmet>
+    <header className={style.header}>
+      <h1>{i18n.about}</h1>
+    </header>
+    <article className='article' dangerouslySetInnerHTML={{ __html: content }} />
+  </Layout>
+)
 
-export default function Tag({ pageContext }: Props) {
-  const { content } = pageContext
-  useEffect(() => {
-    document.title = `About: ${config.site.author}`
-  }, [])
-  return (
-    <Layout>
-      <header className={style.header}>
-        <h1>{i18n.about}</h1>
-      </header>
-      <article className='article' dangerouslySetInnerHTML={{ __html: content.html }} />
-    </Layout>
-  )
-}
+export default Tag

@@ -1,13 +1,13 @@
 import path from 'path'
 import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 
-import { config } from '../../config'
-import { omit } from '../../utils'
 import { createAbout } from './create-about'
 import { createIndexPages } from './create-index'
 import { createPost } from './create-post'
 import { createTagPages } from './create-tag'
-import { generate } from './path'
+import { generatePath } from './utils'
+
+import { config } from '../../src/config'
 
 export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
   const { createPage } = actions
@@ -20,14 +20,19 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
 
   const { errors, data } = await graphql<QueryRes>(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date]},
+        filter:{fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}})
+      {
         edges {
           node {
             excerpt(format: HTML)
             html
-            tableOfContents(absolute: false)
+            headings {
+              depth
+              value
+            }
             timeToRead
-            fileAbsolutePath
             frontmatter {
               date
               tags
@@ -42,48 +47,24 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     return Promise.reject(errors)
   }
 
-  const mds = data!.allMarkdownRemark.edges.map(({ node }) => {
-    node.path = generate(node.frontmatter.title, new Date(node.frontmatter.date))
+  const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
+    node.path = generatePath(node.frontmatter.title, new Date(node.frontmatter.date))
     return node
   })
 
-  // FIXME:
-  const postPath = `${process.cwd()}/blog/posts`
-
-  const posts: Post[] = []
-  const pages: Record<string, Post> = {}
-
-  for (const md of mds) {
-    if (md.fileAbsolutePath.startsWith(postPath)) {
-      posts.push(omit(md, 'fileAbsolutePath'))
-    } else {
-      const name = md.fileAbsolutePath
-        .split('\\')
-        .pop()!
-        .split('/')
-        .pop()!
-        .split('.')
-        .shift()!
-      pages[name] = omit(md, 'fileAbsolutePath')
-    }
-  }
-
-  createAbout(createPage, pages)
   createTagPages(createPage, posts)
   createIndexPages(createPage, posts)
   createPost(createPage, posts)
 
-  // Create pages for each markdown file.
-
-  return posts
+  await Promise.all([createAbout(createPage, graphql)])
 }
 
 export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '@/i18n': path.resolve(__dirname, `../../i18n/${config.language}.yml`),
-        '@': path.resolve(__dirname, '../..')
+        '@/i18n': path.resolve(__dirname, `../../src/i18n/${config.language}.yml`),
+        '@': path.resolve(__dirname, '../../src')
       }
     },
     devtool: process.env.NODE_ENV === 'production' ? false : 'cheap-module-eval-source-map',

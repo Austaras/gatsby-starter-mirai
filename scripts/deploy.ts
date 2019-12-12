@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
 import path from 'path'
 
-import { config } from '../config'
+import { config } from '../src/config'
 
 if (!config.rsync) {
   throw new Error('must specify rsync in config.yml')

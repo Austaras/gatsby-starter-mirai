@@ -1,7 +1,7 @@
 import path from 'path'
 import { Actions } from 'gatsby'
 
-import { pick } from '../../utils'
+import { pick } from '../../src/utils'
 
 export const createTagPages = (createPage: Actions['createPage'], posts: Post[]) => {
   const tagTemplate = path.resolve(`src/tag.tsx`)

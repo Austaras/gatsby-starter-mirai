@@ -1,11 +1,9 @@
-interface PostData {
+interface Post {
   excerpt: string
   html: string
   timeToRead: number
-  tableOfContents: any
   // manually added
   path: string
-  fileAbsolutePath: string
   frontmatter: {
     date: string
     tags: string[]
@@ -13,11 +11,9 @@ interface PostData {
   }
 }
 
-type Post = Pick<PostData, Exclude<keyof PostData, 'fileAbsolutePath'>>
-
 interface AllMarkdownRemark {
   edges: {
-    node: PostData
+    node: Post
   }[]
 }
 

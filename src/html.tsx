@@ -36,7 +36,7 @@ export default function HTML(props: Props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <noscript key='noscript' id='gatsby-noscript'>
-          This app works best with JavaScript enabled.
+          This app works even with JavsScript disabled, be cool.
         </noscript>
         <div key={`body`} id='___gatsby' dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}

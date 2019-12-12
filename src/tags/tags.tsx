@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import {Helmet} from 'react-helmet-async'
 
 import style from './tags.module.scss'
 
@@ -19,19 +20,18 @@ interface Props {
   }
 }
 
-export default function TagsTemplate({ pageContext }: Props) {
-  const { tagsLen } = pageContext
+export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
   // logic from https://github.com/hexojs/hexo/blob/3.9.0/lib/plugins/helper/tagcloud.js
   const sizes = Array.from(new Set(Object.values(tagsLen)))
 
   sizes.sort((a, b) => a - b)
   const length = sizes.length - 1
 
-  useEffect(() => {
-    document.title = 'Tags'
-  }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Tags</title>
+      </Helmet>
       <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
         <div className={style.count}>

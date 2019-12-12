@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 import { Layout, Timeline } from '@/common'
 import './styles.scss'
@@ -8,16 +9,13 @@ interface Props {
     posts: Pick<Post, 'frontmatter' | 'path'>[]
   }
 }
+const Archive = ({ pageContext: { posts } }: Props) => (
+  <Layout>
+    <Helmet>
+      <title>Archive</title>
+    </Helmet>
+    <Timeline posts={posts} />
+  </Layout>
+)
 
-export default function Archive({ pageContext }: Props) {
-  const { posts } = pageContext
-
-  useEffect(() => {
-    document.title = 'Archive'
-  }, [])
-  return (
-    <Layout>
-      <Timeline posts={posts} />
-    </Layout>
-  )
-}
+export default Archive

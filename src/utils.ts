@@ -6,3 +6,6 @@ export const omit = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, Exclud
     delete o[key]
     return o
   }, Object.assign({}, obj))
+
+export const isMobile =
+  typeof matchMedia === 'undefined' ? false : matchMedia('screen and (max-width: 600px)').matches

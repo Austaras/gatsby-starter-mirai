@@ -1,8 +1,8 @@
 import path from 'path'
 import { Actions } from 'gatsby'
 
-import { config } from '../../config'
-import { pick } from '../../utils'
+import { config } from '../../src/config'
+import { pick } from '../../src/utils'
 
 export const createIndexPages = (createPage: Actions['createPage'], posts: Post[]) => {
   const limit = config.style.per_page

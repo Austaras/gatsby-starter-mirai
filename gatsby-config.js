@@ -1,3 +1,3 @@
-const { configApi } = require('./src/gatsby')
+const { configApi } = require('./gatsby')
 
 module.exports = configApi
