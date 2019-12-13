@@ -5375,6 +5375,13 @@ gatsby-plugin-page-creator@^2.1.36:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-preact@^3.1.24:
+  version "3.1.24"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-preact/download/gatsby-plugin-preact-3.1.24.tgz#adc765c29da2923b7597bc12602b181d33585e48"
+  integrity sha1-rcdlwp2ikjt1l7wSYCsYHTNYXkg=
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+
 gatsby-plugin-react-helmet-async@^1.0.13:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet-async/-/gatsby-plugin-react-helmet-async-1.0.13.tgz#14de88f544899b3f7a3310b6a7fa8147cda5f6b8"
@@ -9898,6 +9905,11 @@ potrace@^2.1.2:
   dependencies:
     jimp "^0.6.4"
 
+preact@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.npm.taobao.org/preact/download/preact-10.1.0.tgz#e90771c3fec23926bbd32ff4e9e62e4d79845f8b"
+  integrity sha1-6Qdxw/7COSa70y/06eYuTXmEX4s=
+
 prebuild-install@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.3.tgz#ef4052baac60d465f5ba6bf003c9c1de79b9da8e"
@@ -10912,7 +10924,7 @@ rx-lite@*, rx-lite@^4.0.8:
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
   integrity sha1-Cx4Rr4vESDbwSmQH6S2kJGe3lEQ=
 
-rxjs@^6.4.0:
+rxjs@^6.4.0, rxjs@^6.5.3:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.3.tgz#510e26317f4db91a7eb1de77d9dd9ba0a4899a3a"
   integrity sha512-wuYsAYYFdWTAnAaPoKGNhfpWwKZbJW+HgAJ+mImp+Epl7BG8oNWBCTyRM8gba9k4lk8BgWdoYm21Mo/RYhhbgA==

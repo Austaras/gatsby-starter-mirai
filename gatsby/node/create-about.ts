@@ -14,7 +14,7 @@ export const createAbout = async (createPage: Actions['createPage'], graphql: Cr
     }
   `)
   if (errors) throw errors
-  const template = path.resolve(`src/about/about.tsx`)
+  const template = path.resolve(`src/about/index.tsx`)
   const content = data!.allMarkdownRemark.edges[0].node.html
 
   createPage({

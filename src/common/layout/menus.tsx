@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { FaArchive, FaHome, FaTags, FaUserAlt, FaTag } from 'react-icons/fa'
+import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import style from './menus.module.scss'
 
@@ -7,8 +7,8 @@ import { Link } from '..'
 import i18n from '@/i18n'
 
 const data = {
-  home: <FaTags />,
-  tag: <FaTag />,
+  home: <FaHome />,
+  tag: <FaTags />,
   archive: <FaArchive />,
   about: <FaUserAlt />
 } as const

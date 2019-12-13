@@ -1,10 +1,7 @@
-export interface TOCTree {
-  content: string
-  hash: string
-  children?: TOCTree[]
-}
+import { TOCTree } from '@/common'
 
-export const calcActive = (curr: number, thr: number[]) => {
+export const calcActive = (ele: HTMLElement, thr: number[]) => {
+  const curr = -ele.getBoundingClientRect().top + 90
   if (curr < thr[0]) return -1
   for (let i = 0; i < thr.length - 1; i++) {
     if (thr[i] <= curr && curr < thr[i + 1]) {
@@ -19,7 +16,6 @@ function getDepth(h: HTMLHeadingElement) {
 }
 
 export function generateTree(headings: HTMLHeadingElement[]) {
-  if (headings.length === 0) return
   const depth = getDepth(headings[0])
   const result = [] as TOCTree[]
   const stack: TOCTree[] = []

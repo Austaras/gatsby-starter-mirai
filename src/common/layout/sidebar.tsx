@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { memo, useState } from 'react'
 
 import { StaticSide } from './static-side'
 import { StickySide } from './sticky-side'
@@ -6,7 +6,7 @@ import style from './sidebar.module.scss'
 
 import { useIntersection } from '..'
 
-export function Sidebar() {
+export const Sidebar = memo(() => {
   const [showButton, setShow] = useState(false)
   const ref = useIntersection<HTMLDivElement>(entr => setShow(!entr[0].isIntersecting))
 
@@ -16,4 +16,4 @@ export function Sidebar() {
       <StickySide showButton={showButton} />
     </aside>
   )
-}
+})

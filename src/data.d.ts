@@ -1,8 +1,9 @@
-interface Post {
+interface PostData {
   excerpt: string
   html: string
   timeToRead: number
   // manually added
+  headings: any[]
   path: string
   frontmatter: {
     date: string
@@ -11,9 +12,13 @@ interface Post {
   }
 }
 
+interface Post extends Omit<PostData, 'headings'> {
+  headings?: number
+}
+
 interface AllMarkdownRemark {
   edges: {
-    node: Post
+    node: PostData
   }[]
 }
 

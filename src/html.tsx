@@ -13,7 +13,7 @@ interface Props {
 
 export default function HTML(props: Props) {
   if (process.env.NODE_ENV === 'production') {
-    props.headComponents = props.headComponents.map((component, index) => {
+    props.headComponents = props.headComponents.map(component => {
       if (component.type === 'style') {
         return <link rel='stylesheet' href={component.props['data-href']} />
       }

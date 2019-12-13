@@ -10,8 +10,8 @@ export default () => (
     <div className={style.emoji}>:(</div>
     <div className={style.content}>
       <div>
-        Your browsing ran into a problem and needs to renavigate. I'm not colletcing any error info, and
-        then I'll not renavigate for you.
+        Your browsing ran into a problem and needs to renavigate. I'm not colletcing any error info, and then
+        I'll not renavigate for you.
       </div>
       <div className={style.space}></div>
       <div>NaN% complete</div>

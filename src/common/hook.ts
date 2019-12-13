@@ -1,4 +1,5 @@
-import { useEffect, useRef, MutableRefObject } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { BehaviorSubject } from 'rxjs'
 
 export const useIntersection = <T extends Element = HTMLElement>(
   cb: IntersectionObserverCallback,
@@ -17,10 +18,24 @@ export const useIntersection = <T extends Element = HTMLElement>(
   return node
 }
 
-export function useConstant<T>(fn: (ref: MutableRefObject<T | undefined>) => T) {
-  const ref = useRef<T>()
-  if (ref.current === undefined) {
-    ref.current = fn(ref)
+export const useBehavior = <T>(ob: BehaviorSubject<T>) => {
+  const [state, set] = useState(() => ob.getValue())
+  useEffect(() => {
+    const sub = ob.subscribe(t => {
+      console.log(t)
+      set(t)
+    })
+    return () => sub.unsubscribe()
+  }, [ob])
+  return state
+}
+
+export const useConstant = <T>(fn: () => T): T => {
+  const ref = useRef<any>()
+  if (!ref.current) {
+    console.log(ref.current)
+    console.log('rrr')
+    ref.current = fn()
   }
   return ref.current
 }

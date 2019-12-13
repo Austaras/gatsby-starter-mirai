@@ -18,8 +18,7 @@ export const Link = ({ activeClassName, children, className = '', styleObj, to }
     to={to}
     style={styleObj}
     // it's stupid but I had to deal with it
-    partiallyActive={to !== '/'}
-  >
+    partiallyActive={to !== '/'}>
     {children}
   </GatsbyLink>
 )

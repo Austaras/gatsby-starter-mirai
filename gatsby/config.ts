@@ -4,10 +4,11 @@ import { config } from '../src/config'
 
 /* eslint-disable @typescript-eslint/camelcase */
 export const configApi: GatsbyConfig = {
-  pathPrefix: `/`,
+  pathPrefix: '/',
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
+    'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-manifest',

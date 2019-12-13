@@ -59,7 +59,7 @@
                     "single",
                     {
                         "avoidEscape": true,
-                        "allowTemplateLiterals": true
+                        "allowTemplateLiterals": false
                     }
                 ],
                 "quote-props": ["warn", "as-needed"],
