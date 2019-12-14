@@ -1,18 +1,15 @@
-import React, { memo, useState } from 'react'
+import React, { useState } from 'react'
 import { FaArrowUp } from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { findElement, TOCComp } from './toc'
 import style from './sticky-side.module.scss'
 
-import { Link, Img, useBehavior, toc$ } from '..'
+import { Link, Img, useSub, showButton$, toc$ } from '..'
 import { config } from '@/config'
 import i18n from '@/i18n'
 
-interface Props {
-  showButton: boolean
-}
-export const StickySide = memo(({ showButton }: Props) => {
+export const StickySide = () => {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
       allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }) {
@@ -23,9 +20,9 @@ export const StickySide = memo(({ showButton }: Props) => {
       }
     }
   `).allMarkdownRemark
-  const { toc, active } = useBehavior(toc$) ?? {}
+  const { toc, active } = useSub(toc$) ?? {}
+  const showButton = useSub(showButton$)
   const [showToc, setShow] = useState(!!toc)
-  console.log(totalCount, showToc, toc && toc.length, active)
 
   const site = [
     config.site.avatar ? (
@@ -85,4 +82,4 @@ export const StickySide = memo(({ showButton }: Props) => {
       {up}
     </div>
   )
-})
+}

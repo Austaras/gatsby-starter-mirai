@@ -3,7 +3,10 @@ interface PostData {
   html: string
   timeToRead: number
   // manually added
-  headings: any[]
+  headings: {
+    depth: number
+    value: string
+  }[]
   path: string
   frontmatter: {
     date: string
@@ -12,8 +15,14 @@ interface PostData {
   }
 }
 
+interface TOCTree {
+  content: string
+  hash: string
+  children?: TOCTree[]
+}
+
 interface Post extends Omit<PostData, 'headings'> {
-  headings?: number
+  headings?: TOCTree[]
 }
 
 interface AllMarkdownRemark {

@@ -1,18 +1,34 @@
-import React, { forwardRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 
 import { menus } from './menus'
 import style from './static-side.module.scss'
 
-import { Link } from '..'
+import { Link, showButton$ } from '..'
 import { config } from '@/config'
+import { isMobile } from '@/utils'
+
+const useIntersection = <T extends Element = HTMLElement>(isHeader: boolean) => {
+  if (isMobile || isHeader) return
+  const node = useRef<T>(null)
+  const intr = useRef<IntersectionObserver>()
+  useEffect(() => {
+    if (!node.current) return
+    if (!intr.current) {
+      intr.current = new IntersectionObserver(entr => showButton$.next(!entr[0].isIntersecting))
+    }
+    intr.current.observe(node.current)
+    return () => intr.current!.disconnect()
+  }, [node.current])
+  return node
+}
 
 interface Props {
   isHeader?: boolean
 }
-
-export const StaticSide = forwardRef(({ isHeader = false }: Props, ref: React.Ref<HTMLDivElement>) => {
+export const StaticSide = ({ isHeader = false }: Props) => {
   const [expand, setExpand] = useState(!isHeader)
+  const ref = useIntersection<HTMLDivElement>(isHeader)
   return (
     <nav className={`${style.staticSide} ${isHeader ? style.header : ''}`} ref={ref}>
       <Link className={style.title} to='/'>
@@ -28,4 +44,4 @@ export const StaticSide = forwardRef(({ isHeader = false }: Props, ref: React.Re
       </nav>
     </nav>
   )
-})
+}
