@@ -6,10 +6,9 @@ import style from './static-side.module.scss'
 
 import { Link, showButton$ } from '..'
 import { config } from '@/config'
-import { isMobile } from '@/utils'
 
 const useIntersection = <T extends Element = HTMLElement>(isHeader: boolean) => {
-  if (isMobile || isHeader) return
+  if (isHeader) return
   const node = useRef<T>(null)
   const intr = useRef<IntersectionObserver>()
   useEffect(() => {

@@ -11,12 +11,9 @@ A Gatsby.js port of famous hexo theme [Next](https://github.com/theme-next/hexo-
 
 ## TODOs
 
-- table of content(blocked by [Gaysby](https://github.com/gatsbyjs/gatsby/pull/18543))
 - pagination omit
 - fancy box
 - music player
-- maybe seacrh
-- build performance
 - seo
   - sitemap
   - itemprop

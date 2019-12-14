@@ -6,7 +6,7 @@ import { config } from '../src/config'
 if (!config.rsync) {
   throw new Error('must specify rsync in config.yml')
 }
-const dir = path.resolve(__dirname + '../../../public') + '/'
+const dir = path.resolve(__dirname, '../public') + '/'
 const { rsync } = config
 
 const cmd = 'rsync'

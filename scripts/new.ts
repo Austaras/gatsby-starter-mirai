@@ -3,7 +3,7 @@ import os from 'os'
 
 import { format } from 'date-fns'
 
-import { config } from '../config'
+import { config } from '../src/config'
 
 const time = new Date()
 

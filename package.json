@@ -48,10 +48,11 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "rm -r .cache public",
     "develop": "gatsby develop",
-    "deploy": "ts-node -T src/scripts/deploy.ts",
+    "deploy": "ts-node -T scripts/deploy.ts",
     "serve": "gatsby serve",
-    "new": "ts-node -T src/scripts/new.ts"
+    "new": "ts-node -T scripts/new.ts"
   },
   "resolutions": {
     "create-react-context": "0.3.0"
