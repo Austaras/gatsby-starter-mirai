@@ -1,9 +1,6 @@
-import React, { SyntheticEvent } from 'react'
-import { navigate } from '@reach/router'
+import React from 'react'
 
 import style from './toc.module.scss'
-
-import { TOCTree } from '..'
 
 export function findElement(tree: TOCTree[], active: number) {
   const set = new Set<TOCTree>()
