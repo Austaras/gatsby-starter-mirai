@@ -21,13 +21,8 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }: Pr
   replaceHeadComponents(headers)
 }
 
-export const onRenderBody = ({ setBodyAttributes, setPreBodyComponents }: RenderBodyArgs) => {
-  // setPreBodyComponents([
-  //   <noscript key='noscript'>This app works even with JavsScript disabled, be cool.</noscript>
-  // ])
-  // setBodyAttributes({
-  //   itemscope: 'itemscope',
-  //   itemtype: 'http://schema.org/WebPage',
-  //   lang: config.language
-  // })
+export const onRenderBody = ({ setPreBodyComponents }: RenderBodyArgs) => {
+  setPreBodyComponents([
+    <noscript key='noscript'>This app works even with JavsScript disabled, be cool.</noscript>
+  ])
 }

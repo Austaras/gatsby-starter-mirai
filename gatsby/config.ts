@@ -80,10 +80,18 @@ export const configApi: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', allow: '/' }, { userAgent: 'Baiduspider', disallow: '/' }]
+        policy: [
+          { userAgent: '*', allow: '/' },
+          { userAgent: 'Baiduspider', disallow: '/' }
+        ]
       }
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/archive', '/tag', '/tsg/*']
+      }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp'
