@@ -5,6 +5,9 @@ import { config } from '../src/config'
 /* eslint-disable @typescript-eslint/camelcase */
 export const configApi: GatsbyConfig = {
   pathPrefix: '/',
+  siteMetadata: {
+    siteUrl: config.site.url
+  },
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
@@ -74,6 +77,13 @@ export const configApi: GatsbyConfig = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }, { userAgent: 'Baiduspider', disallow: '/' }]
+      }
+    },
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp'

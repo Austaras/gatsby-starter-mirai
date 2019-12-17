@@ -1,7 +1,6 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 
-import { Layout, Timeline } from './common'
+import { Layout, SEO, Timeline } from './common'
 import './styles.scss'
 
 interface Props {
@@ -13,9 +12,7 @@ interface Props {
 
 const Tag = ({ pageContext: { posts, tagName } }: Props) => (
   <Layout>
-    <Helmet>
-      <title>Tag: {tagName}</title>
-    </Helmet>
+    <SEO title={`Tag: ${tagName}`} noindex={true} path={`/tag/${tagName}`} />
     <Timeline posts={posts} title={tagName} />
   </Layout>
 )

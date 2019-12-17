@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FaArrowUp } from 'react-icons/fa'
 
 import { calcActive, scrollEvent } from './helper'
-import { site } from './sticky-data'
+import { Site } from './sticky-data'
 import { findElement, TOCComp } from './toc'
 import style from './sticky-side.module.scss'
 
@@ -41,7 +41,7 @@ export class StickySide extends Component<{}, State> {
     this.intr.observe(staticSide)
 
     if (!this.context) return
-    const article = document.getElementById('article')!
+    const article = document.getElementById('content')!
     const titles = [...article.querySelectorAll('h1, h2, h3, h4, h5, h6')] as HTMLHeadingElement[]
     const thr = titles.map(t => t.offsetTop - article.offsetTop)
     requestAnimationFrame(() => {
@@ -68,7 +68,12 @@ export class StickySide extends Component<{}, State> {
       </div>
     )
     if (!toc) {
-      return <div className={style.stickySide} children={[site, up]} />
+      return (
+        <div className={style.stickySide} itemProp='author' itemScope itemType='http://schema.org/Person'>
+          <Site />
+          {up}
+        </div>
+      )
     }
     const activeToc = findElement(toc, active)
     return (
@@ -85,7 +90,7 @@ export class StickySide extends Component<{}, State> {
             {i18n.tab.site}
           </li>
         </ul>
-        {showToc ? <TOCComp active={activeToc} content={toc} /> : site}
+        {showToc ? <TOCComp active={activeToc} content={toc} /> : <Site />}
         {up}
       </div>
     )

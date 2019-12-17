@@ -30,6 +30,8 @@ $transition: 0.2s ease-in-out 0s;
 
 $second-title: h2, h3, h4, h5, h6;
 
+$font-zh: 'Hiragino Sans GB', 'Microsoft YaHei';
+
 @mixin nav-link {
   word-wrap: break-word;
   border-bottom: 1px solid $grey-dark;

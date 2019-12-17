@@ -7,6 +7,8 @@ template:
 site:
   name: Gatsby
   author: Someone
+  # description:
+  # keywords: []
   # file name in assets folder
   # avatar:
   from: 2019

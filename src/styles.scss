@@ -1,8 +1,6 @@
 @import './common/consts.scss';
 @import './article.scss';
 
-$font-zh: 'Hiragino Sans GB', 'Microsoft YaHei';
-
 html {
   font-family: 'PT Sans', $font-zh, sans-serif;
 }
@@ -14,6 +12,12 @@ body {
   margin: 0;
   background-color: $white-back;
   -webkit-tap-highlight-color: transparent;
+}
+
+.title {
+  font-weight: 300;
+  font-family: 'Raleway', $font-zh, sans-serif;
+  // font-size: 1.75em;
 }
 
 a {
@@ -32,11 +36,6 @@ h1,
   line-height: $title-line;
   margin: 20px 0 15px;
   padding: 0;
-}
-
-.title {
-  font-weight: 300;
-  font-family: 'Raleway', $font-zh, sans-serif;
 }
 
 table {

@@ -1,10 +1,10 @@
-import React, { Component, createRef } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React, { Component } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 import style from './post.module.scss'
 
-import { Header, Layout, Link, TagList, TOC } from '@/common'
+import { Header, Layout, Link, TagList, SEO, TOC } from '@/common'
+import { config } from '@/config'
 import { isMobile } from '@/utils'
 
 interface Props {
@@ -15,7 +15,6 @@ interface Props {
   }
 }
 export default class Template extends Component<Props> {
-  private article = createRef<HTMLDivElement>()
   private toc?: TOCTree[]
   constructor(props: Props) {
     super(props)
@@ -30,37 +29,42 @@ export default class Template extends Component<Props> {
     return (
       <TOC.Provider value={this.toc}>
         <Layout>
-          <Helmet>
-            <title>{post.frontmatter.title}</title>
-          </Helmet>
-          <Header
-            time={new Date(post.frontmatter.date)}
-            timeToRead={post.timeToRead}
+          <SEO
+            article={true}
+            path={post.path}
             title={post.frontmatter.title}
+            description={post.excerpt}
+            keywords={post.frontmatter.tags}
           />
 
-          <article
-            className='article'
-            id='article'
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            ref={this.article}
-          />
+          <article className={style.article} itemScope itemType='http://schema.org/Article'>
+            <Header
+              time={new Date(post.frontmatter.date)}
+              timeToRead={post.timeToRead}
+              title={post.frontmatter.title}
+            />
+            <link itemProp='mainEntityOfPage' href={config.site.url + post.path}></link>
+            <a hidden href='/about' rel='author'>
+              {config.site.author}
+            </a>
+            <div className='content' id='content' dangerouslySetInnerHTML={{ __html: post.html }} />
 
-          <TagList list={post.frontmatter.tags ?? []} />
+            <TagList list={post.frontmatter.tags ?? []} />
 
-          <nav className={style.navigation}>
-            {prev && (
-              <Link to={prev.path}>
-                <FaChevronLeft /> {prev.title}
-              </Link>
-            )}
-            <div className={style.spacer}></div>
-            {next && (
-              <Link to={next.path}>
-                {next.title} <FaChevronRight />
-              </Link>
-            )}
-          </nav>
+            <nav className={style.navigation}>
+              {prev && (
+                <Link to={prev.path} rel='prev'>
+                  <FaChevronLeft /> {prev.title}
+                </Link>
+              )}
+              <div className={style.spacer}></div>
+              {next && (
+                <Link to={next.path} rel='next'>
+                  {next.title} <FaChevronRight />
+                </Link>
+              )}
+            </nav>
+          </article>
         </Layout>
       </TOC.Provider>
     )

@@ -1,24 +1,12 @@
-import React, { CSSProperties, ReactNode } from 'react'
-import GatsbyLink from 'gatsby-link'
+import React from 'react'
+import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby'
 
 import style from './link.module.scss'
 
-interface Props {
-  className?: string
-  activeClassName?: string
-  styleObj?: CSSProperties
-  children: ReactNode
-  to: string
-}
-
-export const Link = ({ activeClassName, children, className = '', styleObj, to }: Props) => (
+export const Link = (props: GatsbyLinkProps<void>) => (
   <GatsbyLink
-    className={`${style.link} ${className}`}
-    activeClassName={activeClassName}
-    to={to}
-    style={styleObj}
-    // it's stupid but I had to deal with it
-    partiallyActive={to !== '/'}>
-    {children}
-  </GatsbyLink>
+    {...(props as any)}
+    className={`${style.link} ${props.className ?? ''}`}
+    partiallyActive={props.to !== '/'}
+  />
 )

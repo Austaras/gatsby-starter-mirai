@@ -7,6 +7,8 @@ const defConfig = {
   site: {
     name: 'Mirai',
     author: 'Otaku',
+    description: undefined as string | undefined,
+    keywords: [],
     avatar: undefined as string | undefined,
     from: 0,
     url: 'https://www.gatsbyjs.org',

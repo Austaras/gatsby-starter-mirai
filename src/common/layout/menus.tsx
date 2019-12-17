@@ -19,7 +19,8 @@ export const menus: Record<string, ReactElement> = (Object.keys(data) as Tag[]).
       key={key}
       className={style.menuLink}
       to={`/${key === 'home' ? '' : key}`}
-      activeClassName={style.active}>
+      activeClassName={style.active}
+      rel='section'>
       {data[key]} {i18n.menu[key]}
     </Link>
   )

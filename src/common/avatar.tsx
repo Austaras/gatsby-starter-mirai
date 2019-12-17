@@ -2,14 +2,10 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import GImg from 'gatsby-image'
 
-interface Props {
-  className?: string
-  imgStyle?: Record<string, string>
-  alt: string
-  filename: string
-}
-export function Img({ className, imgStyle, alt, filename }: Props) {
-  const { edges } = useStaticQuery(graphql`
+import { config } from '@/config'
+
+export const Avatar = () => {
+  const img = useStaticQuery(graphql`
     query ImgQuery {
       images: allFile(filter: { sourceInstanceName: { eq: "assets" } }) {
         edges {
@@ -24,7 +20,6 @@ export function Img({ className, imgStyle, alt, filename }: Props) {
         }
       }
     }
-  `).images
-  const image = edges.find((edge: any) => edge.node.filename === filename).node
-  return <GImg fluid={image.childImageSharp.fluid} className={className} alt={alt} imgStyle={imgStyle} />
+  `).images.edges.find((edge: any) => edge.node.filename === config.site.avatar)
+  return img ? <GImg fluid={img.node.childImageSharp.fluid} alt='Avatar' itemProp='image' /> : null
 }

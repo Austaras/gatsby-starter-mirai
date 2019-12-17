@@ -1,34 +1,37 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import style from './sticky-side.module.scss'
 
-import { Img, Link } from '..'
+import { Avatar, Link } from '..'
 
 import { config } from '@/config'
 import i18n from '@/i18n'
 
-export const site = (
-  <StaticQuery
-    query={graphql`
-      query SidebarQuery {
-        allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }) {
-          totalCount
-          tags: group(field: frontmatter___tags) {
-            tag: fieldValue
-          }
+export const Site = () => {
+  const { totalCount, tags } = useStaticQuery(graphql`
+    query SidebarQuery {
+      allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }) {
+        totalCount
+        tags: group(field: frontmatter___tags) {
+          tag: fieldValue
         }
       }
-    `}
-    render={({ allMarkdownRemark: { totalCount, tags } }) => [
-      config.site.avatar ? (
+    }
+  `).allMarkdownRemark
+  return (
+    <>
+      {config.site.avatar ? (
         <Link to='/about' className={style.container} key='about'>
-          <Img filename={config.site.avatar} alt='Avatar' />
+          <Avatar />
         </Link>
-      ) : null,
-      <p className={style.authorName} key='name'>
+      ) : null}
+      <p className={style.authorName} key='name' itemProp='name'>
         {config.site.author}
-      </p>,
+      </p>
+      <div className={style.description} itemProp='description' key='des'>
+        {config.site.description}
+      </div>
       <nav className={style.stat} key='nav'>
         <div className={style.posts}>
           <Link to='/archive'>
@@ -46,6 +49,6 @@ export const site = (
           </Link>
         </div>
       </nav>
-    ]}
-  />
-)
+    </>
+  )
+}

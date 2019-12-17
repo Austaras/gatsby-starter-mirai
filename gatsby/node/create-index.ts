@@ -1,26 +1,57 @@
 import path from 'path'
-import { Actions } from 'gatsby'
+import { Actions, CreatePagesArgs } from 'gatsby'
 
+import { generatePath } from './utils'
 import { config } from '../../src/config'
-import { pick } from '../../src/utils'
 
-export const createIndexPages = (createPage: Actions['createPage'], posts: PostData[]) => {
+export const createIndexPages = async (
+  createPage: Actions['createPage'],
+  graphql: CreatePagesArgs['graphql']
+) => {
   const limit = config.style.per_page
   const template = path.resolve('src/index/index.tsx')
+
+  const { errors, data } = await graphql<QueryRes>(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }
+      ) {
+        edges {
+          node {
+            excerpt(format: HTML)
+            timeToRead
+            frontmatter {
+              date
+              tags
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+  if (errors) {
+    return Promise.reject(errors)
+  }
+
+  const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
+    node.path = generatePath(node.frontmatter.title, new Date(node.frontmatter.date))
+    return node
+  })
   const count = Math.ceil(posts.length / limit)
-  const relPosts = posts.map(post => pick(post, 'excerpt', 'frontmatter', 'path', 'timeToRead'))
 
   createPage({
     path: '/archive',
     component: path.resolve('src/archive.tsx'),
-    context: { posts: relPosts }
+    context: { posts }
   })
 
   createPage({
     path: '/',
     component: template,
     context: {
-      posts: relPosts.slice(0, limit),
+      posts: posts.slice(0, limit),
       page: {
         current: 1,
         count
@@ -35,7 +66,7 @@ export const createIndexPages = (createPage: Actions['createPage'], posts: PostD
       path: `/page/${i}`,
       component: template,
       context: {
-        posts: relPosts.slice(limit * (i - 1), limit * i),
+        posts: posts.slice(limit * (i - 1), limit * i),
         page: {
           current: i,
           count

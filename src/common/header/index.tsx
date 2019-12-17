@@ -17,11 +17,23 @@ interface Props {
 
 export const Header = ({ link, time, timeToRead, title }: Props) => (
   <header className={style.header}>
-    <h1 className='title'>{link ? <Link to={link}>{title}</Link> : title}</h1>
+    {link ? (
+      <h1 className='title' itemProp='name headline'>
+        <Link to={link} itemProp='url'>
+          {title}
+        </Link>
+      </h1>
+    ) : (
+      <h1 className='title' itemProp='name headline'>
+        {title}
+      </h1>
+    )}
     <span className={style.stat}>
       <FaRegCalendarAlt />
       {` ${i18n.header.postOn} `}
-      <time>{format(time, config.style.date)}</time>
+      <time dateTime={format(time, config.style.date)} itemProp='dateCreated' property="article:author">
+        {format(time, config.style.date)}
+      </time>
     </span>
     <span className={style.line}></span>
     <span className={style.stat}>

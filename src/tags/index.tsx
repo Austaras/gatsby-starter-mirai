@@ -1,9 +1,8 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 
 import style from './tags.module.scss'
 
-import { Layout, Link } from '@/common'
+import { Layout, Link, SEO } from '@/common'
 import { config } from '@/config'
 import '@/styles.scss'
 import i18n from '@/i18n'
@@ -29,15 +28,13 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Tags</title>
-      </Helmet>
+      <SEO title='Tags' noindex={true} path='/tag' />
       <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
         <div className={style.count}>
           {i18n.tags.count.replace('%s', Object.keys(tagsLen).length.toString())}
         </div>
-        <article className='article'>
+        <article className='content'>
           {Object.keys(tagsLen)
             .sort((a, b) => a.localeCompare(b, config.language, { sensitivity: 'base' }))
             .map(tagName => {
@@ -49,7 +46,7 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
                 color: `#${color.join('')}`
               }
               return (
-                <Link to={`/tag/${tagName}`} className={style.tag} styleObj={styleObj} key={tagName}>
+                <Link to={`/tag/${tagName}`} className={style.tag} style={styleObj} key={tagName}>
                   {tagName}
                 </Link>
               )

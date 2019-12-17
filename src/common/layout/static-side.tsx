@@ -13,10 +13,12 @@ interface Props {
 export const StaticSide = ({ isHeader = false }: Props) => {
   const [expand, setExpand] = useState(!isHeader)
   return (
-    <nav
+    <header
       className={`${style.staticSide} ${isHeader ? style.header : ''}`}
-      id={isHeader ? 'header' : 'static'}>
-      <Link className={style.title} to='/'>
+      id={isHeader ? 'header' : 'static'}
+      itemScope
+      itemType='http://schema.org/WPHeader'>
+      <Link className={style.title} to='/' rel='start'>
         {config.site.name}
       </Link>
       {isHeader ? (
@@ -27,6 +29,6 @@ export const StaticSide = ({ isHeader = false }: Props) => {
       <nav className={style.menu} style={{ display: expand ? 'block' : 'none' }}>
         {config.style.menu.map(key => menus[key])}
       </nav>
-    </nav>
+    </header>
   )
 }

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 
 import style from './about.module.scss'
 
-import { Layout } from '@/common'
+import { Layout, SEO } from '@/common'
 import { config } from '@/config'
 import i18n from '@/i18n'
 
@@ -14,13 +13,11 @@ interface Props {
 }
 const Tag = ({ pageContext: { content } }: Props) => (
   <Layout>
-    <Helmet>
-      <title>About: {config.site.author}</title>
-    </Helmet>
+    <SEO title={`About: ${config.site.author}`} path='/about' />
     <header className={style.header}>
       <h1>{i18n.about}</h1>
     </header>
-    <article className='article' dangerouslySetInnerHTML={{ __html: content }} />
+    <article className='content' dangerouslySetInnerHTML={{ __html: content }} />
   </Layout>
 )
 

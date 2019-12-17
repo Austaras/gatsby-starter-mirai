@@ -26,7 +26,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
       ) {
         edges {
           node {
-            excerpt(format: HTML)
+            excerpt
             html
             headings {
               depth
@@ -53,10 +53,9 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
   })
 
   createTagPages(createPage, posts)
-  createIndexPages(createPage, posts)
   createPost(createPage, posts)
 
-  await Promise.all([createAbout(createPage, graphql)])
+  await Promise.all([createIndexPages(createPage, graphql), createAbout(createPage, graphql)])
 }
 
 export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigArgs) => {

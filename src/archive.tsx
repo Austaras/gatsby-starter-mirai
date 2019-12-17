@@ -1,7 +1,6 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 
-import { Layout, Timeline } from '@/common'
+import { Layout, SEO, Timeline } from '@/common'
 import './styles.scss'
 
 interface Props {
@@ -11,9 +10,7 @@ interface Props {
 }
 const Archive = ({ pageContext: { posts } }: Props) => (
   <Layout>
-    <Helmet>
-      <title>Archive</title>
-    </Helmet>
+    <SEO title='Archive' noindex={true} />
     <Timeline posts={posts} />
   </Layout>
 )

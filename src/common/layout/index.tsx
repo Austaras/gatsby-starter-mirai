@@ -23,9 +23,9 @@ export const Layout = ({ children, className = '' }: Props) => (
     </div>
     <footer className={style.footer}>
       ©{config.site.from === 0 ? '' : ` ${config.site.from} - `}
-      {new Date().getFullYear()}
+      <span itemProp='copyrightYear'>{new Date().getFullYear()}</span>
       <FaPlusCircle />
-      {config.site.author}
+      <span itemProp='copyrightHolder'>{config.site.author}</span>
     </footer>
   </div>
 )
