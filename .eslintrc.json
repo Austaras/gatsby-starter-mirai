@@ -27,7 +27,6 @@
                 "dot-notation": "warn",
                 "eol-last": "warn",
                 "eqeqeq": "warn",
-                "func-call-spacing": ["warn", "never"],
                 "key-spacing": "warn",
                 "max-len": [
                     "warn",
@@ -105,6 +104,7 @@
                         }
                     }
                 ],
+                "@typescript-eslint/func-call-spacing": ["warn", "never"],
                 "@typescript-eslint/member-delimiter-style": [
                     "warn",
                     {

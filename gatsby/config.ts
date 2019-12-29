@@ -10,7 +10,14 @@ export const configApi: GatsbyConfig = {
   },
   plugins: [
     'gatsby-plugin-typescript',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        cssLoaderOptions: {
+          localIdentName: '[local]--[hash:base64:5]'
+        },
+      },
+    },
     'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     {

@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
+import { LightBox } from './lightbox'
 import style from './post.module.scss'
 
 import { Header, Layout, Link, TagList, SEO, TOC } from '@/common'
@@ -14,20 +15,31 @@ interface Props {
     prev: Record<'path' | 'title', string>
   }
 }
-export default class Template extends Component<Props> {
+export default class Template extends Component<Props, { pic: string | undefined }> {
   private toc?: TOCTree[]
+  private content = createRef<HTMLDivElement>()
+  public state = {
+    pic: undefined
+  }
   constructor(props: Props) {
     super(props)
     const toc = this.props.pageContext.post.headings
     if (!isMobile && toc) this.toc = toc
   }
+  public componentDidMount() {
+    this.content
+      .current!.querySelectorAll('img')
+      .forEach(pic => pic.addEventListener('click', () => this.setState({ pic: pic.currentSrc })))
+  }
   public shouldComponentUpdate(next: Props) {
-    return next.pageContext !== this.props.pageContext
+    return true
+    // return next.pageContext !== this.props.pageContext
   }
   public render() {
     const { post, next, prev } = this.props.pageContext
     return (
       <TOC.Provider value={this.toc}>
+        <LightBox pic={this.state.pic} />
         <Layout>
           <SEO
             article={true}
@@ -47,7 +59,12 @@ export default class Template extends Component<Props> {
             <a hidden href='/about' rel='author'>
               {config.site.author}
             </a>
-            <div className='content' id='content' dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div
+              className='content'
+              id='content'
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              ref={this.content}
+            />
 
             <TagList list={post.frontmatter.tags ?? []} />
 
