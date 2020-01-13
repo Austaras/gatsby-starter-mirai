@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
+export type PostMeta = 'create' | 'update' | 'wordcount'
 const defConfig = {
   template: {
     path: ':name',
@@ -16,6 +17,7 @@ const defConfig = {
   },
   style: {
     menu: [] as string[],
+    post_meta: [] as PostMeta[],
     per_page: 0,
     date: 'yyyy-MM-dd',
     month_date: 'MM-dd'

@@ -3,6 +3,7 @@ import { Actions, CreatePagesArgs } from 'gatsby'
 
 import { generatePath } from './utils'
 import { config } from '../../src/config'
+import { pick } from '../../src/utils'
 
 export const createIndexPages = async (
   createPage: Actions['createPage'],
@@ -26,6 +27,11 @@ export const createIndexPages = async (
               tags
               title
             }
+            parent {
+              ... on File {
+                mtimeMs
+              }
+            }
           }
         }
       }
@@ -44,7 +50,9 @@ export const createIndexPages = async (
   createPage({
     path: '/archive',
     component: path.resolve('src/archive.tsx'),
-    context: { posts }
+    context: {
+      posts: posts.map(post => pick(post, 'frontmatter', 'path'))
+    }
   })
 
   createPage({

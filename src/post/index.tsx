@@ -70,6 +70,7 @@ export default class Template extends Component<Props, { pic: string | undefined
 
           <article className={style.article} itemScope itemType='http://schema.org/Article'>
             <Header
+              mtime={new Date(post.parent.mtimeMs)}
               time={new Date(post.frontmatter.date)}
               timeToRead={post.timeToRead}
               title={post.frontmatter.title}

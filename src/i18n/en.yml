@@ -8,7 +8,8 @@ sidebar:
   post: posts
   tag: tags
 header:
-  postOn: Posted on
+  createOn: Posted on
+  updateOn: Edited on
   timeToRead: Reading time %s min
 tags:
   title: Tags

@@ -13,6 +13,9 @@ interface PostData {
     tags: string[]
     title: string
   }
+  parent: {
+    mtimeMs: number
+  }
 }
 
 interface TOCTree {

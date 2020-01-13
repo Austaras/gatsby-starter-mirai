@@ -12,7 +12,7 @@ import '@/styles.scss'
 
 interface Props {
   pageContext: {
-    posts: Pick<Post, 'excerpt' | 'frontmatter' | 'path' | 'timeToRead'>[]
+    posts: Omit<Post, 'html' | 'heading'>[]
     page: PageConf
   }
 }
@@ -25,12 +25,13 @@ const Index = ({ pageContext: { posts, page } }: Props) => (
         <Header
           link={post.path}
           time={new Date(post.frontmatter.date)}
+          mtime={new Date(post.parent.mtimeMs)}
           timeToRead={post.timeToRead}
           title={post.frontmatter.title}
         />
         <article className='content' dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
         <footer className={style.linkContainer}>
-          <Link to={post.path} className={`${style.readMore} title`} rel="contents">
+          <Link to={post.path} className={`${style.readMore} title`} rel='contents'>
             {i18n.readmore} »
           </Link>
           <TagList list={post.frontmatter.tags} />

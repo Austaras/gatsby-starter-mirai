@@ -17,6 +17,7 @@ site:
 
 style:
   menu: [home, tag, archive, about]
+  post_meta: [create, update, wordcount]
   per_page: 10
   date: yyyy-MM-dd
   month_date: MM-dd

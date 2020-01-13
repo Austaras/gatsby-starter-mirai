@@ -38,6 +38,11 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
               tags
               title
             }
+            parent {
+              ... on File {
+                mtimeMs
+              }
+            }
           }
         }
       }
