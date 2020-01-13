@@ -80,6 +80,9 @@ export const configApi: GatsbyConfig = {
             options: {
               target: '_blank'
             }
+          },
+          {
+            resolve: require.resolve('./remark-audio')
           }
         ]
       }

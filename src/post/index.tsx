@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
+import 'aplayer/dist/APlayer.min.css'
 import { LightBox } from './lightbox'
 import style from './post.module.scss'
 
@@ -18,28 +19,46 @@ interface Props {
 export default class Template extends Component<Props, { pic: string | undefined }> {
   private toc?: TOCTree[]
   private content = createRef<HTMLDivElement>()
-  public state = {
-    pic: undefined
-  }
   constructor(props: Props) {
     super(props)
     const toc = this.props.pageContext.post.headings
     if (!isMobile && toc) this.toc = toc
   }
-  public componentDidMount() {
-    this.content
-      .current!.querySelectorAll('img')
-      .forEach(pic => pic.addEventListener('click', () => this.setState({ pic: pic.currentSrc })))
-  }
   public shouldComponentUpdate(next: Props) {
-    return true
-    // return next.pageContext !== this.props.pageContext
+    return next.pageContext !== this.props.pageContext
+  }
+  public async componentDidMount() {
+    const player = [...this.content.current!.getElementsByClassName('audio-player')].filter(
+      ele => ele.getAttribute('data-player') !== 'plain'
+    )
+    if (player.length === 0) return
+    const { default: Aplayer } = await import('aplayer')
+    player.forEach(p => {
+      const src = p.getAttribute('src')!
+      const [artist, name] = p.getAttribute('data-player')!.split('-')
+      const parent = p.parentElement!
+      new Aplayer({
+        container: parent,
+        mini: false,
+        audio: { url: src, theme: '#3b547c', artist, name },
+        volume: 1
+      })
+    })
   }
   public render() {
     const { post, next, prev } = this.props.pageContext
     return (
       <TOC.Provider value={this.toc}>
-        <LightBox pic={this.state.pic} />
+        {typeof window === 'undefined' && (
+          <noscript>
+            <style>
+              {`.complex-player {
+              visibility: visible !important
+            }`}
+            </style>
+          </noscript>
+        )}
+        <LightBox container={this.content} />
         <Layout>
           <SEO
             article={true}

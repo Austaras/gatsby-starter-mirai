@@ -107,6 +107,15 @@
       margin: 0;
     }
   }
+
+  .audio-player, .aplayer {
+    width: 60%;
+    margin: 0 20%;
+  }
+  .complex-player {
+    visibility: hidden;
+    height: 66px;
+  }
 }
 
 @include mobile {

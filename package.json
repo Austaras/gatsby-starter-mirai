@@ -6,6 +6,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "aplayer": "^1.10.1",
     "date-fns": "^2.4.1",
     "gatsby": "^2.15.26",
     "gatsby-image": "^2.2.23",
@@ -35,6 +36,8 @@
     "react-icons": "^3.7.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.4.0",
@@ -57,6 +60,7 @@
     "new": "ts-node -T scripts/new.ts"
   },
   "resolutions": {
-    "create-react-context": "0.3.0"
+    "create-react-context": "0.3.0",
+    "unist-util-visit": "^2.0.1"
   }
 }
