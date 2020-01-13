@@ -1,8 +1,8 @@
 declare module 'aplayer' {
-  class ReactAplayer extends HTMLDivElement{
+  class ReactAplayer extends HTMLDivElement {
     constructor(init: {
       container: HTMLElement
-      mini: boolean
+      preload: 'none' | 'metadata' | 'auto'
       audio: {
         url: string
         theme: string

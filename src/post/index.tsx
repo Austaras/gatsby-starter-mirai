@@ -7,7 +7,7 @@ import style from './post.module.scss'
 
 import { Header, Layout, Link, TagList, SEO, TOC } from '@/common'
 import { config } from '@/config'
-import { isMobile } from '@/utils'
+import { isMobile, isServerSide } from '@/utils'
 
 interface Props {
   pageContext: {
@@ -39,7 +39,7 @@ export default class Template extends Component<Props, { pic: string | undefined
       const parent = p.parentElement!
       new Aplayer({
         container: parent,
-        mini: false,
+        preload: 'metadata',
         audio: { url: src, theme: '#3b547c', artist, name },
         volume: 1
       })
@@ -49,7 +49,7 @@ export default class Template extends Component<Props, { pic: string | undefined
     const { post, next, prev } = this.props.pageContext
     return (
       <TOC.Provider value={this.toc}>
-        {typeof window === 'undefined' && (
+        {isServerSide && (
           <noscript>
             <style>
               {`.complex-player {
