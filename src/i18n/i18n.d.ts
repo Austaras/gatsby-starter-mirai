@@ -2,8 +2,8 @@ declare module '@/i18n' {
   type StringWithParam = string
   const i18n: {
     readmore: string
-    menu: Record<'home' | 'tag' | 'archive' | 'about', string>
-    sidebar: Record<'post' | 'tag', string>
+    menu: Record<'home' | 'tags' | 'archive' | 'about', string>
+    sidebar: Record<'post' | 'tags', string>
     header: {
       createOn: string
       updateOn: string

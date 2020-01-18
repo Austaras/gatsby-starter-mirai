@@ -15,7 +15,8 @@
 
 .tag {
   display: inline-block;
-  margin: 0 15px 0 10px;
+  margin: 8px 15px 8px 10px;
+  line-height: 1.5;
   &:hover {
     color: $black-dark !important; // to override inline style
   }

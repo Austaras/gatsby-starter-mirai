@@ -2,11 +2,12 @@
 @import './article.scss';
 
 html {
-  font-family: 'PT Sans', $font-zh, sans-serif;
+  font-family: 'Merriweather Sans', $font-zh, sans-serif;
 }
 
 body {
   color: $main-color;
+  font-weight: 300;
   line-height: $base-line;
   font-size: 16px;
   margin: 0;

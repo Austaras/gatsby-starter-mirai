@@ -99,7 +99,7 @@ export const configApi: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/archive', '/tag', '/tsg/*']
+        exclude: ['/archive', '/tags', '/tags/*']
       }
     },
     'gatsby-transformer-sharp',

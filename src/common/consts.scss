@@ -21,7 +21,7 @@ $title-size: 1.75em;
 $title-line: 1.5;
 $sidebar-title-size: 1.375em;
 $sidebar-width: 240px;
-$bold: 600;
+$bold: 400;
 $main-width: 900px;
 $main-padding: 40px;
 
@@ -31,7 +31,7 @@ $transition: 0.2s ease-in-out 0s;
 
 $second-title: h2, h3, h4, h5, h6;
 
-$font-zh: 'Hiragino Sans GB', 'Microsoft YaHei';
+$font-zh: 'PingFang SC', 'Noto Sans CJK SC', 'source-han-sans-simplified-c', 'Microsoft YaHei';
 
 @mixin nav-link {
   word-wrap: break-word;

@@ -25,7 +25,7 @@ export const createTagPages = (createPage: Actions['createPage'], posts: PostDat
   }
 
   createPage({
-    path: '/tag',
+    path: '/tags',
     component: tagsTemplate,
     context: { tagsLen }
   })
@@ -33,7 +33,7 @@ export const createTagPages = (createPage: Actions['createPage'], posts: PostDat
   Object.keys(tags).forEach(tagName => {
     const posts = tags[tagName]
     createPage({
-      path: `/tag/${tagName}`,
+      path: `/tags/${tagName}`,
       component: tagTemplate,
       context: { tags, posts, tagName }
     })

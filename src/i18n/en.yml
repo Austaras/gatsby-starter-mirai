@@ -1,12 +1,12 @@
 readmore: Read More
 menu:
   home: Home
-  tag: Tags
+  tags: Tags
   archive: Archive
   about: About me
 sidebar:
   post: posts
-  tag: tags
+  tags: tags
 header:
   createOn: Posted on
   updateOn: Edited on

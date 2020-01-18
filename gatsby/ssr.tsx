@@ -3,7 +3,7 @@ import { PreRenderHTMLArgs, RenderBodyArgs } from 'gatsby'
 
 export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }: PreRenderHTMLArgs) => {
   if (process.env.NODE_ENV !== 'production') return
-  const headers = ((getHeadComponents as any)() as ReactElement[]).map(component => {
+  const headers = (getHeadComponents() as ReactElement[]).map(component => {
     if (component.type === 'style') {
       return <link rel='stylesheet' href={component.props['data-href']} />
     }
@@ -15,7 +15,7 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }: Pr
   headers.push(
     <link
       rel='stylesheet'
-      href='https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Raleway:300&display=swap'
+      href='https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400|Raleway:300&display=swap'
     />
   )
   replaceHeadComponents(headers)

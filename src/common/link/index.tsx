@@ -3,9 +3,9 @@ import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby'
 
 import style from './link.module.scss'
 
-export const Link = (props: GatsbyLinkProps<void>) => (
+export const Link = (props: Omit<GatsbyLinkProps<void>, 'ref'>) => (
   <GatsbyLink
-    {...(props as any)}
+    {...(props)}
     className={`${style.link} ${props.className ?? ''}`}
     partiallyActive={props.to !== '/'}
   />

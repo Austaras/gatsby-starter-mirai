@@ -16,7 +16,7 @@ site:
   # root: /
 
 style:
-  menu: [home, tag, archive, about]
+  menu: [home, tags, archive, about]
   post_meta: [create, update, wordcount]
   per_page: 10
   date: yyyy-MM-dd

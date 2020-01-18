@@ -8,7 +8,7 @@ import '@/styles.scss'
 import i18n from '@/i18n'
 
 const MIN = 14,
-  MAX = 32
+  MAX = 28
 const START = new Array<number>(3).fill(0xcc),
   END = new Array<number>(3).fill(0x11)
 const mix = (a: number, b: number, ratio: number) => Math.round(a + (b - a) * ratio)
@@ -46,7 +46,7 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
                 color: `#${color.join('')}`
               }
               return (
-                <Link to={`/tag/${tagName}`} className={style.tag} style={styleObj} key={tagName}>
+                <Link to={`/tags/${tagName}`} className={style.tag} style={styleObj} key={tagName}>
                   {tagName}
                 </Link>
               )

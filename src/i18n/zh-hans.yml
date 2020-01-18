@@ -1,12 +1,12 @@
 readmore: 阅读更多
 menu:
   home: 首页
-  tag: 标签
+  tags: 标签
   archive: 归档
   about: 关于
 sidebar:
   post: 日志
-  tag: 标签
+  tags: 标签
 header:
   createOn: 发表于
   updateOn: 更新于

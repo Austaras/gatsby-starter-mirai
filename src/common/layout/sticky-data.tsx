@@ -42,10 +42,10 @@ export const Site = () => {
         </div>
         <div className={style.line} key='line'></div>
         <div className={style.tags} key='tags'>
-          <Link to='/tag'>
+          <Link to='/tags'>
             <span className={style.count}>{tags.length}</span>
             <br />
-            <span className={style.name}>{i18n.sidebar.tag}</span>
+            <span className={style.name}>{i18n.sidebar.tags}</span>
           </Link>
         </div>
       </nav>

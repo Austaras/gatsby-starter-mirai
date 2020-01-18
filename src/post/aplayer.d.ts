@@ -1,5 +1,5 @@
 declare module 'aplayer' {
-  class ReactAplayer extends HTMLDivElement {
+  class Aplayer {
     constructor(init: {
       container: HTMLElement
       preload: 'none' | 'metadata' | 'auto'
@@ -12,5 +12,5 @@ declare module 'aplayer' {
       volume: number
     })
   }
-  export default ReactAplayer
+  export default Aplayer
 }

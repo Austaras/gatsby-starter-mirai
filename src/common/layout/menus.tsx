@@ -8,7 +8,7 @@ import i18n from '@/i18n'
 
 const data = {
   home: <FaHome />,
-  tag: <FaTags />,
+  tags: <FaTags />,
   archive: <FaArchive />,
   about: <FaUserAlt />
 } as const
