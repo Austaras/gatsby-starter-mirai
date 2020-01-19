@@ -10,7 +10,7 @@ const dir = path.resolve(__dirname, '../public') + '/'
 const { rsync } = config
 
 const cmd = 'rsync'
-const args = ['-avz', '-progress']
+const args = ['-av', '-zz', '-progress']
 if (rsync.del) args.push('--del')
 if (rsync.port) args.push('-e', `ssh -p ${rsync.port}`)
 args.push(dir, `${rsync.user}@${rsync.host}:${rsync.root}`)
