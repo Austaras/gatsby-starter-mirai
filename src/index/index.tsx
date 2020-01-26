@@ -6,7 +6,6 @@ import style from './index.module.scss'
 import { Pagination } from './pagination'
 
 import { Header, Layout, Link, SEO, TagList } from '@/common'
-import { config } from '@/config'
 import i18n from '@/i18n'
 import '@/styles.scss'
 

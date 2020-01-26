@@ -7,7 +7,7 @@
   }
 
   #{$second-title} {
-    font-weight: 500;
+    font-weight: $bold;
     padding-top: 10px;
   }
 
@@ -103,7 +103,7 @@
       background-color: $gray-lighter;
     }
     p {
-      display: inline-block;
+      display: inline;
       margin: 0;
     }
   }
