@@ -1,19 +1,18 @@
-import React, { ReactNode } from 'react'
+import React, { PropsWithChildren } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
+
+import { config } from '@/config'
+import { isMobile } from '@/utils'
 
 import { Sidebar } from './sidebar'
 import { StaticSide } from './static-side'
 import style from './layout.module.scss'
 
-import { config } from '@/config'
-import { isMobile } from '@/utils'
-
 interface Props {
-  children: ReactNode
   className?: string
 }
 
-export const Layout = ({ children, className = '' }: Props) => (
+export const Layout = ({ children, className = '' }: PropsWithChildren<Props>) => (
   <div className={`${style.layout} ${className}`}>
     <header className={style.header}></header>
     <StaticSide isHeader={true} />

@@ -75,6 +75,12 @@
                 "spaced-comment": "warn",
                 "space-in-parens": ["warn", "never"],
                 "space-infix-ops": ["warn"],
+                "valid-typeof": [
+                    "warn",
+                    {
+                        "requireStringLiterals": true
+                    }
+                ],
                 "import/newline-after-import": "warn",
                 "import/order": [
                     "warn",
