@@ -49,10 +49,13 @@
   line-height: 2;
   .begin {
     margin-top: -0.5em;
+    a,
+    a:visited {
+      color: white;
+    }
   }
 
   .end {
     margin-bottom: -0.25em;
   }
 }
-

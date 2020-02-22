@@ -1,9 +1,9 @@
 import React from 'react'
 
-import style from './404.module.scss'
-import qr from '../../assets/qr.svg'
-
 import { config } from '@/config'
+
+import style from './404.module.scss'
+import qr from './qr.svg'
 
 export default () => (
   <div className={style.container}>
@@ -28,7 +28,7 @@ export default () => (
           <p className={style.end}>
             If you call a support person give them this info:
             <br />
-            Stop Code: WHY AM I A DUMB ASS
+            Stop Code: WHY_AM_I_A_DUMB_ASS
           </p>
         </div>
       </div>

@@ -63,7 +63,20 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
   await Promise.all([createIndexPages(createPage, graphql), createAbout(createPage, graphql)])
 }
 
-export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigArgs) => {
+const enableCoreJs3 = (config: any) => {
+  const coreJs2config = config.resolve.alias['core-js']
+  delete config.resolve.alias['core-js']
+  config.resolve.alias['core-js/modules'] = `${coreJs2config}/modules`
+  try {
+    config.resolve.alias['core-js/es'] = path.dirname(require.resolve('core-js/es'))
+  } catch (err) {
+    // ignore-error, core-js3 isn't available in the current directory
+  }
+
+  return config
+}
+
+export const onCreateWebpackConfig = ({ plugins, actions, getConfig }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -78,4 +91,6 @@ export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigA
       })
     ]
   })
+
+  actions.replaceWebpackConfig(enableCoreJs3(getConfig()))
 }
