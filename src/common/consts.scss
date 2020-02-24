@@ -31,7 +31,8 @@ $transition: 0.2s ease-in-out 0s;
 
 $second-title: h2, h3, h4, h5, h6;
 
-$font-zh: 'PingFang SC', 'Noto Sans CJK SC', 'source-han-sans-simplified-c', 'Microsoft YaHei';
+$font-zh: PingFang SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei;
+$font-mono: Fira Code, consolas, SF Mono, monospace;
 
 @mixin nav-link {
   word-wrap: break-word;

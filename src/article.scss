@@ -64,7 +64,7 @@
   code,
   code[class*='language-'],
   pre {
-    font-family: 'Fira Code', consolas, SF Mono;
+    font-family: $font-mono;
     font-size: 0.875rem;
     font-weight: 400;
 
@@ -139,7 +139,8 @@
 .gatsby-highlight pre[class*='language-'].line-numbers {
   margin: 0;
   padding-left: 4.5em;
-  font-family: 'Fira Code', consolas, SF Mono;
+  // for override line nunber font
+  font-family: $font-mono;
   font-size: 0.875rem;
   line-height: 1.5rem;
   .line-numbers-rows {
