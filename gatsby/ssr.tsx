@@ -5,7 +5,10 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }: Pr
   if (process.env.NODE_ENV !== 'production') return
   const headers = (getHeadComponents() as ReactElement[]).map(component => {
     if (component.type === 'style') {
-      return <link rel='stylesheet' href={component.props['data-href']} />
+      // for anchor style
+      return component.props['data-href'] ? (
+        <link rel='stylesheet' href={component.props['data-href']} />
+      ) : null
     }
     if (component.type === 'meta' && component.props.name === 'generator') {
       return <meta name='generator' content='Gatsby' />

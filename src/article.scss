@@ -10,6 +10,12 @@
   #{$second-title} {
     font-weight: $bold;
     padding-top: $title-padding;
+    .anchor svg {
+      visibility: hidden;
+    }
+    &:hover .anchor svg {
+      visibility: visible;
+    }
   }
 
   p {
@@ -26,7 +32,12 @@
     @include nav-link;
     &.anchor {
       padding-top: $title-padding;
-      border-bottom: none
+      border-bottom: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
     }
   }
 
