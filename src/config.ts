@@ -10,6 +10,7 @@ const defConfig = {
     author: 'Otaku',
     description: undefined as string | undefined,
     keywords: [],
+    favicon: undefined as string | undefined,
     avatar: undefined as string | undefined,
     from: 0,
     url: 'https://www.gatsbyjs.org',

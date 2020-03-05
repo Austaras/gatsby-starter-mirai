@@ -29,7 +29,7 @@ export const configApi: GatsbyConfig = {
         background_color: '#fff',
         theme_color: '#444',
         display: 'minimal-ui',
-        icon: 'assets/favicon.png'
+        icon: config.site.favicon ? `assets/${config.site.favicon}` : undefined
       }
     },
     {
