@@ -7,15 +7,13 @@
 
 .layout {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 $margin: 12px;
 .container {
   margin: 0 auto;
   padding-left: $sidebar-width;
-  width: 100%;
+  overflow: auto;
   max-width: $main-width + ($sidebar-width + $margin) * 2;
   box-sizing: border-box;
   display: flex;
@@ -30,15 +28,20 @@ $margin: 12px;
 
 .main {
   background: white;
-  flex-grow: 1;
+  flex-shrink: 0;
   margin: 0 $margin;
   padding: $main-padding;
   // align with sidebar
   border-top: $sidebar-title-size * $title-line solid transparent;
-  max-width: $main-width;
+  width: $main-width;
   min-height: 650px;
-  width: 100%;
   box-sizing: border-box;
+  @media screen and (max-width: $main-width) {
+    width: 100%;
+  }
+  @media screen and (max-width: $main-width + $margin * 2 - 1) {
+    margin: 0 $margin 0 0;
+  }
 }
 
 .footer {
@@ -60,4 +63,3 @@ $margin: 12px;
     padding: $main-padding / 2;
   }
 }
-

@@ -6,9 +6,10 @@
     font-size: 1.125rem;
   }
 
+  $title-padding: 10px;
   #{$second-title} {
     font-weight: $bold;
-    padding-top: 10px;
+    padding-top: $title-padding;
   }
 
   p {
@@ -23,6 +24,10 @@
 
   a {
     @include nav-link;
+    &.anchor {
+      padding-top: $title-padding;
+      border-bottom: none
+    }
   }
 
   ul,
