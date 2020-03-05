@@ -15,8 +15,8 @@ export const configApi: GatsbyConfig = {
       options: {
         cssLoaderOptions: {
           localIdentName: '[local]--[hash:base64:5]'
-        },
-      },
+        }
+      }
     },
     'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
@@ -61,12 +61,7 @@ export const configApi: GatsbyConfig = {
               quality: 100
             }
           },
-          {
-            resolve: 'gatsby-remark-autolink-headers',
-            options: {
-              icon: false
-            }
-          },
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
