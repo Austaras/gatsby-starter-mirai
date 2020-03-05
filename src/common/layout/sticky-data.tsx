@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import { config } from '@/config'
+import i18n from '@/i18n'
+
 import style from './sticky-side.module.scss'
 
 import { Avatar, Link } from '..'
-
-import { config } from '@/config'
-import i18n from '@/i18n'
 
 export const Site = () => {
   const { totalCount, tags } = useStaticQuery(graphql`
