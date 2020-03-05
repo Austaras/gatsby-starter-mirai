@@ -15,6 +15,7 @@ interface PostData {
   }
   parent: {
     mtimeMs: number
+    name: string
   }
 }
 

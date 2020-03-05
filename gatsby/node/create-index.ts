@@ -30,6 +30,7 @@ export const createIndexPages = async (
             parent {
               ... on File {
                 mtimeMs
+                name
               }
             }
           }
@@ -42,7 +43,7 @@ export const createIndexPages = async (
   }
 
   const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
-    node.path = generatePath(node.frontmatter.title, new Date(node.frontmatter.date))
+    node.path = generatePath(node)
     return node
   })
   const count = Math.ceil(posts.length / limit)

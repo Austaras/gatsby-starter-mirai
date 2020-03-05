@@ -4,9 +4,20 @@ import Slugger from 'github-slugger'
 
 import { config } from '../../src/config'
 
-const dict: Record<string, (title: string, time: Date) => string> = {
-  title: title => title,
-  hash: (_, time) =>
+interface TitleCbData {
+  title: string
+  filename: string
+  time: Date
+}
+
+const dict: Record<string, (data: TitleCbData) => string> = {
+  title: ({ title }) => title,
+  filename: ({ filename }) => filename,
+  year: ({ time }) => time.getFullYear().toString(),
+  month: ({ time }) => (time.getMonth() + 1).toString(),
+  date: ({ time }) => time.getDate().toString(),
+  day: ({ time }) => time.getDay().toString(),
+  hash: ({ time }) =>
     crypto
       .createHmac('sha256', config.key)
       // a Date object is a Float64, as other number in js
@@ -15,16 +26,23 @@ const dict: Record<string, (title: string, time: Date) => string> = {
       .slice(0, 12)
 }
 
-export function generatePath(title: string, date: Date) {
+const slugger = new Slugger()
+export function generatePath(node: PostData) {
   let res = config.template.path
   if (!res.startsWith('/')) res = `/${res}`
   Object.keys(dict).forEach(key => {
-    res = res.replace(`:${key}`, dict[key](title, date))
+    res = res.replace(
+      `:${key}`,
+      dict[key]({
+        title: slugger.slug(node.frontmatter.title),
+        filename: node.parent.name,
+        time: new Date(node.frontmatter.date)
+      })
+    )
   })
   return res
 }
 
-const slugger = new Slugger()
 export function generateTree(headings: PostData['headings']) {
   const depth = headings[0].depth
   const result = [] as TOCTree[]

@@ -41,6 +41,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
             parent {
               ... on File {
                 mtimeMs
+                name
               }
             }
           }
@@ -53,7 +54,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
   }
 
   const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
-    node.path = generatePath(node.frontmatter.title, new Date(node.frontmatter.date))
+    node.path = generatePath(node)
     return node
   })
 

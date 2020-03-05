@@ -1,5 +1,5 @@
 template:
-  # can have :hash
+  # can have :hash, :year, :month, :date, :day, :title, :filename
   path: /:hash
   # use date-fns format
   date: yyyy-MM-dd HH:mm:ss
