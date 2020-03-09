@@ -1,10 +1,11 @@
 @import './common/consts.scss';
 
+@mixin page-font {
+  font-size: 1.125rem;
+}
+
 .content {
   flex-grow: 1;
-  @mixin page-font {
-    font-size: 1.125rem;
-  }
 
   $title-padding: 10px;
   #{$second-title} {
@@ -57,10 +58,6 @@
     border: 1px solid $gray-lighter;
     max-width: $main-width - $main-padding * 2 - 2px;
     cursor: zoom-in;
-  }
-
-  table {
-    font-size: 0.875em;
   }
 
   blockquote {

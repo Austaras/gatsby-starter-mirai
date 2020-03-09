@@ -2,12 +2,11 @@
 @import './article.scss';
 
 html {
-  font-family: 'Merriweather Sans', $font-zh, sans-serif;
+  font-family: PT Sans, $font-zh, sans-serif;
 }
 
 body {
   color: $main-color;
-  font-weight: 300;
   line-height: $base-line;
   font-size: 16px;
   margin: 0;
@@ -17,7 +16,7 @@ body {
 
 .title {
   font-weight: 300;
-  font-family: 'Raleway', $font-zh, sans-serif;
+  font-family: Raleway, PingFang SC, Microsoft YaHei, sans-serif;
 }
 
 a {
