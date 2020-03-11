@@ -1,15 +1,15 @@
 import React from 'react'
 
-import style from './tags.module.scss'
-
 import { Layout, Link, SEO } from '@/common'
 import { config } from '@/config'
 import '@/styles.scss'
 import i18n from '@/i18n'
 
+import style from './tags.module.scss'
+
 const MIN = 14,
   MAX = 28
-const START = new Array<number>(3).fill(0xcc),
+const START = new Array<number>(3).fill(0xbb),
   END = new Array<number>(3).fill(0x11)
 const mix = (a: number, b: number, ratio: number) => Math.round(a + (b - a) * ratio)
 
@@ -41,6 +41,7 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
               const ratio = sizes.indexOf(tagsLen[tagName]) / length
               const size = mix(MIN, MAX, ratio)
               const color = START.map((v, i) => mix(v, END[i], ratio).toString(16))
+              console.log(color.join(''))
               const styleObj = {
                 fontSize: `${size}px`,
                 color: `#${color.join('')}`
