@@ -41,7 +41,6 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
               const ratio = sizes.indexOf(tagsLen[tagName]) / length
               const size = mix(MIN, MAX, ratio)
               const color = START.map((v, i) => mix(v, END[i], ratio).toString(16))
-              console.log(color.join(''))
               const styleObj = {
                 fontSize: `${size}px`,
                 color: `#${color.join('')}`
