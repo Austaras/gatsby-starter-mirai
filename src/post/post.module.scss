@@ -4,8 +4,14 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  #content {
-    flex-grow: 1;
+  p {
+    text-indent: 2em;
+  }
+
+  blockquote p,
+  li p,
+  p.aplayer {
+    text-indent: 0;
   }
 }
 .navigation {
