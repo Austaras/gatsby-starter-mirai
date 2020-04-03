@@ -26,6 +26,10 @@
     text-indent: 2em;
   }
 
+  blockquote p, li p, p.aplayer {
+    text-indent: 0;
+  }
+
   li {
     @include page-font();
   }
