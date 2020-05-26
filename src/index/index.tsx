@@ -2,11 +2,13 @@ import React from 'react'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
+import { Header, Layout, Link, SEO, TagList } from '@/common'
+
+import i18n from '@/i18n'
+
 import style from './index.module.scss'
 import { Pagination } from './pagination'
 
-import { Header, Layout, Link, SEO, TagList } from '@/common'
-import i18n from '@/i18n'
 import '@/styles.scss'
 
 interface Props {

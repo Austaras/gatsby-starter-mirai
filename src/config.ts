@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 export type PostMeta = 'create' | 'update' | 'wordcount'
 const defConfig = {
   template: {

@@ -46,7 +46,6 @@ export const Header = ({ link, mtime, time, timeToRead, title }: Props) => {
     )
   }
 
-  /* eslint-disable @typescript-eslint/camelcase */
   const { post_meta } = config.style
   const metaArr: ReactElement[] = []
   const last = 2 * post_meta.length - 1
