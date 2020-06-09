@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import { format } from 'date-fns/esm'
 
+import { config } from '@/config'
+
 import style from './timeline.module.scss'
 
 import { Link } from '..'
-import { config } from '@/config'
 
 interface Props {
   posts: Pick<Post, 'path' | 'frontmatter'>[]

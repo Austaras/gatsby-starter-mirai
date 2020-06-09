@@ -15,7 +15,7 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
   createPage({
     path: '/404',
     component: path.resolve('src/404/index.tsx'),
-    context: null
+    context: undefined
   })
 
   const { errors, data } = await graphql<QueryRes>(`

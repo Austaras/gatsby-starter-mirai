@@ -63,7 +63,8 @@ export function SEO({
       <meta property='og:title' content={title} />
       {noindex && <meta name='robots' content='noindex' />}
       <title>{title}</title>
-      <body itemScope itemType='http://schema.org/WebPage' lang={config.language}></body>
+      <html lang={config.language}></html>
+      <body itemScope itemType='http://schema.org/WebPage'></body>
     </Helmet>
   )
 }

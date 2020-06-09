@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
+import i18n from '@/i18n'
+
 import style from './menus.module.scss'
 
 import { Link } from '..'
-import i18n from '@/i18n'
 
 const data = {
   home: <FaHome />,

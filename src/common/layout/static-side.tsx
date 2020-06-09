@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 
+import { config } from '@/config'
+
 import { menus } from './menus'
 import style from './static-side.module.scss'
 
 import { Link } from '..'
-import { config } from '@/config'
 
 interface Props {
   isHeader?: boolean

@@ -23,7 +23,7 @@ export const Header = ({ link, mtime, time, timeToRead, title }: Props) => {
     create: (
       <span className={style.stat} key='create'>
         <FaRegCalendarAlt />
-        {` ${i18n.header.createOn} `}
+        {i18n.header.createOn}
         <time dateTime={format(time, config.style.date)} itemProp='dateCreated datePublished'>
           {format(time, config.style.date)}
         </time>
@@ -32,7 +32,7 @@ export const Header = ({ link, mtime, time, timeToRead, title }: Props) => {
     update: (
       <span className={style.stat} key='update'>
         <FaRegCalendarCheck />
-        {` ${i18n.header.updateOn} `}
+        {i18n.header.updateOn}
         <time dateTime={format(mtime, config.style.date)} itemProp='dateModified'>
           {format(mtime, config.style.date)}
         </time>
@@ -41,7 +41,7 @@ export const Header = ({ link, mtime, time, timeToRead, title }: Props) => {
     wordcount: (
       <span className={style.stat} key='wordCount'>
         <FaRegClock />
-        {' ' + i18n.header.timeToRead.replace('%s', timeToRead.toString())}
+        {i18n.header.timeToRead.replace('%s', timeToRead.toString())}
       </span>
     )
   }
