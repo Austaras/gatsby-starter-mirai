@@ -28,7 +28,7 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
 
   return (
     <Layout>
-      <SEO title='Tags' noindex={true} path='/tag' />
+      <SEO title='Tags' noindex={true} path='/tags' />
       <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
         <div className={style.count}>

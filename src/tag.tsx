@@ -12,7 +12,7 @@ interface Props {
 
 const Tag = ({ pageContext: { posts, tagName } }: Props) => (
   <Layout>
-    <SEO title={`Tag: ${tagName}`} noindex={true} path={`/tag/${tagName}`} />
+    <SEO title={`Tag: ${tagName}`} noindex={true} path={`/tags/${tagName}`} />
     <Timeline posts={posts} title={tagName} />
   </Layout>
 )
