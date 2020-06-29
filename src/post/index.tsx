@@ -1,13 +1,13 @@
 import React, { Component, createRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-
 import 'aplayer/dist/APlayer.min.css'
-import { LightBox } from './lightbox'
-import style from './post.module.scss'
 
 import { Header, Layout, Link, TagList, SEO, TOC } from '@/common'
 import { config } from '@/config'
 import { isMobile, isServerSide } from '@/utils'
+
+import style from './post.module.scss'
+import { LightBox } from './lightbox'
 
 interface Props {
   pageContext: {

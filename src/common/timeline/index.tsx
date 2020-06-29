@@ -12,8 +12,8 @@ interface Props {
   title?: string
 }
 
-export function Timeline({ posts: post, title }: Props) {
-  const showYear = post.length <= 5
+export function Timeline({ posts, title }: Props) {
+  const showYear = posts.length <= 5
   let year = 0
   const fmt = showYear ? config.style.date : config.style.month_date
   const children: ReactElement[] = []
@@ -25,7 +25,7 @@ export function Timeline({ posts: post, title }: Props) {
     )
   }
 
-  post.forEach(post => {
+  posts.forEach(post => {
     const time = new Date(post.frontmatter.date)
     if (time.getFullYear() !== year && !showYear) {
       year = time.getFullYear()
