@@ -39,13 +39,14 @@ type Config = typeof defConfig
 
 const isObj = (v: any) => Object.prototype.toString.call(v) === '[object Object]'
 
-function patch<R extends any, T extends R>(orig: T, mod: R): T {
+function patch<R extends Record<string, any>, T extends R>(orig: T, mod: R): T {
+  type t = keyof T;
   Object.keys(orig).forEach(key => {
     if (isObj(orig[key]) && isObj(mod[key])) {
-      return (orig[key] = patch(orig[key], mod[key]))
+      return (orig[key as t] = patch(orig[key], mod[key]))
     }
     if (Object.prototype.hasOwnProperty.call(mod, key)) {
-      orig[key] = mod[key]
+      orig[key as t] = mod[key]
     }
   })
   return orig
@@ -60,6 +61,7 @@ if (process.env.__IS_WEBPACK__) {
   yaml = require('../config.yml')
 } else {
   // not bundled by webpack
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
 }
 

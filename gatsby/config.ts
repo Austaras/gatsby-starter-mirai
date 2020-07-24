@@ -2,7 +2,6 @@ import { GatsbyConfig } from 'gatsby'
 
 import { config } from '../src/config'
 
-/* eslint-disable @typescript-eslint/camelcase */
 export const configApi: GatsbyConfig = {
   pathPrefix: '/',
   siteMetadata: {
