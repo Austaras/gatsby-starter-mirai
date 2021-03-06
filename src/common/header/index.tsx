@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react'
-import { FaRegCalendarAlt, FaRegCalendarCheck, FaRegClock } from 'react-icons/fa'
+import { FaRegCalendarAlt } from '@react-icons/all-files/fa/FaRegCalendarAlt'
+import { FaRegCalendarCheck } from '@react-icons/all-files/fa/FaRegCalendarCheck'
+import { FaRegClock } from '@react-icons/all-files/fa/FaRegClock'
 import { format } from 'date-fns/esm'
 
 import { config, PostMeta } from '@/config'
 import i18n from '@/i18n'
 
-import style from './header.module.scss'
+import * as style from './header.module.scss'
 
 import { Link } from '..'
 

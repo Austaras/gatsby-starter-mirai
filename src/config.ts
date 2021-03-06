@@ -62,7 +62,7 @@ if (process.env.__IS_WEBPACK__) {
 } else {
   // not bundled by webpack
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  yaml = require('js-yaml').safeLoad(require('fs').readFileSync('config.yml', 'utf8'))
+  yaml = require('js-yaml').load(require('fs').readFileSync('config.yml', 'utf8'))
 }
 
 export const config: Config = patch(defConfig, yaml)

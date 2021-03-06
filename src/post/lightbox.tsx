@@ -1,6 +1,6 @@
 import React, { RefObject, useEffect, useState } from 'react'
 
-import style from './lightbox.module.scss'
+import * as style from './lightbox.module.scss'
 
 interface Props {
   container: RefObject<HTMLDivElement>

@@ -9,14 +9,7 @@ export const configApi: GatsbyConfig = {
   },
   plugins: [
     'gatsby-plugin-typescript',
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        cssLoaderOptions: {
-          localIdentName: '[local]--[hash:base64:5]'
-        }
-      }
-    },
+    'gatsby-plugin-sass',
     'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     {
@@ -57,6 +50,7 @@ export const configApi: GatsbyConfig = {
             options: {
               linkImagesToOriginal: false,
               withWebp: true,
+              withAvif: true,
               quality: 100
             }
           },

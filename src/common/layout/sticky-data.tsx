@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { config } from '@/config'
 import i18n from '@/i18n'
 
-import style from './sticky-side.module.scss'
+import * as style from './sticky-side.module.scss'
 
 import { Avatar, Link } from '..'
 

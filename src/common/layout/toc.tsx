@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './toc.module.scss'
+import * as style from './toc.module.scss'
 
 export function findElement(tree: TOCTree[], active: number) {
   const set = new Set<TOCTree>()

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FaArrowUp } from 'react-icons/fa'
+import { FaArrowUp } from '@react-icons/all-files/fa/FaArrowUp'
 
 import i18n from '@/i18n'
 
@@ -8,7 +8,7 @@ import { isMobile } from '@/utils'
 import { calcActive, scrollEvent } from './helper'
 import { Site } from './sticky-data'
 import { findElement, TOCComp } from './toc'
-import style from './sticky-side.module.scss'
+import * as style from './sticky-side.module.scss'
 
 import { TOC } from '..'
 

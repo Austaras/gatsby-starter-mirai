@@ -1,9 +1,12 @@
 import React, { ReactElement } from 'react'
-import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
+import { FaArchive } from '@react-icons/all-files/fa/FaArchive'
+import { FaHome } from '@react-icons/all-files/fa/FaHome'
+import { FaTags } from '@react-icons/all-files/fa/FaTags'
+import { FaUserAlt } from '@react-icons/all-files/fa/FaUserAlt'
 
 import i18n from '@/i18n'
 
-import style from './menus.module.scss'
+import * as style from './menus.module.scss'
 
 import { Link } from '..'
 

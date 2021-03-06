@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './about.module.scss'
+import * as style from './about.module.scss'
 
 import { Layout, SEO } from '@/common'
 import { config } from '@/config'

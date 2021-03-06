@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import GImg from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { config } from '@/config'
 
@@ -12,14 +12,14 @@ export const Avatar = () => {
           node {
             filename: relativePath
             childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   `).images.edges.find((edge: any) => edge.node.filename === config.site.avatar)
-  return img ? <GImg fluid={img.node.childImageSharp.fluid} alt='Avatar' itemProp='image' /> : null
+  return img ? (
+    <GatsbyImage image={img.node.childImageSharp.gatsbyImageData} alt='Avatar' itemProp='image' />
+  ) : null
 }

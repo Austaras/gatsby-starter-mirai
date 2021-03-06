@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { FaBars } from 'react-icons/fa'
+import { FaBars } from '@react-icons/all-files/fa/FaBars'
 
 import { config } from '@/config'
 
 import { menus } from './menus'
-import style from './static-side.module.scss'
+import * as style from './static-side.module.scss'
 
 import { Link } from '..'
 

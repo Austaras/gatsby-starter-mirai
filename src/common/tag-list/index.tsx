@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './tag-list.module.scss'
+import * as style from './tag-list.module.scss'
 
 import { Link } from '..'
 

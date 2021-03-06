@@ -70,7 +70,7 @@ export const onCreateWebpackConfig = ({ plugins, actions, getConfig }: CreateWeb
         '@': path.resolve(__dirname, '../../src')
       }
     },
-    devtool: process.env.NODE_ENV === 'production' ? false : 'cheap-module-eval-source-map',
+    devtool: process.env.NODE_ENV === 'production' ? false : 'eval-cheap-module-source-map',
     plugins: [
       plugins.define({
         'process.env': { __IS_WEBPACK__: JSON.stringify(true) }

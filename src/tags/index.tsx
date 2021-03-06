@@ -5,7 +5,7 @@ import { config } from '@/config'
 import '@/styles.scss'
 import i18n from '@/i18n'
 
-import style from './tags.module.scss'
+import * as style from './tags.module.scss'
 
 const MIN = 14,
   MAX = 28

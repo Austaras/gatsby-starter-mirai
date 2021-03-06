@@ -2,13 +2,13 @@ import React from 'react'
 
 import { config } from '@/config'
 
-import style from './404.module.scss'
+import * as style from './404.module.scss'
 import qr from './qr.svg'
 
 export default () => (
   <div className={style.container}>
     <div className={style.emoji}>:(</div>
-    <div className={style.content}>
+    <div>
       <div>
         Your browsing ran into a problem and needs to renavigate. I'm not colletcing any error info, and then
         I'll not renavigate for you.

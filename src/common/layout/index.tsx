@@ -1,12 +1,12 @@
 import React, { PropsWithChildren } from 'react'
-import { FaPlusCircle } from 'react-icons/fa'
+import { FaPlusCircle } from '@react-icons/all-files/fa/FaPlusCircle'
 
 import { config } from '@/config'
 import { isMobile } from '@/utils'
 
 import { Sidebar } from './sidebar'
 import { StaticSide } from './static-side'
-import style from './layout.module.scss'
+import * as style from './layout.module.scss'
 
 interface Props {
   className?: string

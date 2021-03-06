@@ -3,7 +3,7 @@ import { format } from 'date-fns/esm'
 
 import { config } from '@/config'
 
-import style from './timeline.module.scss'
+import * as style from './timeline.module.scss'
 
 import { Link } from '..'
 
