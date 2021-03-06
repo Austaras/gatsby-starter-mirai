@@ -12,6 +12,7 @@ export const configApi: GatsbyConfig = {
     'gatsby-plugin-sass',
     'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

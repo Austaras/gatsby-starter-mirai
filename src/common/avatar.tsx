@@ -4,6 +4,8 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { config } from '@/config'
 
+import { img as imgClass } from './avatar.module.scss'
+
 export const Avatar = () => {
   const img = useStaticQuery(graphql`
     query ImgQuery {
@@ -20,6 +22,12 @@ export const Avatar = () => {
     }
   `).images.edges.find((edge: any) => edge.node.filename === config.site.avatar)
   return img ? (
-    <GatsbyImage image={img.node.childImageSharp.gatsbyImageData} alt='Avatar' itemProp='image' />
+    <GatsbyImage
+      class={imgClass}
+      image={img.node.childImageSharp.gatsbyImageData}
+      alt='Avatar'
+      loading='eager'
+      itemProp='image'
+    />
   ) : null
 }
