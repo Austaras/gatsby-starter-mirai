@@ -24,9 +24,13 @@ a {
   outline: none;
 }
 
-@for $head from 1 through 6 {
+h1 {
+  font-size: $title-size;
+}
+
+@for $head from 2 through 6 {
   h#{$head} {
-    font-size: $title-size - 0.125em * ($head - 1);
+    font-size: $title-size - 0.125em * $head;
   }
 }
 
