@@ -6,7 +6,7 @@
 }
 
 .sticky-side {
-  background: white;
+  @include color(background-color, 'content-bg');
   text-align: center;
   position: sticky;
   top: 0;
@@ -40,7 +40,7 @@
 }
 
 .author-name {
-  color: $black-dark;
+  @include color(color, 'link-hover');
   font-weight: $bold;
   margin: 0;
 }
@@ -88,7 +88,7 @@
 .back {
   transition: opacity $transition;
   margin: 8px -10px 0;
-  background: $white-back;
+  @include color(background-color, 'body-bg');
   opacity: 0.6;
   padding: 0;
   font-size: 0.875em;

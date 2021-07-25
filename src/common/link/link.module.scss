@@ -1,9 +1,9 @@
 @import '../consts.scss';
 
 .link {
-  color: $main-color;
+  @include color(color, 'main');
   &:hover {
-    color: $black-dark;
+    @include color(color, 'link-hover');
   }
 
   @include svg-align;

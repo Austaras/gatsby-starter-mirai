@@ -3,7 +3,7 @@
 $padding: 20px;
 .title {
   display: block;
-  background: $black-dark;
+  @include color(background-color, 'header-bg');
   margin: 0;
   padding: $padding $padding * 3;
   text-align: center;
@@ -16,7 +16,7 @@ $padding: 20px;
 }
 
 .static-side {
-  background: white;
+  @include color(background-color, 'content-bg');
   margin-bottom: 0.75em;
 }
 

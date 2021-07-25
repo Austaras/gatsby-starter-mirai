@@ -14,10 +14,10 @@
   top: -1px;
   transition: border-top-color $transition;
   @at-root span#{&} {
-    color: white;
+    @include color(color, page);
     background-color: $grey-light;
   }
   @at-root a#{&}:hover {
-    border-top-color: $black-dark;
+    @include color(border-top-color, link-hover);
   }
 }

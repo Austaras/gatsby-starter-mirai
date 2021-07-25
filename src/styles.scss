@@ -6,11 +6,11 @@ html {
 }
 
 body {
-  color: $main-color;
+  @include color(color, 'main');
+  @include color(background-color, 'body-bg');
   line-height: $base-line;
   font-size: 16px;
   margin: 0;
-  background-color: $white-back;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -50,10 +50,10 @@ table {
 
 table > tbody > tr {
   &:nth-of-type(odd) {
-    background-color: $white;
+    @include color(background-color, table-odd);
   }
   &:hover {
-    background-color: $whitesmoke;
+    @include color(background-color, table-hover);
   }
 }
 

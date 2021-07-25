@@ -1,7 +1,7 @@
 @import '../consts.scss';
 
 .header {
-  background: $black-dark;
+  @include color(background-color, 'header-bg');
   height: 3px;
 }
 
@@ -26,7 +26,7 @@ $margin: 12px;
 }
 
 .main {
-  background: white;
+  @include color(background-color, 'content-bg');
   flex-shrink: 0;
   margin: 0 $margin;
   padding: $main-padding;

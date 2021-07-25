@@ -16,6 +16,9 @@
         bottom: $font-descent;
         content: '';
         background-color: black;
+        @media (prefers-color-scheme: dark) {
+          background-color: white;
+        }
         height: 2px;
         width: 100%;
         transform: scaleX(0);

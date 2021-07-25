@@ -17,7 +17,8 @@
   border-bottom: 1px solid $grey-dark;
   &:hover {
     padding-bottom: 0;
-    border-bottom: 2px solid black;
+    border-bottom-width: 2px;
+    @include color(border-bottom-color, 'link-hover');
   }
 }
 

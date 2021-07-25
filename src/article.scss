@@ -16,6 +16,9 @@
     }
     &:hover .anchor svg {
       visibility: visible;
+      @media (prefers-color-scheme: dark) {
+        fill: white;
+      }
     }
   }
 
@@ -72,7 +75,8 @@
 
   // for inline code
   code:not([class]) {
-    background-color: $gainsboro;
+    @include color(color, main);
+    @include color(background-color, code);
     border-radius: 3px;
     padding: 2px 4px;
     word-wrap: break-word;
@@ -110,10 +114,12 @@
     box-sizing: border-box;
     margin: 0;
     vertical-align: -$font-descent;
-    border: 2px solid $black;
+    @include color(border-color, checkbox);
+    border-width: 2px;
+    border-style: solid;
     &:checked {
       padding: 2px;
-      background-color: $black;
+      @include color(background-color, checkbox);
       background-clip: content-box;
     }
   }
@@ -121,7 +127,7 @@
   .footnotes {
     hr {
       margin: 30px 0 0;
-      background-color: $gray-lighter;
+      @include color(background-color, split);
     }
     p {
       display: inline;

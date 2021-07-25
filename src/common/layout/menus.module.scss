@@ -10,5 +10,5 @@
 }
 
 .active {
-  background: $whitesmoke;
+  @include color(background-color, 'menu-active');
 }

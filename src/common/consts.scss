@@ -1,6 +1,7 @@
 $white: #f9f9f9;
 $white-back: #f5f7f9;
 $whitesmoke: #f5f5f5;
+$white-gray: #e1e1e1;
 $gainsboro: #eee;
 $gray-lighter: #ddd;
 $grey-light: #ccc;
@@ -10,11 +11,52 @@ $grey-darker: #666;
 $black-light: #555;
 $black: #333;
 $black-dark: #222;
+$black-darker: #1d1d1d;
 $red: #ff2a2a;
 $blue: #4286f4;
 $blue-deep: #3b547c;
 
 $main-color: $black-light;
+
+$color: (
+  'body-bg': $white-back,
+  'main': $black-light,
+  'split': $grey-light,
+  'code': $gainsboro,
+  'table-odd': $white,
+  'table-hover': $whitesmoke,
+  'content-bg': white,
+  'header-bg': $black-dark,
+  'link-hover': $black-dark,
+  'menu-active': #f0f0f0,
+  'page': white,
+  'page-bg': $grey-light,
+  'read-more': white,
+  'checkbox': $black
+);
+$color-dark: (
+  'body-bg': #121212,
+  'main': $grey,
+  'split': $black-light,
+  'code': $black-light,
+  'table-odd': $black-darker,
+  'table-hover': #121212,
+  'content-bg': $black-dark,
+  'header-bg': black,
+  'link-hover': $white,
+  'menu-active': $black-light,
+  'page': black,
+  'page-bg': $black,
+  'read-more': black,
+  'checkbox': $white
+);
+
+@mixin color($attr, $color-key) {
+  #{$attr}: map-get($color, $color-key);
+  @media (prefers-color-scheme: dark) {
+    #{$attr}: map-get($color-dark, $color-key);
+  }
+}
 
 $base-line: 2;
 $title-size: 1.75em;
@@ -31,20 +73,20 @@ $transition: 0.2s ease-in-out 0s;
 
 $second-title: h2, h3, h4, h5, h6;
 
-$font-zh: Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei;
-$font-title: Raleway, PingFang SC, Microsoft YaHei, sans-serif;
+$font-zh: Hiragino Sans GB, Sarasa Gothic SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei;
+$font-title: Raleway, PingFang SC, Sarasa Gothic SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei, sans-serif;
 $font-mono: Fira Code, consolas, SF Mono, monospace;
 
 @mixin nav-link {
   word-wrap: break-word;
   border-bottom: 1px solid $grey-dark;
-  color: $black-light; // cover visited color
+  @include color(color, 'main'); // cover visited color
   outline: none;
   text-decoration: none;
 
   &:hover {
-    border-bottom-color: $black-dark;
-    color: $black-dark;
+    @include color(border-bottom-color, 'link-hover');
+    @include color(color, 'link-hover');
   }
 }
 

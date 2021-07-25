@@ -2,7 +2,9 @@
 
 .post {
   padding: 60px 0 80px;
-  border-bottom: $grey-light solid 1px;
+  @include color(border-bottom-color, split);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
   p,
   footer {
     text-align: center;
@@ -20,7 +22,9 @@
 
   .read-more {
     display: inline-block;
-    border: 2px solid $main-color;
+    border-width: 2px;
+    border-style: solid;
+    @include color(border-color, 'main');
     margin: 0 auto;
     padding: 0 20px;
     font-weight: normal;
@@ -29,9 +33,9 @@
 
   @include desktop {
     .read-more:hover {
-      border-color: $black-dark;
-      background-color: $black-dark;
-      color: white;
+      @include color(border-color, 'link-hover');
+      @include color(background-color, 'link-hover');
+      @include color(color, 'read-more');
     }
   }
 }
