@@ -1,10 +1,9 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { config } from '@/config'
-
 import { img as imgClass } from './avatar.module.scss'
+
+import { CONFIG } from '@/config'
 
 export const Avatar = () => {
   const img = useStaticQuery(graphql`
@@ -20,14 +19,14 @@ export const Avatar = () => {
         }
       }
     }
-  `).images.edges.find((edge: any) => edge.node.filename === config.site.avatar)
+  `).images.edges.find((edge: any) => edge.node.filename === CONFIG.site.avatar)
   return img ? (
     <GatsbyImage
-      class={imgClass}
+      className={imgClass}
       image={img.node.childImageSharp.gatsbyImageData}
-      alt='Avatar'
-      loading='eager'
-      itemProp='image'
+      alt="Avatar"
+      loading="eager"
+      itemProp="image"
     />
   ) : null
 }

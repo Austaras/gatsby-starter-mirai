@@ -1,28 +1,28 @@
 import { GatsbyConfig } from 'gatsby'
 
-import { config } from '../src/config'
+import { CONFIG } from '../src/config'
 
 export const configApi: GatsbyConfig = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: config.site.url
+    siteUrl: CONFIG.site.url
   },
+  jsxRuntime: 'automatic',
   plugins: [
-    'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
-    'gatsby-plugin-preact',
+    // 'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.site.name,
-        short_name: config.site.name,
-        start_url: config.site.root,
+        name: CONFIG.site.name,
+        short_name: CONFIG.site.name,
+        start_url: CONFIG.site.root,
         background_color: '#fff',
         theme_color: '#444',
         display: 'minimal-ui',
-        icon: config.site.favicon ? `assets/${config.site.favicon}` : undefined
+        icon: CONFIG.site.favicon ? `assets/${CONFIG.site.favicon}` : undefined
       }
     },
     {
@@ -64,12 +64,12 @@ export const configApi: GatsbyConfig = {
               noInlineHighlight: true
             }
           },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank'
-            }
-          },
+          // {
+          //   resolve: 'gatsby-remark-external-links',
+          //   options: {
+          //     target: '_blank'
+          //   }
+          // },
           {
             resolve: require.resolve('./remark-audio')
           }
@@ -88,7 +88,7 @@ export const configApi: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/archive', '/tags', '/tags/*']
+        excludes: ['/archive', '/tags', '/tags/*']
       }
     },
     'gatsby-transformer-sharp',

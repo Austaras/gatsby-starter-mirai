@@ -1,9 +1,7 @@
-import React from 'react'
-
-import { config } from '@/config'
-
 import * as style from './404.module.scss'
 import qr from './qr.svg'
+
+import { CONFIG } from '@/config'
 
 export default () => (
   <div className={style.container}>
@@ -18,12 +16,12 @@ export default () => (
       <div className={style.space}></div>
       <div className={style.qr}>
         <div className={style.img}>
-          <img src={qr} alt='WoW!' />
+          <img src={qr} alt="WoW!" />
         </div>
         <div className={style.text}>
           <p className={style.begin}>
             For more information about this issue and possible fixes, visit{' '}
-            <a href={config.site.root}>{config.site.url}</a>
+            <a href={CONFIG.site.root}>{CONFIG.site.url}</a>
           </p>
           <p className={style.end}>
             If you call a support person give them this info:

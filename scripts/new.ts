@@ -3,7 +3,7 @@ import os from 'os'
 
 import { format } from 'date-fns'
 
-import { config } from '../src/config'
+import { CONFIG } from '../src/config'
 
 const time = new Date()
 
@@ -24,7 +24,7 @@ function genMd() {
     return 'File already exists!'
   }
 
-  const cfg = config.template
+  const cfg = CONFIG.template
   frontMatter.title = path
 
   if (cfg.date) {

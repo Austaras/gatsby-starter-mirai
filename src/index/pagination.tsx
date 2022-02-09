@@ -1,8 +1,9 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
+
+import * as style from './pagination.module.scss'
 
 import { Link } from '@/common'
 
-import * as style from './pagination.module.scss'
 
 export function Pagination({ count, current }: PageConf) {
   const children: ReactElement[] = []

@@ -2,7 +2,7 @@ import crypto from 'crypto'
 
 import Slugger from 'github-slugger'
 
-import { config } from '../../src/config'
+import { CONFIG } from '../../src/config'
 
 interface TitleCbData {
   title: string
@@ -19,7 +19,7 @@ const dict: Record<string, (data: TitleCbData) => string> = {
   day: ({ time }) => time.getDay().toString(),
   hash: ({ time }) =>
     crypto
-      .createHmac('sha256', config.key)
+      .createHmac('sha256', CONFIG.key)
       // a Date object is a Float64, as other number in js
       .update(new Float64Array([time.valueOf()]))
       .digest('hex')
@@ -28,7 +28,7 @@ const dict: Record<string, (data: TitleCbData) => string> = {
 
 const slugger = new Slugger()
 export function generatePath(node: PostData) {
-  let res = config.template.path
+  let res = CONFIG.template.path
   if (!res.startsWith('/')) res = `/${res}`
   Object.keys(dict).forEach(key => {
     res = res.replace(

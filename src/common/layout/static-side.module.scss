@@ -41,7 +41,7 @@ $padding: 20px;
   color: white;
   svg {
     font-size: 1.5em;
-    padding-top: ($base-line - 1.5em) / 2 - $font-descent;
+    padding-top: ($base-line - 1.5em) * 0.5 - $font-descent;
   }
 }
 

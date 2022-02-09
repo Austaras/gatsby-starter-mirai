@@ -1,11 +1,12 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { format } from 'date-fns/esm'
 
-import { config } from '@/config'
 
 import * as style from './timeline.module.scss'
 
 import { Link } from '..'
+
+import { CONFIG } from '@/config'
 
 interface Props {
   posts: Pick<Post, 'path' | 'frontmatter'>[]
@@ -15,11 +16,11 @@ interface Props {
 export function Timeline({ posts, title }: Props) {
   const showYear = posts.length <= 5
   let year = 0
-  const fmt = showYear ? config.style.date : config.style.month_date
+  const fmt = showYear ? CONFIG.style.date : CONFIG.style.month_date
   const children: ReactElement[] = []
   if (title) {
     children.push(
-      <li className={`${style.item} ${style.title}`} key='title'>
+      <li className={`${style.item} ${style.title}`} key="title">
         <h1>{title}</h1>
       </li>
     )

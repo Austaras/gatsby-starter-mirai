@@ -1,11 +1,9 @@
-import React from 'react'
+import * as style from './tags.module.scss'
 
 import { Layout, Link, SEO } from '@/common'
-import { config } from '@/config'
+import { CONFIG } from '@/config'
 import '@/styles.scss'
 import i18n from '@/i18n'
-
-import * as style from './tags.module.scss'
 
 const MIN = 14,
   MAX = 28
@@ -28,15 +26,15 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
 
   return (
     <Layout>
-      <SEO title='Tags' noindex={true} path='/tags' />
+      <SEO title="Tags" noindex={true} path="/tags" />
       <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
         <div className={style.count}>
           {i18n.tags.count.replace('%s', Object.keys(tagsLen).length.toString())}
         </div>
-        <article className='content'>
+        <article className="content">
           {Object.keys(tagsLen)
-            .sort((a, b) => a.localeCompare(b, config.language, { sensitivity: 'base' }))
+            .sort((a, b) => a.localeCompare(b, CONFIG.language, { sensitivity: 'base' }))
             .map(tagName => {
               const ratio = sizes.indexOf(tagsLen[tagName]) / length
               const size = mix(MIN, MAX, ratio)

@@ -1,13 +1,14 @@
-import React from 'react'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+
+import * as style from './index.module.scss'
+
+import { Pagination } from './pagination'
 
 import { Header, Layout, Link, SEO, TagList } from '@/common'
 
 import i18n from '@/i18n'
 
-import * as style from './index.module.scss'
-import { Pagination } from './pagination'
 
 import '@/styles.scss'
 
@@ -30,9 +31,9 @@ const Index = ({ pageContext: { posts, page } }: Props) => (
           timeToRead={post.timeToRead}
           title={post.frontmatter.title}
         />
-        <article className='content' dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
+        <article className="content" dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
         <footer className={style.linkContainer}>
-          <Link to={post.path} className={`${style.readMore} title`} rel='contents'>
+          <Link to={post.path} className={`${style.readMore} title`} rel="contents">
             {i18n.readmore} »
           </Link>
           <TagList list={post.frontmatter.tags} />

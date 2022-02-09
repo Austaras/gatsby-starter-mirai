@@ -74,7 +74,8 @@ $transition: 0.2s ease-in-out 0s;
 $second-title: h2, h3, h4, h5, h6;
 
 $font-zh: Hiragino Sans GB, Sarasa Gothic SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei;
-$font-title: Raleway, PingFang SC, Sarasa Gothic SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei, sans-serif;
+$font-title: Raleway, PingFang SC, Sarasa Gothic SC, Noto Sans CJK SC, Source Han Sans, Microsoft YaHei,
+  sans-serif;
 $font-mono: Fira Code, consolas, SF Mono, monospace;
 
 @mixin nav-link {

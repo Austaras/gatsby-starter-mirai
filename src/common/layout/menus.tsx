@@ -1,14 +1,11 @@
-import React, { ReactElement } from 'react'
-import { FaArchive } from '@react-icons/all-files/fa/FaArchive'
-import { FaHome } from '@react-icons/all-files/fa/FaHome'
-import { FaTags } from '@react-icons/all-files/fa/FaTags'
-import { FaUserAlt } from '@react-icons/all-files/fa/FaUserAlt'
-
-import i18n from '@/i18n'
+import { ReactElement } from 'react'
+import { FaArchive, FaHome, FaTags, FaUserAlt } from 'react-icons/fa'
 
 import * as style from './menus.module.scss'
 
 import { Link } from '..'
+
+import i18n from '@/i18n'
 
 const data = {
   home: <FaHome />,
@@ -24,9 +21,10 @@ export const menus: Record<string, ReactElement> = (Object.keys(data) as Tag[]).
       className={style.menuLink}
       to={`/${key === 'home' ? '' : key}`}
       activeClassName={style.active}
-      rel='section'>
+      rel="section"
+    >
       {data[key]} {i18n.menu[key]}
     </Link>
   )
   return o
-}, {} as Record<Tag, React.ReactElement>)
+}, {} as Record<Tag, ReactElement>)

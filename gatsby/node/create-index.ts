@@ -2,14 +2,14 @@ import path from 'path'
 import { Actions, CreatePagesArgs } from 'gatsby'
 
 import { generatePath } from './utils'
-import { config } from '../../src/config'
+import { CONFIG } from '../../src/config'
 import { pick } from '../../src/utils'
 
 export const createIndexPages = async (
   createPage: Actions['createPage'],
   graphql: CreatePagesArgs['graphql']
 ) => {
-  const limit = config.style.per_page
+  const limit = CONFIG.style.per_page
   const template = path.resolve('src/index/index.tsx')
 
   const { errors, data } = await graphql<QueryRes>(`

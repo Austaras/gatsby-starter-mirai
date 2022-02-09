@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Layout, SEO, Timeline } from './common'
 import './styles.scss'
 

@@ -19,8 +19,8 @@
 @mixin dot($size, $line) {
   height: $size;
   width: $size;
-  margin-left: -$size / 2;
-  top: ($line - $size) / 2;
+  margin-left: -$size * 0.5;
+  top: ($line - $size) * 0.5;
 }
 $title-height: $title-size * $title-line;
 .item {
@@ -68,7 +68,7 @@ $title-height: $title-size * $title-line;
 .year {
   margin: 60px 0;
   &:before {
-    top: -(0.5em - $title-height) / 2;
+    top: -(0.5em - $title-height) * 0.5;
   }
 }
 

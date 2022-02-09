@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { FaBars } from '@react-icons/all-files/fa/FaBars'
+import { useState } from 'react'
+import { FaBars } from 'react-icons/fa'
 
-import { config } from '@/config'
 
 import { menus } from './menus'
 import * as style from './static-side.module.scss'
 
 import { Link } from '..'
+
+import { CONFIG } from '@/config'
 
 interface Props {
   isHeader?: boolean
@@ -18,9 +19,10 @@ export const StaticSide = ({ isHeader = false }: Props) => {
       className={`${style.staticSide} ${isHeader ? style.header : ''}`}
       id={isHeader ? 'header' : 'static'}
       itemScope
-      itemType='http://schema.org/WPHeader'>
-      <Link className={style.title} to='/' rel='start'>
-        {config.site.name}
+      itemType="http://schema.org/WPHeader"
+    >
+      <Link className={style.title} to="/" rel="start">
+        {CONFIG.site.name}
       </Link>
       {isHeader ? (
         <button className={style.headerButton} onClick={() => setExpand(!expand)}>
@@ -28,7 +30,7 @@ export const StaticSide = ({ isHeader = false }: Props) => {
         </button>
       ) : null}
       <nav className={style.menu} style={{ display: expand ? 'block' : 'none' }}>
-        {config.style.menu.map(key => menus[key])}
+        {CONFIG.style.menu.map(key => menus[key])}
       </nav>
     </header>
   )

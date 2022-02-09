@@ -65,4 +65,4 @@ if (process.env.__IS_WEBPACK__) {
   yaml = require('js-yaml').load(require('fs').readFileSync('config.yml', 'utf8'))
 }
 
-export const config: Config = patch(defConfig, yaml)
+export const CONFIG: Config = patch(defConfig, yaml)

@@ -1,13 +1,13 @@
 import { spawn } from 'child_process'
 import path from 'path'
 
-import { config } from '../src/config'
+import { CONFIG } from '../src/config'
 
-if (!config.rsync) {
+if (!CONFIG.rsync) {
   throw new Error('must specify rsync in config.yml')
 }
 const dir = path.resolve(__dirname, '../public') + '/'
-const { rsync } = config
+const { rsync } = CONFIG
 
 const cmd = 'rsync'
 const args = ['-av', '-zz', '-progress']

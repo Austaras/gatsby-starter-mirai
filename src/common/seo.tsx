@@ -1,8 +1,7 @@
-import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { config } from '@/config'
+import { CONFIG } from '@/config'
 
 interface Props {
   article?: boolean
@@ -12,7 +11,7 @@ interface Props {
   keywords?: string[]
   title?: string
 }
-const { site } = config
+const { site } = CONFIG
 export function SEO({
   article,
   noindex = false,
@@ -36,35 +35,35 @@ export function SEO({
         }
       }
     }
-  `).images.edges.find((edge: any) => edge.node.filename === config.site.avatar)?.node.childImageSharp.fluid
+  `).images.edges.find((edge: any) => edge.node.filename === CONFIG.site.avatar)?.node.childImageSharp.fluid
     .src
   return (
     <Helmet>
       {description && [
-        <meta name='description' content={description} key='normal' />,
-        <meta property='og:description' content={description} key='search' />,
-        <meta name='twitter:description' content={description} key='twitter' />
+        <meta name="description" content={description} key="normal" />,
+        <meta property="og:description" content={description} key="search" />,
+        <meta name="twitter:description" content={description} key="twitter" />
       ]}
       {avatar
         ? [
-            <meta name='image' content={config.site.url + avatar} key='img' />,
-            <meta property='og:image' content={config.site.url + avatar} key='twitter_img' />,
-            <meta name='twitter:image' content={config.site.url + avatar} key='og_img' />
+            <meta name="image" content={CONFIG.site.url + avatar} key="img" />,
+            <meta property="og:image" content={CONFIG.site.url + avatar} key="twitter_img" />,
+            <meta name="twitter:image" content={CONFIG.site.url + avatar} key="og_img" />
           ]
         : null}
-      {site.name && <meta property='og:site_name' content={site.name} />}
-      <meta property='og:type' content={article ? 'article' : 'website'} />
-      {article && <meta property='article:author' content={config.site.author} />}
-      {site.url && <meta property='og:url' content={site.url + path} />}
-      {keywords.length !== 0 && <meta name='keywords' content={keywords.join(',')} />}
-      <meta property='og:locale' content={config.language} />
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:title' content={title} />
-      <meta property='og:title' content={title} />
-      {noindex && <meta name='robots' content='noindex' />}
+      {site.name && <meta property="og:site_name" content={site.name} />}
+      <meta property="og:type" content={article ? 'article' : 'website'} />
+      {article && <meta property="article:author" content={CONFIG.site.author} />}
+      {site.url && <meta property="og:url" content={site.url + path} />}
+      {keywords.length !== 0 && <meta name="keywords" content={keywords.join(',')} />}
+      <meta property="og:locale" content={CONFIG.language} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+      <meta property="og:title" content={title} />
+      {noindex && <meta name="robots" content="noindex" />}
       <title>{title}</title>
-      <html lang={config.language}></html>
-      <body itemScope itemType='http://schema.org/WebPage'></body>
+      <html lang={CONFIG.language}></html>
+      <body itemScope itemType="http://schema.org/WebPage"></body>
     </Helmet>
   )
 }

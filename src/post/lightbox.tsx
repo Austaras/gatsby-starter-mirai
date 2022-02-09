@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useState } from 'react'
+import { RefObject, useEffect, useState } from 'react'
 
 import * as style from './lightbox.module.scss'
 

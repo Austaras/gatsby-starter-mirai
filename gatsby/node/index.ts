@@ -7,7 +7,7 @@ import { createPost } from './create-post'
 import { createTagPages } from './create-tag'
 import { generatePath } from './utils'
 
-import { config } from '../../src/config'
+import { CONFIG } from '../../src/config'
 
 export const createPages = async ({ actions: { createPage }, graphql }: CreatePagesArgs) => {
   createPage({
@@ -62,18 +62,18 @@ export const createPages = async ({ actions: { createPage }, graphql }: CreatePa
   await Promise.all([createIndexPages(createPage, graphql), createAbout(createPage, graphql)])
 }
 
-export const onCreateWebpackConfig = ({ plugins, actions, getConfig }: CreateWebpackConfigArgs) => {
+export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '@/i18n': path.resolve(__dirname, `../../src/i18n/${config.language}.yml`),
+        '@/i18n': path.resolve(__dirname, `../../src/i18n/${CONFIG.language}.yml`),
         '@': path.resolve(__dirname, '../../src')
       }
     },
     devtool: process.env.NODE_ENV === 'production' ? false : 'eval-cheap-module-source-map',
     plugins: [
       plugins.define({
-        'process.env': { __IS_WEBPACK__: JSON.stringify(true) }
+        'process.env.__IS_WEBPACK__': JSON.stringify(true)
       })
     ]
   })

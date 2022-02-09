@@ -1,9 +1,5 @@
-import React, { Component } from 'react'
-import { FaArrowUp } from '@react-icons/all-files/fa/FaArrowUp'
-
-import i18n from '@/i18n'
-
-import { isMobile } from '@/utils'
+import { Component } from 'react'
+import { FaArrowUp } from 'react-icons/fa'
 
 import { calcActive, scrollEvent } from './helper'
 import { Site } from './sticky-data'
@@ -11,6 +7,9 @@ import { findElement, TOCComp } from './toc'
 import * as style from './sticky-side.module.scss'
 
 import { TOC } from '..'
+
+import { isMobile } from '@/utils'
+import i18n from '@/i18n'
 
 interface State {
   active: number
@@ -21,7 +20,7 @@ export class StickySide extends Component<{}, State> {
   private unsub?: () => void
   private intr?: IntersectionObserver
   public static contextType = TOC
-  public context: TOCTree[] | undefined
+  public context: TOCTree[] | undefined = undefined
   public state = {
     active: -1,
     showButton: false,
@@ -65,13 +64,14 @@ export class StickySide extends Component<{}, State> {
       <div
         className={`${style.back} ${showButton ? style.show : style.hide}`}
         onClick={() => window.scrollTo({ top: 0 })}
-        key='key'>
+        key="key"
+      >
         <FaArrowUp />
       </div>
     )
     if (!toc) {
       return (
-        <div className={style.stickySide} itemProp='author' itemScope itemType='http://schema.org/Person'>
+        <div className={style.stickySide} itemProp="author" itemScope itemType="http://schema.org/Person">
           <Site />
           {up}
         </div>
@@ -83,12 +83,14 @@ export class StickySide extends Component<{}, State> {
         <ul className={style.tabs}>
           <li
             className={showToc ? style.active : ''}
-            onClick={() => !showToc && this.setState({ showToc: true })}>
+            onClick={() => !showToc && this.setState({ showToc: true })}
+          >
             {i18n.tab.toc}
           </li>
           <li
             className={showToc ? '' : style.active}
-            onClick={() => showToc && this.setState({ showToc: false })}>
+            onClick={() => showToc && this.setState({ showToc: false })}
+          >
             {i18n.tab.site}
           </li>
         </ul>
