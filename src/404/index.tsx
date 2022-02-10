@@ -1,6 +1,9 @@
 import * as style from './404.module.scss'
 import qr from './qr.svg'
 
+// TODO: remove after preact fix this
+import 'preact/compat'
+
 import { CONFIG } from '@/config'
 
 export default () => (

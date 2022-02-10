@@ -1,5 +1,6 @@
 import { Component, createRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import 'preact/compat'
 import 'aplayer/dist/APlayer.min.css'
 
 import * as style from './post.module.scss'

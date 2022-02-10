@@ -8,9 +8,10 @@ export const configApi: GatsbyConfig = {
     siteUrl: CONFIG.site.url
   },
   jsxRuntime: 'automatic',
+  jsxImportSource: 'preact/compat',
   plugins: [
     'gatsby-plugin-sass',
-    // 'gatsby-plugin-preact',
+    'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-image',
     {
