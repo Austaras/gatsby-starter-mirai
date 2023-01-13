@@ -12,9 +12,9 @@ import i18n from '@/i18n'
 export const Site = () => {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
-      allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }) {
+      allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}}) {
         totalCount
-        tags: group(field: frontmatter___tags) {
+        tags: group(field: {frontmatter: {tags: SELECT}}) {
           tag: fieldValue
         }
       }

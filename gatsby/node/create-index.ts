@@ -15,8 +15,8 @@ export const createIndexPages = async (
   const { errors, data } = await graphql<QueryRes>(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }
+        sort: {frontmatter: {date: DESC}}
+        filter: {fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}}
       ) {
         edges {
           node {

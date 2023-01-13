@@ -11,7 +11,7 @@ export const configApi: GatsbyConfig = {
   jsxImportSource: 'preact/compat',
   plugins: [
     'gatsby-plugin-sass',
-    'gatsby-plugin-preact',
+    // 'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-image',
     {
