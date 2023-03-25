@@ -8,7 +8,7 @@ export const configApi: GatsbyConfig = {
     siteUrl: CONFIG.site.url
   },
   jsxRuntime: 'automatic',
-  jsxImportSource: 'preact/compat',
+  // jsxImportSource: 'preact/compat',
   plugins: [
     'gatsby-plugin-sass',
     // 'gatsby-plugin-preact',
