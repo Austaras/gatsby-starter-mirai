@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 
-import { Literal } from 'mdast'
+import type { Literal } from 'mdast'
 import visit from 'unist-util-visit'
 
 interface File {
