@@ -17,7 +17,7 @@
     "dependencies": {
         "aplayer": "^1.10.1",
         "date-fns": "^2.11.1",
-        "gatsby": "^5.2.0",
+        "gatsby": "^5.9.1",
         "gatsby-link": "^5.2.0",
         "gatsby-plugin-catch-links": "^5.2.0",
         "gatsby-plugin-image": "^3.2.0",
