@@ -47,20 +47,20 @@ function getPath(file) {
         return dest;
     dest = "static/".concat(file.internal.contentDigest, "/").concat(file.base);
     processed.set(file, dest);
-    todo.push([file.absolutePath, path_1.default.join(process.cwd(), 'public', dest)]);
+    todo.push([file.absolutePath, path_1.join(process.cwd(), 'public', dest)]);
     return dest;
 }
 exports.default = (function (_a) {
     var markdownAST = _a.markdownAST, markdownNode = _a.markdownNode, files = _a.files, getNode = _a.getNode;
     todo = [];
-    (0, unist_util_visit_1.default)(markdownAST, 'inlineCode', function (node) {
+    (0, unist_util_visit_1)(markdownAST, 'inlineCode', function (node) {
         var value = node.value;
         if (value.startsWith('audio: ')) {
             var text = value.slice(7);
             var split = text.indexOf(' ');
             var name_1 = text.slice(0, split);
             var data = text.slice(split + 1);
-            var uri_1 = path_1.default.join(getNode(markdownNode.parent).dir, name_1);
+            var uri_1 = path_1.join(getNode(markdownNode.parent).dir, name_1);
             var resource = files.find(function (f) { return f.absolutePath === uri_1; });
             if (!resource)
                 return;
@@ -76,14 +76,14 @@ exports.default = (function (_a) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!!fs_extra_1.default.existsSync(newPath)) return [3 /*break*/, 5];
+                        if (!!fs_extra_1.existsSync(newPath)) return [3 /*break*/, 5];
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, fs_extra_1.default.ensureDir(path_1.default.dirname(newPath))];
+                        return [4 /*yield*/, fs_extra_1.ensureDir(path_1.dirname(newPath))];
                     case 2:
                         _b.sent();
-                        return [4 /*yield*/, fs_extra_1.default.copy(oldPath, newPath)];
+                        return [4 /*yield*/, fs_extra_1.copy(oldPath, newPath)];
                     case 3:
                         _b.sent();
                         return [3 /*break*/, 5];
