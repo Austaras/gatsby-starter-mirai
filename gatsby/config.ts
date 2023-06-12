@@ -56,6 +56,7 @@ export const configApi: GatsbyConfig = {
               quality: 100
             }
           },
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
