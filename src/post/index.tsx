@@ -10,11 +10,18 @@ import { Header, Layout, Link, TagList, SEO, TOC } from '@/common'
 import { CONFIG } from '@/config'
 import { isMobile, isServerSide } from '@/utils'
 
+interface PageLink {
+  fields: {
+    path: string
+  }
+  title: string
+}
+
 interface Props {
   pageContext: {
     post: Post
-    next: Record<'path' | 'title', string>
-    prev: Record<'path' | 'title', string>
+    next: PageLink
+    prev: PageLink
   }
 }
 export default class Template extends Component<Props, { pic: string | undefined }> {
@@ -63,7 +70,7 @@ export default class Template extends Component<Props, { pic: string | undefined
         <Layout>
           <SEO
             article={true}
-            path={post.path}
+            path={post.fields.path}
             title={post.frontmatter.title}
             description={post.excerpt}
             keywords={post.frontmatter.tags}
@@ -76,7 +83,7 @@ export default class Template extends Component<Props, { pic: string | undefined
               timeToRead={post.timeToRead}
               title={post.frontmatter.title}
             />
-            <link itemProp="mainEntityOfPage" href={CONFIG.site.url + post.path}></link>
+            <link itemProp="mainEntityOfPage" href={CONFIG.site.url + post.fields.path}></link>
             <a hidden href="/about" rel="author">
               {CONFIG.site.author}
             </a>
@@ -91,13 +98,13 @@ export default class Template extends Component<Props, { pic: string | undefined
 
             <nav className={style.navigation}>
               {prev && (
-                <Link to={prev.path} rel="prev">
+                <Link to={prev.fields.path} rel="prev">
                   <FaChevronLeft /> {prev.title}
                 </Link>
               )}
               <div className={style.spacer}></div>
               {next && (
-                <Link to={next.path} rel="next">
+                <Link to={next.fields.path} rel="next">
                   {next.title} <FaChevronRight />
                 </Link>
               )}

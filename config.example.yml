@@ -15,6 +15,8 @@ site:
   from: 2019
   # url:
   # root: /
+  external_link:
+    github: https://example.com
 
 style:
   menu: [home, tags, archive, about]

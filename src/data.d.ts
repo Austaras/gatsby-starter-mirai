@@ -7,7 +7,10 @@ interface PostData {
     depth: number
     value: string
   }[]
-  path: string
+  // path: string
+  fields: {
+    path: string
+  }
   frontmatter: {
     date: string
     tags: string[]

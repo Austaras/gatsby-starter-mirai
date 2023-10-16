@@ -9,7 +9,7 @@ import { Link } from '..'
 import { CONFIG } from '@/config'
 
 interface Props {
-  posts: Pick<Post, 'path' | 'frontmatter'>[]
+  posts: Pick<Post, 'fields' | 'frontmatter'>[]
   title?: string
 }
 
@@ -37,8 +37,8 @@ export function Timeline({ posts, title }: Props) {
       )
     }
     children.push(
-      <li className={`${style.item} ${style.post}`} key={post.path}>
-        <Link className={style.link} to={post.path}>
+      <li className={`${style.item} ${style.post}`} key={post.fields.path}>
+        <Link className={style.link} to={post.fields.path}>
           <time className={style.time}>{format(time, fmt)}</time>
           <h2 className={`${style.postTitle} title`}>{post.frontmatter.title}</h2>
         </Link>

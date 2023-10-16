@@ -1,4 +1,8 @@
 export type PostMeta = 'create' | 'update' | 'wordcount'
+export type ExternalLinkType = 'github' | 'rss' | 'twitter' | 'email'
+export type ExternalLink = {
+  [P in ExternalLinkType]?: string
+}
 const defConfig = {
   template: {
     path: ':name',
@@ -13,7 +17,8 @@ const defConfig = {
     avatar: undefined as string | undefined,
     from: 0,
     url: 'https://www.gatsbyjs.org',
-    root: '/'
+    root: '/',
+    external_link: undefined as ExternalLink | undefined
   },
   style: {
     menu: [] as string[],
@@ -40,10 +45,11 @@ type Config = typeof defConfig
 const isObj = (v: any) => Object.prototype.toString.call(v) === '[object Object]'
 
 function patch<R extends Record<string, any>, T extends R>(orig: T, mod: R): T {
-  type t = keyof T;
+  type t = keyof T
   Object.keys(orig).forEach(key => {
     if (isObj(orig[key]) && isObj(mod[key])) {
-      return (orig[key as t] = patch(orig[key], mod[key]))
+      orig[key as t] = patch(orig[key], mod[key])
+      return
     }
     if (Object.prototype.hasOwnProperty.call(mod, key)) {
       orig[key as t] = mod[key]

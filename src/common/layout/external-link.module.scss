@@ -1,0 +1,19 @@
+@import '../consts.scss';
+
+.container {
+  margin: 10px 0 0 0;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+.link {
+  @include color(color, 'main');
+  @include svg-align;
+
+  margin: 0 4px;
+  padding: 2px 4px;
+
+  &:hover {
+    @include color(background-color, 'body-bg');
+  }
+}

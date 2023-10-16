@@ -3,7 +3,7 @@ import './styles.scss'
 
 interface Props {
   pageContext: {
-    posts: Pick<Post, 'path' | 'frontmatter'>[]
+    posts: Pick<Post, 'fields' | 'frontmatter'>[]
     tagName: string
   }
 }

@@ -3,7 +3,7 @@ import './styles.scss'
 
 interface Props {
   pageContext: {
-    posts: Pick<Post, 'frontmatter' | 'path'>[]
+    posts: Pick<Post, 'frontmatter' | 'fields'>[]
   }
 }
 const Archive = ({ pageContext: { posts } }: Props) => (

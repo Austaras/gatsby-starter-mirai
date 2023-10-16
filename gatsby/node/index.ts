@@ -1,5 +1,5 @@
 import path from 'path'
-import { CreateBabelConfigArgs, CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
+import { CreatePagesArgs, CreateWebpackConfigArgs, CreateNodeArgs } from 'gatsby'
 
 import { createAbout } from './create-about'
 import { createIndexPages } from './create-index'
@@ -19,13 +19,16 @@ export const createPages = async ({ actions: { createPage }, graphql }: CreatePa
   const { errors, data } = await graphql<QueryRes>(`
     {
       allMarkdownRemark(
-        sort: {frontmatter: {date: DESC}}
-        filter: {fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}}
+        sort: { frontmatter: { date: DESC } }
+        filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }
       ) {
         edges {
           node {
             excerpt
             html
+            fields {
+              path
+            }
             headings {
               depth
               value
@@ -48,13 +51,10 @@ export const createPages = async ({ actions: { createPage }, graphql }: CreatePa
     }
   `)
   if (errors) {
-    return Promise.reject(errors)
+    throw errors
   }
 
-  const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
-    node.path = generatePath(node)
-    return node
-  })
+  const posts = data!.allMarkdownRemark.edges.map(({ node }) => node)
 
   createTagPages(createPage, posts)
   createPost(createPage, posts)
@@ -77,4 +77,16 @@ export const onCreateWebpackConfig = ({ plugins, actions }: CreateWebpackConfigA
       })
     ]
   })
+}
+
+export const onCreateNode = ({ node, actions }: CreateNodeArgs) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = generatePath(node as unknown as PostData)
+    createNodeField({
+      node,
+      name: 'path',
+      value
+    })
+  }
 }

@@ -10,6 +10,7 @@ import { TOC } from '..'
 
 import { isMobile } from '@/utils'
 import i18n from '@/i18n'
+import { CONFIG } from '@/config'
 
 interface State {
   active: number

@@ -4,17 +4,17 @@ import * as style from './sticky-side.module.scss'
 
 import { Avatar, Link } from '..'
 
+import { ExternalLinkComp } from './external-links'
+
 import { CONFIG } from '@/config'
 import i18n from '@/i18n'
-
-
 
 export const Site = () => {
   const { totalCount, tags } = useStaticQuery(graphql`
     query SidebarQuery {
-      allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}}) {
+      allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }) {
         totalCount
-        tags: group(field: {frontmatter: {tags: SELECT}}) {
+        tags: group(field: { frontmatter: { tags: SELECT } }) {
           tag: fieldValue
         }
       }
@@ -50,6 +50,7 @@ export const Site = () => {
           </Link>
         </div>
       </nav>
+      {CONFIG.site.external_link ? <ExternalLinkComp link={CONFIG.site.external_link} /> : null}
     </>
   )
 }

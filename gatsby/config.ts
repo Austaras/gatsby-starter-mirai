@@ -2,6 +2,13 @@ import { GatsbyConfig } from 'gatsby'
 
 import { CONFIG } from '../src/config'
 
+interface RssQuery {
+  query: {
+    site: { siteMetadata: { siteUrl: string } }
+    allMarkdownRemark: { nodes: PostData[] }
+  }
+}
+
 export const configApi: GatsbyConfig = {
   pathPrefix: '/',
   siteMetadata: {
@@ -91,6 +98,45 @@ export const configApi: GatsbyConfig = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         excludes: ['/archive', '/tags', '/tags/*']
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }: RssQuery) =>
+              allMarkdownRemark.nodes.map(node => ({
+                ...node.frontmatter,
+                description: node.excerpt,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.fields.path,
+                guid: site.siteMetadata.siteUrl + node.fields.path,
+                custom_elements: [{ 'content:encoded': node.html }]
+              })),
+            query: `
+          {
+            allMarkdownRemark(
+              sort: { order: DESC, fields: [frontmatter___date] },
+            ) {
+              nodes {
+                excerpt
+                html
+                fields {
+                  path
+                }
+                frontmatter {
+                  title
+                  date
+                }
+              }
+            }
+          }
+        `,
+            output: '/rss.xml',
+            title: CONFIG.site.name
+          }
+        ]
       }
     },
     'gatsby-transformer-sharp',

@@ -15,13 +15,16 @@ export const createIndexPages = async (
   const { errors, data } = await graphql<QueryRes>(`
     {
       allMarkdownRemark(
-        sort: {frontmatter: {date: DESC}}
-        filter: {fileAbsolutePath: {glob: "**/blog/posts/**/*.md"}}
+        sort: { frontmatter: { date: DESC } }
+        filter: { fileAbsolutePath: { glob: "**/blog/posts/**/*.md" } }
       ) {
         edges {
           node {
             excerpt(format: HTML)
             timeToRead
+            fields {
+              path
+            }
             frontmatter {
               date
               tags
@@ -39,20 +42,17 @@ export const createIndexPages = async (
     }
   `)
   if (errors) {
-    return Promise.reject(errors)
+    throw errors
   }
 
-  const posts = data!.allMarkdownRemark.edges.map(({ node }) => {
-    node.path = generatePath(node)
-    return node
-  })
+  const posts = data!.allMarkdownRemark.edges.map(({ node }) => node)
   const count = Math.ceil(posts.length / limit)
 
   createPage({
     path: '/archive',
     component: path.resolve('src/archive.tsx'),
     context: {
-      posts: posts.map(post => pick(post, 'frontmatter', 'path'))
+      posts: posts.map(post => pick(post, 'frontmatter', 'fields'))
     }
   })
 

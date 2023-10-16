@@ -23,9 +23,9 @@ const Index = ({ pageContext: { posts, page } }: Props) => (
   <Layout>
     <SEO />
     {posts.map(post => (
-      <section className={style.post} key={post.path}>
+      <section className={style.post} key={post.fields.path}>
         <Header
-          link={post.path}
+          link={post.fields.path}
           time={new Date(post.frontmatter.date)}
           mtime={new Date(post.parent.mtimeMs)}
           timeToRead={post.timeToRead}
@@ -33,7 +33,7 @@ const Index = ({ pageContext: { posts, page } }: Props) => (
         />
         <article className="content" dangerouslySetInnerHTML={{ __html: post.excerpt }}></article>
         <footer className={style.linkContainer}>
-          <Link to={post.path} className={`${style.readMore} title`} rel="contents">
+          <Link to={post.fields.path} className={`${style.readMore} title`} rel="contents">
             {i18n.readmore} »
           </Link>
           <TagList list={post.frontmatter.tags} />

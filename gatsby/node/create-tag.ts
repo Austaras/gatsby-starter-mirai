@@ -6,7 +6,7 @@ import { pick } from '../../src/utils'
 export const createTagPages = (createPage: Actions['createPage'], posts: PostData[]) => {
   const tagTemplate = path.resolve('src/tag.tsx')
   const tagsTemplate = path.resolve('src/tags/index.tsx')
-  const tags: Record<string, Pick<Post, 'path' | 'frontmatter'>[]> = {}
+  const tags: Record<string, Pick<Post, 'fields' | 'frontmatter'>[]> = {}
   const tagsLen: Record<string, number> = {}
   for (const post of posts) {
     if (!post.frontmatter.tags) {
@@ -16,7 +16,7 @@ export const createTagPages = (createPage: Actions['createPage'], posts: PostDat
       if (!tags[tag]) {
         tags[tag] = []
       }
-      tags[tag].push(pick(post, 'path', 'frontmatter'))
+      tags[tag].push(pick(post, 'fields', 'frontmatter'))
       if (!tagsLen[tag]) {
         tagsLen[tag] = 0
       }

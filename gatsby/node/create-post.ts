@@ -12,16 +12,16 @@ export const createPost = (createPage: Actions['createPage'], posts: PostData[])
     const context: any = { post: rest }
     if (index > 0) {
       const prev = posts[index - 1]
-      context.prev = pick(prev, 'path')
+      context.prev = pick(prev, 'fields')
       context.prev.title = prev.frontmatter.title
     }
     if (index < posts.length - 1) {
       const next = posts[index + 1]
-      context.next = pick(next, 'path')
+      context.next = pick(next, 'fields')
       context.next.title = next.frontmatter.title
     }
     createPage({
-      path: post.path,
+      path: post.fields.path,
       component: template,
       context
     })
