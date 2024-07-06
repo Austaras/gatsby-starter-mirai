@@ -25,6 +25,7 @@ export function ExternalLinkComp({ link }: Props) {
           rel="noopener external nofollow noreferrer"
           target="_blank"
           title={type}
+          key={type}
           href={link[type]}
         >
           {data[type]}

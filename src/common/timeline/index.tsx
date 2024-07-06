@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { format } from 'date-fns/esm'
+import { format } from 'date-fns'
 
 
 import * as style from './timeline.module.scss'

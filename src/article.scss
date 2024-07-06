@@ -79,7 +79,7 @@
   }
 
   code,
-  code[class*='language-'],
+  pre.shiki,
   pre {
     font-family: $font-mono;
     font-size: 0.875rem;
@@ -90,8 +90,34 @@
     }
   }
 
-  code[class*='language-'] {
-    font-size: 0.75rem;
+  pre.shiki {
+    .language-id {
+      padding-left: 1em;
+    }
+
+    .code-container {
+      padding-left: 1.5em;
+      padding-bottom: 1.5em;
+    }
+
+    code {
+      padding: unset;
+      background-color: unset;
+
+      counter-reset: step;
+      counter-increment: step calc(var(--start, 1) - 1);
+      font-size: 0.75rem;
+
+      .line::before {
+        @include color(color, main);
+        content: counter(step);
+        counter-increment: step;
+        width: 1rem;
+        margin-right: 1.5rem;
+        display: inline-block;
+        text-align: right;
+      }
+    }
   }
 
   hr {
@@ -142,26 +168,26 @@
   }
 }
 
-.gatsby-highlight pre[class*='language-'].line-numbers {
-  padding-left: 2.8em;
-}
+// .gatsby-highlight pre[class*='language-'].line-numbers {
+//   padding-left: 2.8em;
+// }
 
-.gatsby-highlight {
-  margin: 20px 0;
-}
+// .gatsby-highlight {
+//   margin: 20px 0;
+// }
 
-.gatsby-highlight pre[class*='language-'].line-numbers {
-  margin: 0;
-  padding-left: 4.5em;
-  // for override line nunber font
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  line-height: 1.5rem;
-  .line-numbers-rows {
-    padding: 1em;
-    background-color: #1b1b1b;
-    span:before {
-      padding-right: 0;
-    }
-  }
-}
+// .gatsby-highlight pre[class*='language-'].line-numbers {
+//   margin: 0;
+//   padding-left: 4.5em;
+//   // for override line nunber font
+//   font-family: $font-mono;
+//   font-size: 0.75rem;
+//   line-height: 1.5rem;
+//   .line-numbers-rows {
+//     padding: 1em;
+//     background-color: #1b1b1b;
+//     span:before {
+//       padding-right: 0;
+//     }
+//   }
+// }

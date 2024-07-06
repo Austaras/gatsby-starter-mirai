@@ -15,10 +15,10 @@ export const configApi: GatsbyConfig = {
     siteUrl: CONFIG.site.url
   },
   jsxRuntime: 'automatic',
-  // jsxImportSource: 'preact/compat',
+  jsxImportSource: 'preact/compat',
   plugins: [
     'gatsby-plugin-sass',
-    // 'gatsby-plugin-preact',
+    'gatsby-plugin-preact',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-image',
     {
@@ -66,11 +66,12 @@ export const configApi: GatsbyConfig = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: 'gatsby-remark-shiki-twoslash',
             options: {
-              classPrefix: 'language-',
-              showLineNumbers: true,
-              noInlineHighlight: true
+              theme: 'github-dark'
+              // classPrefix: 'language-',
+              // showLineNumbers: true,
+              // noInlineHighlight: true
             }
           },
           // {
@@ -79,9 +80,9 @@ export const configApi: GatsbyConfig = {
           //     target: '_blank'
           //   }
           // },
-          {
-            resolve: require.resolve('./remark-audio')
-          }
+          // {
+          //   resolve: require.resolve('./remark-audio')
+          // }
         ]
       }
     },

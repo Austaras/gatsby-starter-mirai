@@ -16,7 +16,7 @@
     ],
     "dependencies": {
         "aplayer": "^1.10.1",
-        "date-fns": "^2.11.1",
+        "date-fns": "^3.6.0",
         "gatsby": "^5.2.0",
         "gatsby-link": "^5.2.0",
         "gatsby-plugin-catch-links": "^5.2.0",
@@ -33,12 +33,13 @@
         "gatsby-remark-copy-linked-files": "^6.10.0",
         "gatsby-remark-images": "^7.2.0",
         "gatsby-remark-prismjs": "^7.2.0",
+        "gatsby-remark-shiki-twoslash": "^3.0.38",
         "gatsby-source-filesystem": "^5.2.0",
         "gatsby-transformer-remark": "^6.2.0",
         "gatsby-transformer-sharp": "^5.2.0",
         "github-slugger": "^1.2.1",
         "preact": "^10.3.4",
-        "preact-render-to-string": "^6.2.0",
+        "preact-render-to-string": "^6.5.0",
         "prismjs": "^1.17.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -67,5 +68,6 @@
         "deploy": "ts-node -T scripts/deploy.ts",
         "serve": "gatsby serve",
         "new": "ts-node -T scripts/new.ts"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

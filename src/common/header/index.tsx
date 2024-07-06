@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { FaRegClock, FaRegCalendarAlt, FaRegCalendarCheck } from 'react-icons/fa'
-import { format } from 'date-fns/esm'
+import { format } from 'date-fns'
 
 import * as style from './header.module.scss'
 
