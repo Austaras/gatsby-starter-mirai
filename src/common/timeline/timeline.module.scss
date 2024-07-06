@@ -54,14 +54,14 @@ $title-height: $title-size * $title-line;
   border-bottom: 1px dashed $grey-light;
   transition: border-bottom-color $transition;
   &:hover {
-    border-bottom-color: $black-dark;
+    @include color(border-bottom-color, link-hover);
   }
   &:before {
     border: 1px solid white;
     transition: background-color $transition;
   }
   &:hover::before {
-    background-color: $black-dark;
+    @include color(background-color, link-hover);
   }
 }
 

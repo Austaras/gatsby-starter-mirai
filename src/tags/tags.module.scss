@@ -18,7 +18,18 @@
   margin: 8px 15px 8px 10px;
   line-height: 1.5;
   &:hover {
-    color: $black-dark !important; // to override inline style
+    @include color(color, link-hover);
+  }
+}
+
+@for $ratio from 0 through 7 {
+  .tag.tag-size-#{$ratio} {
+    font-size: 0.875em + 0.125em * $ratio;
+    color: rgb(187 - 20 * $ratio, 187 - 20 * $ratio, 187 - 20 * $ratio);
+
+    @media (prefers-color-scheme: dark) {
+      color: rgb(119 + 20 * $ratio, 119 + 20 * $ratio, 119 + 20 * $ratio);
+    }
   }
 }
 
