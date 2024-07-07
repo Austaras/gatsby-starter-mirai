@@ -26,17 +26,12 @@ export function SEO({
         edges {
           node {
             filename: relativePath
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
+            publicURL
           }
         }
       }
     }
-  `).images.edges.find((edge: any) => edge.node.filename === CONFIG.site.avatar)?.node.childImageSharp.fluid
-    .src
+  `).images.edges.find((edge: any) => edge.node.filename === CONFIG.site.avatar)?.node.publicURL
   return (
     <Helmet>
       {description && [

@@ -32,7 +32,6 @@
         "gatsby-remark-autolink-headers": "^6.2.0",
         "gatsby-remark-copy-linked-files": "^6.10.0",
         "gatsby-remark-images": "^7.2.0",
-        "gatsby-remark-prismjs": "^7.2.0",
         "gatsby-remark-shiki-twoslash": "^3.0.38",
         "gatsby-source-filesystem": "^5.2.0",
         "gatsby-transformer-remark": "^6.2.0",

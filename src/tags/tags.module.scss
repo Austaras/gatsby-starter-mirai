@@ -25,10 +25,10 @@
 @for $ratio from 0 through 7 {
   .tag.tag-size-#{$ratio} {
     font-size: 0.875em + 0.125em * $ratio;
-    color: rgb(187 - 20 * $ratio, 187 - 20 * $ratio, 187 - 20 * $ratio);
+    color: rgb(187 - 18 * $ratio, 187 - 18 * $ratio, 187 - 18 * $ratio);
 
     @media (prefers-color-scheme: dark) {
-      color: rgb(119 + 20 * $ratio, 119 + 20 * $ratio, 119 + 20 * $ratio);
+      color: rgb(119 + 18 * $ratio, 119 + 18 * $ratio, 119 + 18 * $ratio);
     }
   }
 }

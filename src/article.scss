@@ -84,10 +84,6 @@
     font-family: $font-mono;
     font-size: 0.875rem;
     font-weight: 400;
-
-    .token.comment {
-      color: #aaa;
-    }
   }
 
   pre.shiki {
@@ -96,8 +92,7 @@
     }
 
     .code-container {
-      padding-left: 1.5em;
-      padding-bottom: 1.5em;
+      border-left: 1.5em $black solid;
       overflow-x: auto;
     }
 
@@ -107,14 +102,17 @@
 
       counter-reset: step;
       counter-increment: step calc(var(--start, 1) - 1);
-      font-size: 0.75rem;
+      font-size: 1em;
 
       .line::before {
         @include color(color, main);
         content: counter(step);
         counter-increment: step;
-        width: 1rem;
-        margin-right: 1.5rem;
+        width: 1em;
+        margin-right: 1em;
+        padding-right: 1em;
+        border-right: 1px $grey-dark solid;
+        background-color: $black;
         display: inline-block;
         text-align: right;
       }

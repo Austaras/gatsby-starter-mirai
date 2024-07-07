@@ -69,20 +69,8 @@ export const configApi: GatsbyConfig = {
             resolve: 'gatsby-remark-shiki-twoslash',
             options: {
               theme: 'github-dark'
-              // classPrefix: 'language-',
-              // showLineNumbers: true,
-              // noInlineHighlight: true
             }
-          },
-          // {
-          //   resolve: 'gatsby-remark-external-links',
-          //   options: {
-          //     target: '_blank'
-          //   }
-          // },
-          // {
-          //   resolve: require.resolve('./remark-audio')
-          // }
+          }
         ]
       }
     },
