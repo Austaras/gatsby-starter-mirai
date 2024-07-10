@@ -1,8 +1,8 @@
 @import '../consts.scss';
 
 .header {
-  @include color(background-color, 'header-bg');
   height: 3px;
+  @include color(background-color, 'header-bg');
 }
 
 .layout {
@@ -26,7 +26,6 @@ $margin: 12px;
 }
 
 .main {
-  @include color(background-color, 'content-bg');
   flex-shrink: 0;
   margin: 0 $margin;
   padding: $main-padding;
@@ -35,6 +34,7 @@ $margin: 12px;
   width: $main-width;
   min-height: 650px;
   box-sizing: border-box;
+  @include color(background-color, 'content-bg');
   @media screen and (max-width: $main-width) {
     width: 100%;
   }

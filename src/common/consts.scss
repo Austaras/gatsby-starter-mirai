@@ -81,9 +81,9 @@ $font-mono: Fira Code, consolas, SF Mono, monospace;
 @mixin nav-link {
   word-wrap: break-word;
   border-bottom: 1px solid $grey-dark;
-  @include color(color, 'main'); // cover visited color
   outline: none;
   text-decoration: none;
+  @include color(color, 'main'); // cover visited color
 
   &:hover {
     @include color(border-bottom-color, 'link-hover');

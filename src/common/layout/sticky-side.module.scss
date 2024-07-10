@@ -6,12 +6,12 @@
 }
 
 .sticky-side {
-  @include color(background-color, 'content-bg');
   text-align: center;
   position: sticky;
   top: 0;
   padding: 20px 10px 0;
   font-family: $font-title;
+  @include color(background-color, 'content-bg');
 }
 
 .tabs {
@@ -40,9 +40,9 @@
 }
 
 .author-name {
-  @include color(color, 'link-hover');
   font-weight: $bold;
-  margin: 10px 0 0 0;;
+  margin: 10px 0 0 0;
+  @include color(color, 'link-hover');
 }
 
 .description {
@@ -88,10 +88,10 @@
 .back {
   transition: opacity $transition;
   margin: 8px -10px 0;
-  @include color(background-color, 'body-bg');
   opacity: 0.6;
   padding: 0;
   font-size: 0.875em;
+  @include color(background-color, 'body-bg');
   svg {
     vertical-align: -$font-descent;
   }

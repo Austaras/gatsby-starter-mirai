@@ -71,11 +71,11 @@
 
   // for inline code
   code:not([class]) {
-    @include color(color, main);
-    @include color(background-color, code);
     border-radius: 3px;
     padding: 2px 4px;
     word-wrap: break-word;
+    @include color(color, main);
+    @include color(background-color, code);
   }
 
   code,
@@ -105,7 +105,6 @@
       font-size: 1em;
 
       .line::before {
-        @include color(color, main);
         content: counter(step);
         counter-increment: step;
         width: 1em;
@@ -115,6 +114,7 @@
         background-color: $black;
         display: inline-block;
         text-align: right;
+        @include color(color, main);
       }
     }
   }
@@ -135,13 +135,13 @@
     box-sizing: border-box;
     margin: 0;
     vertical-align: -$font-descent;
-    @include color(border-color, checkbox);
     border-width: 2px;
     border-style: solid;
+    @include color(border-color, checkbox);
     &:checked {
       padding: 2px;
-      @include color(background-color, checkbox);
       background-clip: content-box;
+      @include color(background-color, checkbox);
     }
   }
 
@@ -166,27 +166,3 @@
     height: 66px;
   }
 }
-
-// .gatsby-highlight pre[class*='language-'].line-numbers {
-//   padding-left: 2.8em;
-// }
-
-// .gatsby-highlight {
-//   margin: 20px 0;
-// }
-
-// .gatsby-highlight pre[class*='language-'].line-numbers {
-//   margin: 0;
-//   padding-left: 4.5em;
-//   // for override line nunber font
-//   font-family: $font-mono;
-//   font-size: 0.75rem;
-//   line-height: 1.5rem;
-//   .line-numbers-rows {
-//     padding: 1em;
-//     background-color: #1b1b1b;
-//     span:before {
-//       padding-right: 0;
-//     }
-//   }
-// }

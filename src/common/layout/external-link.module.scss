@@ -7,11 +7,11 @@
 }
 
 .link {
-  @include color(color, 'main');
-  @include svg-align;
-
   margin: 0 4px;
   padding: 2px 4px;
+
+  @include color(color, 'main');
+  @include svg-align;
 
   &:hover {
     @include color(background-color, 'body-bg');

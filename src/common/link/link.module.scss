@@ -2,9 +2,8 @@
 
 .link {
   @include color(color, 'main');
+  @include svg-align;
   &:hover {
     @include color(color, 'link-hover');
   }
-
-  @include svg-align;
 }

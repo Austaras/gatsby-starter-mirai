@@ -3,21 +3,21 @@
 $padding: 20px;
 .title {
   display: block;
-  @include color(background-color, 'header-bg');
   margin: 0;
   padding: $padding $padding * 3;
   text-align: center;
   color: white;
   font-size: $sidebar-title-size;
   line-height: $title-line;
+  @include color(background-color, 'header-bg');
   &:hover {
     color: white;
   }
 }
 
 .static-side {
-  @include color(background-color, 'content-bg');
   margin-bottom: 0.75em;
+  @include color(background-color, 'content-bg');
 }
 
 .menu {

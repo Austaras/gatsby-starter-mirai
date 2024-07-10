@@ -18,13 +18,13 @@
 .navigation {
   margin-top: 15px;
   padding-top: 10px;
-  @include color(border-top-color, split);
   border-top-width: 1px;
   border-top-style: solid;
   font-size: 0.875em;
   line-height: $title-line;
   display: flex;
   justify-content: space-between;
+  @include color(border-top-color, split);
 }
 
 .spacer {

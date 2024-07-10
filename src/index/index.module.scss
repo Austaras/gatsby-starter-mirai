@@ -2,9 +2,9 @@
 
 .post {
   padding: 60px 0 80px;
-  @include color(border-bottom-color, split);
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  @include color(border-bottom-color, split);
   p,
   footer {
     text-align: center;
@@ -24,11 +24,11 @@
     display: inline-block;
     border-width: 2px;
     border-style: solid;
-    @include color(border-color, 'main');
     margin: 0 auto;
     padding: 0 20px;
     font-weight: normal;
     transition: background-color $transition;
+    @include color(border-color, 'main');
   }
 
   @include desktop {

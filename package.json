@@ -45,17 +45,19 @@
         "react-icons": "^4.3.1"
     },
     "devDependencies": {
+        "@eslint-react/eslint-plugin": "^1.5.23",
+        "@eslint/js": "^9.6.0",
         "@types/react": "^18.0.20",
         "@types/react-dom": "^18.0.6",
-        "@typescript-eslint/eslint-plugin": "^5.10.1",
-        "@typescript-eslint/parser": "^5.10.1",
-        "eslint": "^8.7.0",
-        "eslint-plugin-import": "^2.18.2",
+        "@typescript-eslint/eslint-plugin": "^7.16.0",
+        "@typescript-eslint/parser": "^7.16.0",
+        "eslint": "^9.6.0",
         "js-yaml": "^4.0.0",
         "prettier": "^3.0.0",
         "sass": "^1.26.10",
         "ts-node": "^10.9.1",
-        "typescript": "^5.0.2"
+        "typescript": "^5.0.2",
+        "typescript-eslint": "^7.16.0"
     },
     "scripts": {
         "build": "gatsby build",
@@ -63,7 +65,8 @@
         "develop": "gatsby develop",
         "deploy": "ts-node -T scripts/deploy.ts",
         "serve": "gatsby serve",
-        "new": "ts-node -T scripts/new.ts"
+        "new": "ts-node -T scripts/new.ts",
+        "lint": "eslint"
     },
-    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+    "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
 }
