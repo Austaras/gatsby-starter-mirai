@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 
-
 import { menus } from './menus'
 import * as style from './static-side.module.scss'
 
@@ -25,7 +24,7 @@ export const StaticSide = ({ isHeader = false }: Props) => {
         {CONFIG.site.name}
       </Link>
       {isHeader ? (
-        <button className={style.headerButton} onClick={() => setExpand(!expand)}>
+        <button className={style.headerButton} onClick={() => setExpand(!expand)} type="button">
           <FaBars />
         </button>
       ) : null}

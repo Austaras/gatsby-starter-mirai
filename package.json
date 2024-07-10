@@ -52,6 +52,7 @@
         "@typescript-eslint/eslint-plugin": "^7.16.0",
         "@typescript-eslint/parser": "^7.16.0",
         "eslint": "^9.6.0",
+        "eslint-plugin-import-x": "^0.5.3",
         "js-yaml": "^4.0.0",
         "prettier": "^3.0.0",
         "sass": "^1.26.10",

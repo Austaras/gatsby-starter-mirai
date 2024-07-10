@@ -3,6 +3,7 @@
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import react from '@eslint-react/eslint-plugin'
+import importX from 'eslint-plugin-import-x'
 
 function getRules(config) {
   return config
@@ -16,7 +17,8 @@ export default [
     ignores: ['.cache/**/*.js']
   },
   {
-    files: ['*.ts', '*.tsx'],
+    files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['.cache/**/*.ts'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -25,23 +27,18 @@ export default [
       ecmaVersion: 10,
       sourceType: 'module'
     },
-    // extends: [
-    //   'eslint:recommended',
-    //   'plugin:import/warnings',
-    //   'plugin:@typescript-eslint/recommended',
-    //   'plugin:@typescript-eslint/eslint-recommended',
-    //   'plugin:@typescript-eslint/recommended-requiring-type-checking'
-    // ],
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      '@eslint-react': react.configs.recommended.plugins["@eslint-react"],
-      '@eslint-react/dom': react.configs.recommended.plugins["@eslint-react/dom"]
+      '@eslint-react': react.configs.recommended.plugins['@eslint-react'],
+      '@eslint-react/dom': react.configs.recommended.plugins['@eslint-react/dom'],
+      'import-x': importX
     },
     rules: {
       ...js.configs.recommended.rules,
       ...getRules(tseslint.configs.recommended),
       ...getRules(tseslint.configs.recommendedTypeChecked),
       ...react.configs.recommended.rules,
+      ...importX.configs.warnings.rules,
       'arrow-body-style': ['warn', 'as-needed'],
       curly: ['warn', 'multi-line'],
       'dot-notation': 'warn',
@@ -69,18 +66,18 @@ export default [
           requireStringLiterals: true
         }
       ],
-      // 'import/newline-after-import': 'warn',
-      // 'import/order': [
-      //   'warn',
-      //   {
-      //     groups: [
-      //       ['internal', 'external', 'builtin'],
-      //       ['index', 'sibling', 'parent']
-      //     ],
-      //     'newlines-between': 'always-and-inside-groups'
-      //   }
-      // ],
-      'react/prop-types': 'off',
+      'import-x/newline-after-import': 'warn',
+      'import-x/order': [
+        'warn',
+        {
+          groups: [
+            ['internal', 'external', 'builtin'],
+            ['index', 'sibling', 'parent']
+          ],
+          'newlines-between': 'always-and-inside-groups'
+        }
+      ],
+      '@eslint-react/dom/no-dangerously-set-innerhtml': 'off',
       '@typescript-eslint/array-type': 'off',
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],

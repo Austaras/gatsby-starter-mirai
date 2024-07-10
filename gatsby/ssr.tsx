@@ -11,6 +11,7 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }: Pr
       ) : null
     }
     if (component.type === 'meta' && component.props.name === 'generator') {
+      // eslint-disable-next-line @eslint-react/no-missing-key
       return <meta name="generator" content="Gatsby" />
     }
     return component
