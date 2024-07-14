@@ -1,6 +1,4 @@
-require('ts-node').register({
-  transpileOnly: true
-})
+require('@swc-node/register/register').register({})
 
 const { configApi } = require('./config')
 const nodeApi = require('./node')
