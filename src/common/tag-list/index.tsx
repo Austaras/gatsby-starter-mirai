@@ -3,7 +3,7 @@ import * as style from './tag-list.module.scss'
 import { Link } from '..'
 
 // eslint-disable-next-line @eslint-react/no-unstable-default-props
-export const TagList = ({ list = [] }) => (
+export const TagList = ({ list = [] as string[] }) => (
   <ul className={`${style.tagList} ${list.length === 0 ? style.hidden : ''}`}>
     {list.map(tag => (
       <li key={tag} property="article:tag">

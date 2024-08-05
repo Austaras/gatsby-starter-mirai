@@ -127,7 +127,6 @@ export const configApi: GatsbyConfig = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp'
   ]
 }

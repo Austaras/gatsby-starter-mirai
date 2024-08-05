@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { CONFIG } from '@/config'
@@ -33,7 +32,7 @@ export function SEO({
     }
   `).images.edges.find((edge: any) => edge.node.filename === CONFIG.site.avatar)?.node.publicURL
   return (
-    <Helmet>
+    <>
       {description && [
         <meta name="description" content={description} key="normal" />,
         <meta property="og:description" content={description} key="search" />,
@@ -59,6 +58,6 @@ export function SEO({
       <title>{title}</title>
       <html lang={CONFIG.language}></html>
       <body itemScope itemType="http://schema.org/WebPage"></body>
-    </Helmet>
+    </>
   )
 }

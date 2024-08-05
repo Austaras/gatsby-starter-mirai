@@ -6,7 +6,6 @@ import { Header, Layout, Link, SEO, TagList } from '@/common'
 
 import i18n from '@/i18n'
 
-
 import '@/styles.scss'
 
 interface Props {
@@ -18,7 +17,6 @@ interface Props {
 
 const Index = ({ pageContext: { posts, page } }: Props) => (
   <Layout>
-    <SEO />
     {posts.map(post => (
       <section className={style.post} key={post.fields.path}>
         <Header
@@ -40,5 +38,7 @@ const Index = ({ pageContext: { posts, page } }: Props) => (
     <Pagination {...page} />
   </Layout>
 )
+
+export const Head = () => <SEO />
 
 export default Index

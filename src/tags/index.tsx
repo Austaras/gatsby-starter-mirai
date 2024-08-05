@@ -10,6 +10,8 @@ import i18n from '@/i18n'
 const sizeCount = 8
 const styleMap = new Array(sizeCount).fill(0).map((_, i) => style['tagSize' + i])
 
+export const Head = () => <SEO title="Tags" noindex={true} path="/tags" />
+
 interface Props {
   pageContext: {
     tagsLen: Record<string, number>
@@ -28,7 +30,6 @@ export default function TagsTemplate({ pageContext: { tagsLen } }: Props) {
 
   return (
     <Layout>
-      <SEO title="Tags" noindex={true} path="/tags" />
       <h1 className={style.title}>{i18n.tags.title}</h1>
       <main className={style.tags}>
         <div className={style.count}>

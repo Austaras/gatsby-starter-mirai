@@ -24,6 +24,17 @@ interface Props {
     prev: PageLink
   }
 }
+
+export const Head = ({ pageContext: { post } }: Props) => (
+  <SEO
+    article={true}
+    path={post.fields.path}
+    title={post.frontmatter.title}
+    description={post.excerpt}
+    keywords={post.frontmatter.tags}
+  />
+)
+
 export default class Template extends Component<Props, { pic: string | undefined }> {
   private toc?: TOCTree[]
   private content = createRef<HTMLDivElement>()

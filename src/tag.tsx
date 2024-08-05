@@ -8,9 +8,12 @@ interface Props {
   }
 }
 
+export const Head = ({ pageContext: { tagName } }: Props) => (
+  <SEO title={`Tag: ${tagName}`} noindex={true} path={`/tags/${tagName}`} />
+)
+
 const Tag = ({ pageContext: { posts, tagName } }: Props) => (
   <Layout>
-    <SEO title={`Tag: ${tagName}`} noindex={true} path={`/tags/${tagName}`} />
     <Timeline posts={posts} title={tagName} />
   </Layout>
 )

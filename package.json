@@ -24,7 +24,6 @@
         "gatsby-plugin-image": "^3.2.0",
         "gatsby-plugin-manifest": "^5.2.0",
         "gatsby-plugin-preact": "^7.2.0",
-        "gatsby-plugin-react-helmet-async": "^1.0.13",
         "gatsby-plugin-robots-txt": "^1.5.0",
         "gatsby-plugin-sass": "^6.2.0",
         "gatsby-plugin-sharp": "^5.2.0",
@@ -41,8 +40,7 @@
         "preact-render-to-string": "^6.5.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-helmet-async": "^1.0.4",
-        "react-icons": "^4.3.1"
+        "react-icons": "^5.2.1"
     },
     "devDependencies": {
         "@eslint-react/eslint-plugin": "^1.5.23",
@@ -50,8 +48,8 @@
         "@swc-node/register": "^1.10.6",
         "@types/react": "^18.0.20",
         "@types/react-dom": "^18.0.6",
-        "@typescript-eslint/eslint-plugin": "^7.16.0",
-        "@typescript-eslint/parser": "^7.16.0",
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
         "eslint": "^9.6.0",
         "eslint-plugin-import-x": "^0.5.3",
         "js-yaml": "^4.0.0",
@@ -69,5 +67,5 @@
         "new": "ts-node -T scripts/new.ts",
         "lint": "eslint"
     },
-    "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+    "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 }

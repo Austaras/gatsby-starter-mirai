@@ -11,12 +11,13 @@ interface Props {
 }
 const Tag = ({ pageContext: { content } }: Props) => (
   <Layout>
-    <SEO title={`About: ${CONFIG.site.author}`} path="/about" />
     <header className={style.header}>
       <h1>{i18n.about}</h1>
     </header>
     <article className="content" dangerouslySetInnerHTML={{ __html: content }} />
   </Layout>
 )
+
+export const Head = () => <SEO title={`About: ${CONFIG.site.author}`} path="/about" />
 
 export default Tag
